@@ -2,6 +2,7 @@ import { MapPin, Phone, Facebook, Heart, MessageCircle, Instagram } from "lucide
 import { ReviewCarousel } from "@/components/ReviewCarousel";
 import { reviews } from "@/lib/reviews";
 import { Card } from "@/components/ui/card";
+import { useAuth } from "@/_core/hooks/useAuth";
 
 /**
  * Home Page - 小阿姨雪花冰官方網站
@@ -11,6 +12,10 @@ import { Card } from "@/components/ui/card";
  */
 
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   const pizzaItems = [
     {
       id: 1,
