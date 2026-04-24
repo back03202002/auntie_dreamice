@@ -161,80 +161,110 @@ export default function Home() {
       </section>
 
       {/* About Us Section */}
-      <section id="about" className="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/5">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary">關於小阿姨雪花冰</h2>
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">一間充滿溫度的冰品甜點專賣店，用最用心的製作，為您帶來每一份幸福滋味</p>
+      <section id="about" className="py-16 md:py-28 bg-gradient-to-br from-primary/15 via-background to-secondary/8 relative overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 right-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 left-10 w-96 h-96 bg-secondary rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-block mb-4 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+              <span className="text-primary font-semibold text-sm tracking-widest">我們的故事</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-primary leading-tight">關於小阿姨雪花冰</h2>
+            <p className="text-xl text-foreground/70 max-w-3xl mx-auto leading-relaxed">一間充滿溫度的冰品甜點專賣店，用最用心的製作，為您帶來每一份幸福滋味</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-2xl font-bold text-primary mb-3">我們的起源</h3>
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="group">
+              <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 border border-primary/10 hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary/70 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-2xl">🌱</span>
+                </div>
+                <h3 className="text-2xl font-bold text-primary mb-4">我們的起源</h3>
                 <p className="text-foreground/80 leading-relaxed">
                   小阿姨雪花冰誕生於一個簡單卻深刻的夢想——讓每一位顧客都能在享受美食的同時，感受到來自心底的溫暖與關懷。我們相信，好的冰品不僅是食物，更是一份情感的傳遞。
                 </p>
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-primary mb-3">品牌理念</h3>
+            </div>
+            
+            <div className="group">
+              <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 border border-primary/10 hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary/70 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-2xl">💡</span>
+                </div>
+                <h3 className="text-2xl font-bold text-primary mb-4">品牌理念</h3>
                 <p className="text-foreground/80 leading-relaxed">
-                  在彰化線西這片溫暖的土地上，我們堅持用最新鮮的食材、最細膩的製冰技術和最真摯的服務態度，為每一位顧客創造獨特的美食體驗。每一份冰品都是我們對品質的承諾，每一次服務都是我們對顧客的尊重。
+                  在彰化線西這片溫暖的土地上，我們堅持用最新鮮的食材、最細膩的製冰技術和最真摯的服務態度，為每一位顧客創造獨特的美食體驗。每一份冰品都是我們對品質的承諾。
                 </p>
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-primary mb-3">我們的承諾</h3>
-                <ul className="space-y-2 text-foreground/80">
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary font-bold text-lg">✓</span>
-                    <span>每日精選新鮮食材，嚴格把關品質</span>
+            </div>
+            
+            <div className="group">
+              <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 border border-primary/10 hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary/70 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-2xl">🤝</span>
+                </div>
+                <h3 className="text-2xl font-bold text-primary mb-4">我們的承諾</h3>
+                <ul className="space-y-3 text-foreground/80">
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary font-bold text-lg flex-shrink-0">✓</span>
+                    <span className="text-sm">每日精選新鮮食材</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary font-bold text-lg">✓</span>
-                    <span>採用專業製冰技術，呈現入口即化的口感</span>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary font-bold text-lg flex-shrink-0">✓</span>
+                    <span className="text-sm">專業製冰技術</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary font-bold text-lg">✓</span>
-                    <span>用心服務每一位顧客，把您當作家人</span>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary font-bold text-lg flex-shrink-0">✓</span>
+                    <span className="text-sm">用心服務每一位顧客</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary font-bold text-lg">✓</span>
-                    <span>持續創新，推出符合季節的限定菜單</span>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary font-bold text-lg flex-shrink-0">✓</span>
+                    <span className="text-sm">持續創新限定菜單</span>
                   </li>
                 </ul>
               </div>
             </div>
-
-
           </div>
         </div>
       </section>
 
       {/* Brand Story Section */}
-      <section id="brand" className="py-4 md:py-8">
+      <section id="brand" className="py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-background relative overflow-hidden">
+        {/* Decorative line */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+        
         <div className="container">
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            <div>
-              <h2 className="text-3xl font-bold mb-4 text-primary">品牌故事</h2>
-              <div className="space-y-3 text-base text-foreground leading-relaxed">
-                <p>
-                  還記得小時候炎炎夏日吃到一口冰就覺得開心的幸福感嗎？小阿姨雪花冰就是在這樣的回憶中誕生的。
-                </p>
-                <p>
-                  這裡是我的夢想冰店，一個充滿溫度和故事的地方。我們相信，每一份甜點都應該帶著用心和溫暖，讓顧客在享受美食的同時，也能感受到那份來自心底的關懷。
-                </p>
-                <p>
-                  每一份冰品都精心製作，我們堅持使用最新鮮的水果、最細膩的雪花冰和最優質的配料，為您呈現最美好的午後時光。無論是經典的芒果布丁、新鮮的草莓奶酪，還是特色的蜂蜜麻吉披薩，每一款都是我們對美食的執著和對顧客的尊重。
-                </p>
-                <p className="text-primary font-semibold text-xl pt-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-5xl md:text-6xl font-bold mb-6 text-primary leading-tight">品牌故事</h2>
+              <div className="w-20 h-1 bg-gradient-to-r from-primary/0 via-primary to-primary/0 mx-auto"></div>
+            </div>
+            
+            <div className="space-y-8 text-lg text-foreground/85 leading-relaxed">
+              <p className="text-xl text-primary/90 font-semibold italic">
+                「還記得小時候炎炎夏日吃到一口冰就覺得開心的幸福感嗎？」
+              </p>
+              <p>
+                小阿姨雪花冰就是在這樣溫暖的回憶中誕生的。這裡是我的夢想冰店，一個充滿溫度和故事的地方。我們相信，每一份甜點都應該帶著用心和溫暖，讓顧客在享受美食的同時，也能感受到那份來自心底的關懷。
+              </p>
+              <p>
+                每一份冰品都精心製作，我們堅持使用最新鮮的水果、最細膩的雪花冰和最優質的配料，為您呈現最美好的午後時光。無論是經典的芒果布丁、新鮮的草莓奶酪，還是特色的蜂蜜麻吉披薩，每一款都是我們對美食的執著和對顧客的尊重。
+              </p>
+              
+              <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-primary/20 my-8">
+                <p className="text-2xl md:text-3xl font-bold text-primary text-center leading-relaxed">
                   小阿姨陪你們找回小時候的幸福時刻 💝
                 </p>
-                <p className="text-foreground/70 text-base pt-2">
-                  在彰化線西，我們用最溫暖的服務和最用心的製作，為每一位顧客創造獨特的美食體驗。
-                </p>
               </div>
+              
+              <p className="text-foreground/80">
+                在彰化線西，我們用最溫暖的服務和最用心的製作，為每一位顧客創造獨特的美食體驗。每一次的相遇，都是一份幸福的開始。
+              </p>
             </div>
-
           </div>
         </div>
       </section>
