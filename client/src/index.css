@@ -1263,3 +1263,20 @@
 .section-tag-premium::after {
   background: linear-gradient(90deg, #D4A855, transparent);
 }
+
+/* ===== Modal 動畫 ===== */
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

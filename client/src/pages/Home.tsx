@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { MapPin, Phone, Facebook, Heart, MessageCircle, Instagram, Star, ChevronUp, ChevronDown, Clock, Calendar, ArrowRight, Sparkles } from "lucide-react";
+import { MapPin, Phone, Facebook, Heart, MessageCircle, Instagram, Star, ChevronUp, ChevronDown, Clock, Calendar, ArrowRight, Sparkles, X, Leaf, Flame, Info } from "lucide-react";
 import { ReviewCarousel } from "@/components/ReviewCarousel";
 import { reviews } from "@/lib/reviews";
 import { Card } from "@/components/ui/card";
@@ -45,8 +45,7 @@ function FloatingParticles() {
     </div>
   );
 }
-
-// 波浪分隔線元件
+// 波浪分隔線元件件
 function WaveDivider({ color = "#FDF6F0", flip = false }: { color?: string; flip?: boolean }) {
   return (
     <div className={`relative h-16 overflow-hidden ${flip ? "rotate-180" : ""}`} style={{ marginBottom: flip ? "-2px" : "0", marginTop: flip ? "0" : "-2px" }}>
@@ -103,6 +102,7 @@ export default function Home() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [typedText, setTypedText] = useState("");
   const [expandedFeature, setExpandedFeature] = useState<number | null>(null);
+  const [selectedMenuItem, setSelectedMenuItem] = useState<any | null>(null);
 
   const toggleFeature = (idx: number) => {
     setExpandedFeature(prev => (prev === idx ? null : idx));
@@ -175,6 +175,12 @@ export default function Home() {
       description: "新鮮蝦仁、透抽搭配濃郁起司，海味十足的經典組合",
       image: "/manus-storage/seafood_combo_pizza_v2_09ef9a1f.jpg",
       tag: "人氣首選",
+      color: "from-blue-50 to-cyan-50",
+      ingredients: ["新鮮蝦仁", "透抽", "蟹肉棒", "濃郁起司", "番茄醬底"],
+      features: ["海鮮新鮮現點現做", "起司拉絲濃郁", "6吋手工薄脆餅皮"],
+      pairing: "搭配檸檬汽水，清爽解膩最佳",
+      sweetness: "鹹食，無甜度調整",
+      allergens: "甲殼類（蝦仁）、頭足類（透抽）、乳製品（起司）、麥麩（餅皮）",
     },
     {
       id: 2,
@@ -182,6 +188,12 @@ export default function Home() {
       description: "嫩牛肉搭配起司和洋蔥、青椒、洋菇，咬下去香氣四溢的美味",
       image: "/manus-storage/philadelphia_beef_pizza_new_3599861b.jpg",
       tag: "招牌必點",
+      color: "from-amber-50 to-yellow-50",
+      ingredients: ["嫩切牛肉", "融化起司", "洋蔥", "青椒", "洋菇"],
+      features: ["牛肉嫩滑多汁", "費城風味獨特", "蔬菜鮮甜爽口"],
+      pairing: "搭配可樂或黑啤，肉食控最愛",
+      sweetness: "鹹食，無甜度調整",
+      allergens: "牛肉、乳製品（起司）、麥麩（餅皮）",
     },
     {
       id: 3,
@@ -189,6 +201,12 @@ export default function Home() {
       description: "經典義式披薩，番茄、起司、羅勒的完美組合",
       image: "/manus-storage/magic_edit#TUFHeVVqSnZoWTgjMSMzY2UyMGE0MDFlODFmYjBkN2Y5NDcwZmE1ZjcxMzkwMiM4MDAjI1RSQU5TRk9STUFUSU9OX1JFUVVFU1Q_b19014c5.jpg",
       tag: "經典口味",
+      color: "from-red-50 to-rose-50",
+      ingredients: ["新鮮番茄醬", "莫扎瑞拉起司", "新鮮羅勒葉", "橄欖油", "手工薄脆餅皮"],
+      features: ["義式正宗風味", "起司濃郁拉絲", "羅勒清香提味"],
+      pairing: "搭配紅茶或義式咖啡，品味義大利風情",
+      sweetness: "鹹食，無甜度調整",
+      allergens: "乳製品（起司）、麥麩（餅皮）",
     },
     {
       id: 4,
@@ -196,6 +214,12 @@ export default function Home() {
       description: "甜蜜蜂蜜搭配Q彈麻吉，甜鹹交織的獨特風味",
       image: "/manus-storage/honey_mochi_pizza_new_5981896f.jpg",
       tag: "創意特色",
+      color: "from-yellow-50 to-amber-50",
+      ingredients: ["天然蜂蜜", "Q彈麻吉", "起司", "奶油", "手工薄脆餅皮"],
+      features: ["甜鹹交織獨特", "麻吉Q彈有嚼勁", "蜂蜜香氣濃郁"],
+      pairing: "搭配台灣茶或牛奶，甜蜜下午茶首選",
+      sweetness: "偏甜，可請店員調整蜂蜜用量",
+      allergens: "乳製品（起司、奶油）、麥麩（餅皮、麻吉）",
     },
   ];
 
@@ -207,6 +231,11 @@ export default function Home() {
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/OfJxJFhbgWYQVFvW.png",
       badge: "期間限定",
       color: "from-amber-50 to-orange-50",
+      ingredients: ["新鮮芒果", "手工雪花冰", "滑順布丁", "煉乳", "芒果醬"],
+      features: ["當季新鮮芒果", "布丁滑嫩香甜", "雪花冰入口即化"],
+      pairing: "搭配熱天午後，清涼消暑最佳",
+      sweetness: "可調整甜度（正常 / 少糖 / 半糖）",
+      allergens: "乳製品、雞蛋（布丁）",
     },
     {
       id: 2,
@@ -215,6 +244,11 @@ export default function Home() {
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/fUOVTtiUSdlcgtUW.png",
       badge: "期間限定",
       color: "from-rose-50 to-pink-50",
+      ingredients: ["新鮮草莓", "手工雪花冰", "濃郁奶酪", "草莓醬", "煉乳"],
+      features: ["酸甜草莓清爽", "奶酪濃郁滑順", "雙層口感層次"],
+      pairing: "搭配下午茶時光，少女心滿滿",
+      sweetness: "可調整甜度（正常 / 少糖 / 半糖）",
+      allergens: "乳製品",
     },
     {
       id: 3,
@@ -222,6 +256,11 @@ export default function Home() {
       description: "經典Oreo餅乾搭配濃郁巧克力布丁，巧克力愛好者的必點",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/YZiSIUzAAlNKHzgC.png",
       color: "from-stone-50 to-neutral-50",
+      ingredients: ["Oreo餅乾碎", "手工雪花冰", "巧克力布丁", "巧克力醬", "鮮奶油"],
+      features: ["巧克力香濃馥郁", "Oreo餅乾酥脆", "布丁滑嫩可口"],
+      pairing: "搭配熱咖啡或牛奶，巧克力控必點",
+      sweetness: "可調整甜度（正常 / 少糖 / 半糖）",
+      allergens: "乳製品、麥麩（Oreo）、雞蛋（布丁）",
     },
     {
       id: 4,
@@ -229,6 +268,11 @@ export default function Home() {
       description: "傳統紅豆搭配香濃牛奶，懷舊風味中帶著溫暖",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/nVKrAcBpRhrFllUC.png",
       color: "from-red-50 to-rose-50",
+      ingredients: ["自製紅豆", "手工雪花冰", "新鮮牛奶", "煉乳", "仙草凍（可加）"],
+      features: ["紅豆鬆軟香甜", "牛奶濃郁滑順", "台灣傳統懷舊風味"],
+      pairing: "搭配熱茶或黑糖飲，懷舊感滿滿",
+      sweetness: "可調整甜度（正常 / 少糖 / 半糖）",
+      allergens: "乳製品",
     },
     {
       id: 5,
@@ -236,6 +280,11 @@ export default function Home() {
       description: "清香抹茶搭配紅豆、布丁和奶酪，層次豐富的完美組合",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/YwSIinLCkdiSlPIs.png",
       color: "from-green-50 to-emerald-50",
+      ingredients: ["日式抹茶粉", "自製紅豆", "手工布丁", "奶酪", "手工雪花冰", "煉乳"],
+      features: ["抹茶清香微苦", "四層口感豐富", "日式風情特色"],
+      pairing: "搭配和風點心或熱抹茶，層次更豐富",
+      sweetness: "可調整甜度（正常 / 少糖 / 半糖）",
+      allergens: "乳製品、雞蛋（布丁）",
     },
     {
       id: 6,
@@ -243,10 +292,16 @@ export default function Home() {
       description: "Q彈的仙草凍搭配冰涼的糖水，清涼解渴的夏日聖品",
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/grass_jelly_ice-D9Bs4uWMJEtGPHKedh6wfn.webp",
       color: "from-slate-50 to-gray-50",
+      ingredients: ["天然仙草", "冰糖糖水", "手工雪花冰", "紅豆（可加）", "粉圓（可加）"],
+      features: ["仙草Q彈滑嫩", "天然草本清涼", "低卡健康選擇"],
+      pairing: "搭配熱天午後，清涼解渴最佳",
+      sweetness: "可調整甜度（正常 / 少糖 / 半糖 / 無糖）",
+      allergens: "無主要過敏原（純素可食）",
     },
   ];
 
   return (
+    <>
     <div className="min-h-screen bg-background relative">
       <FloatingParticles />
 
@@ -1052,7 +1107,13 @@ export default function Home() {
                       <span className="w-1 h-1 rounded-full bg-[#D4A855]/50" />
                       <span>新鮮食材</span>
                     </div>
-                    <div className="text-xs text-foreground/30 font-medium">小阿姨雪花冰</div>
+                    <button
+                      onClick={() => setSelectedMenuItem(item)}
+                      className="flex items-center gap-1 text-xs text-primary hover:text-primary/80 font-semibold transition-colors duration-200 group/btn"
+                    >
+                      <Info className="w-3.5 h-3.5" />
+                      <span>查看詳情</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -1102,9 +1163,17 @@ export default function Home() {
                     {item.name}
                   </h3>
                   <p className="text-foreground/60 text-xs leading-relaxed">{item.description}</p>
-                  <div className="mt-3 flex items-center gap-1.5 text-xs text-accent/70">
-                    <span>🔥</span>
-                    <span>現烤現做</span>
+                  <div className="mt-3 flex items-center justify-between">
+                    <div className="flex items-center gap-1.5 text-xs text-accent/70">
+                      <span>🔥</span>
+                      <span>現烤現做</span>
+                    </div>
+                    <button
+                      onClick={() => setSelectedMenuItem(item)}
+                      className="text-xs px-3 py-1.5 rounded-full border border-accent/40 text-accent hover:bg-accent hover:text-white transition-all duration-300 font-medium"
+                    >
+                      查看詳情
+                    </button>
                   </div>
                 </div>
               </div>
@@ -1449,5 +1518,144 @@ export default function Home() {
         </button>
       )}
     </div>
+
+    {/* ===== 菜單詳情 Modal ===== */}
+    {selectedMenuItem && (
+      <div
+        className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+        onClick={() => setSelectedMenuItem(null)}
+        style={{ animation: "fadeIn 0.25s ease" }}
+      >
+        {/* 背景遮罩 */}
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+        {/* Modal 內容 */}
+        <div
+          className="relative w-full max-w-lg bg-white rounded-3xl overflow-hidden shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
+          style={{ animation: "modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
+        >
+          {/* 關閉按鈕 */}
+          <button
+            onClick={() => setSelectedMenuItem(null)}
+            className="absolute top-4 right-4 z-10 w-9 h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md hover:bg-white hover:scale-110 transition-all duration-200"
+          >
+            <X className="w-4 h-4 text-foreground/70" />
+          </button>
+
+          {/* 圖片區 */}
+          <div className={`relative h-56 overflow-hidden bg-gradient-to-br ${selectedMenuItem.color || "from-amber-50 to-orange-50"}`}>
+            <img
+              src={selectedMenuItem.image}
+              alt={selectedMenuItem.name}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            {selectedMenuItem.badge && (
+              <div className="absolute top-4 left-4">
+                <span className="px-3 py-1.5 bg-gradient-to-r from-[#C0623A]/90 to-[#E8896A]/90 text-white text-xs font-bold rounded-full shadow-lg backdrop-blur-sm">
+                  ⭐ {selectedMenuItem.badge}
+                </span>
+              </div>
+            )}
+            <div className="absolute bottom-4 left-5 right-14">
+              <h2 className="text-xl font-bold text-white font-display leading-snug drop-shadow-lg">
+                {selectedMenuItem.name}
+              </h2>
+            </div>
+          </div>
+
+          {/* 內容區 */}
+          <div className="p-6 space-y-5 max-h-[60vh] overflow-y-auto">
+            {/* 描述 */}
+            <p className="text-foreground/70 text-sm leading-relaxed">{selectedMenuItem.description}</p>
+
+            {/* 成分 */}
+            {selectedMenuItem.ingredients && (
+              <div>
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+                    <Leaf className="w-3.5 h-3.5 text-green-600" />
+                  </div>
+                  <h3 className="text-sm font-bold text-foreground">主要成分</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {selectedMenuItem.ingredients.map((ing: string, i: number) => (
+                    <span key={i} className="px-3 py-1 bg-[#FFF5EE] border border-[#EDD5C0] rounded-full text-xs text-[#8B4513] font-medium">
+                      {ing}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* 特色 */}
+            {selectedMenuItem.features && (
+              <div>
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center">
+                    <Star className="w-3.5 h-3.5 text-amber-500" />
+                  </div>
+                  <h3 className="text-sm font-bold text-foreground">風味特色</h3>
+                </div>
+                <div className="space-y-2">
+                  {selectedMenuItem.features.map((feat: string, i: number) => (
+                    <div key={i} className="flex items-center gap-2.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#D4A855] flex-shrink-0" />
+                      <span className="text-sm text-foreground/75">{feat}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* 甜度 */}
+            {selectedMenuItem.sweetness && (
+              <div className="flex items-start gap-3 p-3.5 bg-blue-50 rounded-xl border border-blue-100">
+                <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="text-xs">🧊</span>
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-blue-700 mb-0.5">甜度選擇</div>
+                  <div className="text-xs text-blue-600/80">{selectedMenuItem.sweetness}</div>
+                </div>
+              </div>
+            )}
+
+            {/* 建議搭配 */}
+            {selectedMenuItem.pairing && (
+              <div className="flex items-start gap-3 p-3.5 bg-[#FFF5EE] rounded-xl border border-[#EDD5C0]/60">
+                <div className="w-6 h-6 rounded-full bg-[#FDEBD0] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="text-xs">✨</span>
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-[#8B4513] mb-0.5">建議搭配</div>
+                  <div className="text-xs text-[#A0522D]/80">{selectedMenuItem.pairing}</div>
+                </div>
+              </div>
+            )}
+
+            {/* 過敏原 */}
+            {selectedMenuItem.allergens && (
+              <div className="flex items-start gap-3 p-3.5 bg-orange-50 rounded-xl border border-orange-100">
+                <div className="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Info className="w-3.5 h-3.5 text-orange-500" />
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-orange-700 mb-0.5">過敏原資訊</div>
+                  <div className="text-xs text-orange-600/80">{selectedMenuItem.allergens}</div>
+                </div>
+              </div>
+            )}
+
+            {/* 底部品牌 */}
+            <div className="pt-2 border-t border-[#EDD5C0]/40 flex items-center justify-between">
+              <span className="text-xs text-foreground/30">小阿姨雪花冰 · 彰化線西</span>
+              <span className="text-xs text-primary/60 font-medium">手工製作 · 新鮮食材</span>
+            </div>
+          </div>
+        </div>
+      </div>
+     )}
+    </>
   );
 }
