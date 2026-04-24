@@ -300,7 +300,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-3 text-foreground">追蹤我們</h3>
               <p className="text-foreground/70 text-sm leading-relaxed">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition font-semibold">
+                <a href="https://www.facebook.com/profile.php?id=100084743760507&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition font-semibold">
                   Facebook
                 </a>
               </p>
