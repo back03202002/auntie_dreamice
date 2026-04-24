@@ -17,4 +17,4 @@ User-agent: Bingbot
 Allow: /
 
 # Sitemap location
-Sitemap: https://auntie-dreamice.manus.space/sitemap.xml
+Sitemap: https://auntiedream-ef5gsx5p.manus.space/sitemap.xml
