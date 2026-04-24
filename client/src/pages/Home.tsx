@@ -49,7 +49,7 @@ export default function Home() {
 
       description: "綿密的雪花冰搭配新鮮芒果和滑順布丁，一口咬下去就是夏日的幸福",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/OfJxJFhbgWYQVFvW.png",
-      badge: "人氣必點",
+      badge: "期間限定",
     },
     {
       id: 2,
@@ -57,6 +57,7 @@ export default function Home() {
 
       description: "新鮮草莓搭配濃郁奶酪，酸酸甜甜的滋味在舌尖綻放",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/fUOVTtiUSdlcgtUW.png",
+      badge: "期間限定",
     },
     {
       id: 3,
