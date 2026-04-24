@@ -229,7 +229,6 @@ export default function Home() {
       color: "from-amber-50 to-orange-50",
       ingredients: ["新鮮芒果", "手工雪花冰", "滑順布丁", "煉乳", "芒果醬"],
       features: ["當季新鮮芒果", "布丁滑嫩香甜", "雪花冰入口即化"],
-      pairing: "搭配熱天午後，清涼消暑最佳",
       allergens: "乳製品、雞蛋（布丁）",
     },
     {
@@ -241,7 +240,6 @@ export default function Home() {
       color: "from-rose-50 to-pink-50",
       ingredients: ["新鮮草莓", "手工雪花冰", "濃郁奶酪", "草莓醬", "煉乳"],
       features: ["酸甜草莓清爽", "奶酪濃郁滑順", "雙層口感層次"],
-      pairing: "搭配下午茶時光，少女心滿滿",
       allergens: "乳製品",
     },
     {
@@ -252,7 +250,6 @@ export default function Home() {
       color: "from-stone-50 to-neutral-50",
       ingredients: ["Oreo餅乾碎", "手工雪花冰", "巧克力布丁", "巧克力醬", "鮮奶油"],
       features: ["巧克力香濃馥郁", "Oreo餅乾酥脆", "布丁滑嫩可口"],
-      pairing: "搭配熱咖啡或牛奶，巧克力控必點",
       allergens: "乳製品、麥麩（Oreo）、雞蛋（布丁）",
     },
     {
@@ -263,7 +260,6 @@ export default function Home() {
       color: "from-red-50 to-rose-50",
       ingredients: ["自製紅豆", "手工雪花冰", "新鮮牛奶", "煉乳", "仙草凍（可加）"],
       features: ["紅豆鬆軟香甜", "牛奶濃郁滑順", "台灣傳統懷舊風味"],
-      pairing: "搭配熱茶或黑糖飲，懷舊感滿滿",
       allergens: "乳製品",
     },
     {
@@ -274,7 +270,6 @@ export default function Home() {
       color: "from-green-50 to-emerald-50",
       ingredients: ["日式抹茶粉", "自製紅豆", "手工布丁", "奶酪", "手工雪花冰", "煉乳"],
       features: ["抹茶清香微苦", "四層口感豐富", "日式風情特色"],
-      pairing: "搭配和風點心或熱抹茶，層次更豐富",
       allergens: "乳製品、雞蛋（布丁）",
     },
     {
@@ -285,7 +280,6 @@ export default function Home() {
       color: "from-slate-50 to-gray-50",
       ingredients: ["天然仙草", "冰糖糖水", "手工雪花冰", "紅豆（可加）", "粉圓（可加）"],
       features: ["仙草Q彈滑嫩", "天然草本清涼", "低卡健康選擇"],
-      pairing: "搭配熱天午後，清涼解渴最佳",
       allergens: "無主要過敏原（純素可食）",
     },
   ];
