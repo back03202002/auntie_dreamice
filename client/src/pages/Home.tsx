@@ -9,6 +9,37 @@ import { MapPin, Phone, Facebook } from "lucide-react";
  */
 
 export default function Home() {
+  const pizzaItems = [
+    {
+      id: 1,
+      name: "海鮮總匯披薩",
+      price: "$199",
+      description: "新鮮蝦仁、透抽、淡菜搭配濃郁起司，海味十足的經典組合",
+      image: "/manus-storage/海鮮總匯_de7a788e.jpg",
+    },
+    {
+      id: 2,
+      name: "費城牛肉披薩",
+      price: "$199",
+      description: "嫩牛肉搭配起司和洋蔥，咬下去肉汁四溢的美味",
+      image: "/manus-storage/費城牛肉_5bce433d.jpg",
+    },
+    {
+      id: 3,
+      name: "瑪格麗特披薩",
+      price: "$199",
+      description: "經典義式披薩，番茄、起司、羅勒的完美組合",
+      image: "/manus-storage/瑪格麗特_75e1dfa9.jpg",
+    },
+    {
+      id: 4,
+      name: "蜂蜜麻吉披薩",
+      price: "$199",
+      description: "甜蜜蜂蜜搭配Q彈麻吉，甜鹹交織的獨特風味",
+      image: "/manus-storage/蜂蜜麻吉_b33798ad.jpg",
+    },
+  ];
+
   const menuItems = [
     {
       id: 1,
@@ -142,11 +173,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Hot Food Section - Pizza */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-background">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-primary">🍕 熱食區</h2>
+            <p className="text-lg text-foreground/70">6吋手工披薩，現做現烤的美味</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {pizzaItems.map((item) => (
+              <Card
+                key={item.id}
+                className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white border border-border hover:border-primary/30 hover:-translate-y-1"
+              >
+                <div className="relative aspect-square overflow-hidden bg-muted">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="text-lg font-bold text-foreground leading-snug flex-1">{item.name}</h3>
+                    <span className="text-primary font-bold text-xl ml-2 whitespace-nowrap">{item.price}</span>
+                  </div>
+                  <p className="text-foreground/70 text-sm leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Menu Section */}
       <section id="menu" className="py-16 md:py-24 bg-background">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">菜單</h2>
+            <h2 className="text-4xl font-bold mb-4">🍧 冰品菜單</h2>
             <p className="text-lg text-foreground/70">精選冰品，每一口都是幸福的滋味</p>
           </div>
 
