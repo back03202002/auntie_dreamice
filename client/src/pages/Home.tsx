@@ -716,7 +716,7 @@ export default function Home() {
                 <div className="relative z-10">
                   <div className="text-4xl mb-4 animate-float">🍧</div>
                   <p className="font-accent text-2xl md:text-3xl text-white leading-relaxed mb-2">
-                    小阿姨陥你們找回小時候的幸福時刻
+                    小阿姨陪你們找回小時候的幸福
                   </p>
                   <p className="text-white/70 text-sm mt-3">— 小阿姨雪花冰 Auntie Dreamice</p>
                   <div className="flex justify-center mt-5 gap-3">
