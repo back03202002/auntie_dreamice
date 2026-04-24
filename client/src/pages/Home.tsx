@@ -118,7 +118,7 @@ export default function Home() {
       <section className="relative overflow-hidden h-screen md:h-auto md:min-h-[600px]">
         <div className="absolute inset-0 w-full h-full">
           <img
-            src="/manus-storage/auntie_dreamice_hero_new_46bdf226.webp"
+            src="/manus-storage/auntie_dreamice_hero_fullwidth_4237fb17.webp"
             alt="小阿姨雪花冰店面"
             className="w-full h-full object-cover object-center"
             loading="eager"
@@ -126,7 +126,6 @@ export default function Home() {
             style={{ aspectRatio: 'auto' }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/15 to-transparent"></div>
         
         <div className="relative container py-20 md:py-32 flex items-center justify-start h-full md:h-auto md:min-h-[600px]">
           <div className="max-w-2xl">
