@@ -115,17 +115,20 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
+      <section className="relative overflow-hidden h-screen md:h-auto md:min-h-[600px]">
+        <div className="absolute inset-0 w-full h-full">
           <img
             src="/manus-storage/auntie_dreamice_hero_new_46bdf226.webp"
             alt="小阿姨雪花冰店面"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
+            loading="eager"
+            decoding="async"
+            style={{ aspectRatio: 'auto' }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/15 to-transparent"></div>
         
-        <div className="relative container py-20 md:py-32 flex items-center min-h-[500px]">
+        <div className="relative container py-20 md:py-32 flex items-center justify-start h-full md:h-auto md:min-h-[600px]">
           <div className="max-w-2xl">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
               小阿姨雪花冰
