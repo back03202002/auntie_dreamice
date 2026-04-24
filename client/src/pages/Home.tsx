@@ -128,16 +128,16 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 overflow-hidden">
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/hero_banner_ghibli-PypU9pjWRBkpJyDoWh4FFY.webp"
             alt="小阿姨雪花冰店面"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
         
-        <div className="relative container py-20 md:py-32 flex items-center min-h-[500px]">
+        <div className="relative container py-20 md:py-32 flex items-center min-h-[650px] md:min-h-[750px]">
           <div className="max-w-xl">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
               小阿姨雪花冰
