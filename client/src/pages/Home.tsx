@@ -46,7 +46,7 @@ export default function Home() {
       name: "新鮮芒果布丁雪花冰",
       price: "$99",
       description: "綿密的雪花冰搭配新鮮芒果和滑順布丁，一口咬下去就是夏日的幸福",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/featured_mango_ice-b72sDMkyrejJdmvs6nSVUb.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/UAZZUNXrCbpagBhI.webp",
       badge: "人氣必點",
     },
     {
@@ -54,21 +54,21 @@ export default function Home() {
       name: "新鮮草莓奶酪雪花冰",
       price: "$89",
       description: "新鮮草莓搭配濃郁奶酪，酸酸甜甜的滋味在舌尖綻放",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/featured_strawberry_ice-WzHzuc9VYcRtqn9nF6oSqr.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/fBMCerOzIBmDtFUR.webp",
     },
     {
       id: 3,
       name: "Oreo巧克力布丁雪花冰",
       price: "$79",
       description: "經典Oreo餅乾搭配濃郁巧克力布丁，巧克力愛好者的必點",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/oreo_chocolate_ice-ds3rGmJiNyCAjwYfi5mLN6.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/UwuEWVXQpWDjQQXB.webp",
     },
     {
       id: 4,
       name: "紅豆牛奶雪花冰",
       price: "$69",
       description: "傳統紅豆搭配香濃牛奶，懷舊風味中帶著溫暖",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/red_bean_milk_ice-ieDLDkNxDgfbWrvq3e7MJq.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/aPbFqxapDAjtiMUF.webp",
     },
     {
       id: 5,
