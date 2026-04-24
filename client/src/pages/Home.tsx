@@ -283,7 +283,7 @@ export default function Home() {
       </div>
 
       {/* ===== 導航欄 ===== */}
-      <header className="sticky top-0 z-50 glass-warm border-b border-warm shadow-sm">
+      <header className="sticky top-0 z-50 nav-glass transition-all duration-300">
         <div className="container flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-2.5">
@@ -297,7 +297,7 @@ export default function Home() {
           </div>
 
           {/* 桌面導航 */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-6">
             {[
               { href: "#about", label: "關於我們" },
               { href: "#brand", label: "品牌故事" },
@@ -307,11 +307,17 @@ export default function Home() {
               <a
                 key={item.href}
                 href={item.href}
-                className="px-4 py-2 text-sm font-medium text-foreground/70 hover:text-primary hover:bg-primary/8 rounded-lg transition-all duration-200"
+                className="nav-link-premium text-sm"
               >
                 {item.label}
               </a>
             ))}
+            <button
+              className="btn-premium text-sm px-5 py-2"
+              onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              探索菜單
+            </button>
           </nav>
 
           {/* 手機漢堡選單 */}
@@ -388,14 +394,14 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
               <button
-                className="btn-warm inline-flex items-center gap-2 text-base"
+                className="btn-premium inline-flex items-center gap-2 text-base"
                 onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}
               >
                 探索菜單
                 <ArrowRight className="w-4 h-4" />
               </button>
               <button
-                className="px-6 py-3 bg-white/15 backdrop-blur-sm hover:bg-white/25 text-white font-semibold rounded-full border border-white/30 transition-all duration-300 text-base"
+                className="btn-outline-premium inline-flex items-center gap-2 text-base bg-white/10 border-white/40 text-white hover:bg-white/20 hover:border-white/60"
                 onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
               >
                 了解我們
@@ -403,13 +409,17 @@ export default function Home() {
             </div>
 
             {/* 評分展示 */}
-            <div className="mt-10 flex items-center gap-3 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-              <div className="flex">
-                {[1,2,3,4,5].map(i => (
-                  <Star key={i} className="w-4 h-4 fill-[#FFD700] text-[#FFD700]" />
-                ))}
+            <div className="mt-10 flex items-center gap-4 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+              <div className="flex items-center gap-1.5 bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 border border-white/25">
+                <div className="flex">
+                  {[1,2,3,4,5].map(i => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-[#F0C878] text-[#F0C878] drop-shadow-sm" />
+                  ))}
+                </div>
+                <span className="text-white text-sm font-bold ml-1">4.9</span>
               </div>
-              <span className="text-white/85 text-sm font-medium">4.9 星 · 55則 Google 評價</span>
+              <div className="h-4 w-px bg-white/30" />
+              <span className="text-white/80 text-sm">55則 Google 評價</span>
             </div>
           </div>
         </div>
@@ -1003,14 +1013,14 @@ export default function Home() {
             {menuItems.map((item, i) => (
               <div
                 key={item.id}
-                className="group relative overflow-hidden rounded-2xl border border-warm bg-white card-warm-shadow hover:card-warm-shadow transition-all duration-400 hover:-translate-y-3"
+                className="menu-card-premium group reveal"
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
                 {/* 圖片區 */}
                 <div className={`relative aspect-[4/3] overflow-hidden bg-gradient-to-br ${item.color}`}>
                   {item.badge && (
                     <div className="absolute top-3 right-3 z-10">
-                      <div className="bg-gradient-to-r from-[#C0623A] to-[#E8896A] text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
+                      <div className="badge-premium bg-gradient-to-r from-[#C0623A]/90 to-[#E8896A]/90 text-white border-white/30 shadow-lg backdrop-blur-sm">
                         <span className="animate-pulse">⭐</span>
                         {item.badge}
                       </div>
@@ -1019,11 +1029,13 @@ export default function Home() {
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-600"
-                    style={{ transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    style={{ transition: "transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
                   />
                   {/* 圖片底部漸層 */}
-                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/30 to-transparent" />
+                  {/* 頂部金色線 */}
+                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#D4A855]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
                 {/* 內容區 */}
@@ -1033,14 +1045,16 @@ export default function Home() {
                   </h3>
                   <p className="text-foreground/60 text-sm leading-relaxed">{item.description}</p>
                   {/* 底部裝飾 */}
-                  <div className="mt-4 flex items-center gap-2 text-xs text-primary/60">
-                    <span className="w-1 h-1 rounded-full bg-primary/40" />
-                    <span>手工製作 · 新鮮食材</span>
+                  <div className="mt-4 pt-4 border-t border-[#EDD5C0]/50 flex items-center justify-between">
+                    <div className="flex items-center gap-1.5 text-xs text-[#A87830]/70">
+                      <span className="w-1 h-1 rounded-full bg-[#D4A855]/50" />
+                      <span>手工製作</span>
+                      <span className="w-1 h-1 rounded-full bg-[#D4A855]/50" />
+                      <span>新鮮食材</span>
+                    </div>
+                    <div className="text-xs text-foreground/30 font-medium">小阿姨雪花冰</div>
                   </div>
                 </div>
-
-                {/* 懸停光效 */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
               </div>
             ))}
           </div>
@@ -1314,36 +1328,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== 頁尾 ===== */}
-      <footer className="relative overflow-hidden">
+       {/* ===== 頁尾 ===== */}
+      <footer className="relative overflow-hidden footer-premium">
         {/* 頂部波浪 */}
         <div className="relative">
           <svg viewBox="0 0 1440 60" preserveAspectRatio="none" className="w-full h-12 block">
-            <path d="M0,30 C360,60 720,0 1080,30 C1260,45 1380,35 1440,30 L1440,60 L0,60 Z" fill="#4A2E1A" />
+            <path d="M0,30 C360,60 720,0 1080,30 C1260,45 1380,35 1440,30 L1440,60 L0,60 Z" fill="#2C1810" />
           </svg>
         </div>
-
-        <div className="bg-[#4A2E1A] text-white">
+        <div className="bg-gradient-to-b from-[#2C1810] to-[#1E0F08] text-white">
           <div className="container py-12 md:py-16">
             <div className="grid md:grid-cols-3 gap-10 mb-10">
               {/* 品牌 */}
               <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/30 flex items-center justify-center text-xl">🍧</div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/30 flex items-center justify-center text-2xl shadow-lg border border-white/10">🍧</div>
                   <div>
-                    <h3 className="text-lg font-bold font-display text-white">小阿姨雪花冰</h3>
-                    <p className="text-xs text-white/50 font-accent">Auntie Dreamice</p>
+                    <h3 className="text-xl font-bold font-display text-white tracking-wide">小阿姨雪花冰</h3>
+                    <p className="text-xs text-[#D4A855]/70 font-accent tracking-widest">Auntie Dreamice</p>
                   </div>
                 </div>
-                <p className="text-white/60 text-sm leading-relaxed">
-                  一口綿密，一點療癒，午後的甜品時光。彰化線西最溫暖的冰品甜點專賣店。
+                <p className="text-white/55 text-sm leading-relaxed mb-5">
+                  一口綿密，一點療愈，午後的甜品時光。彰化線西最溫暖的冰品甜點專賣店。
                 </p>
+                {/* 金色裝飾線 */}
+                <div className="h-px bg-gradient-to-r from-transparent via-[#D4A855]/40 to-transparent" />
               </div>
 
               {/* 快速連結 */}
               <div>
-                <h4 className="font-bold mb-4 text-white/90 font-display">快速連結</h4>
-                <ul className="space-y-2">
+                <h4 className="font-bold mb-5 text-white font-display tracking-wide text-base flex items-center gap-2">
+                  <span className="w-4 h-px bg-gradient-to-r from-[#D4A855] to-transparent" />
+                  快速連結
+                </h4>
+                <ul className="space-y-3">
                   {[
                     { href: "#about", label: "關於我們" },
                     { href: "#brand", label: "品牌故事" },
@@ -1351,8 +1369,8 @@ export default function Home() {
                     { href: "#contact", label: "聯絡我們" },
                   ].map((link) => (
                     <li key={link.href}>
-                      <a href={link.href} className="text-white/55 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-primary/60" />
+                      <a href={link.href} className="text-white/50 hover:text-[#D4A855] text-sm transition-all duration-200 flex items-center gap-2.5 group">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#D4A855]/40 group-hover:bg-[#D4A855] transition-colors" />
                         {link.label}
                       </a>
                     </li>
@@ -1362,8 +1380,11 @@ export default function Home() {
 
               {/* 聯絡資訊 */}
               <div>
-                <h4 className="font-bold mb-4 text-white/90 font-display">聯絡資訊</h4>
-                <ul className="space-y-3 text-sm text-white/55">
+                <h4 className="font-bold mb-5 text-white font-display tracking-wide text-base flex items-center gap-2">
+                  <span className="w-4 h-px bg-gradient-to-r from-[#D4A855] to-transparent" />
+                  聯絡資訊
+                </h4>
+                <ul className="space-y-3.5 text-sm text-white/50">
                   <li className="flex items-start gap-2">
                     <MapPin className="w-4 h-4 text-primary/70 flex-shrink-0 mt-0.5" />
                     <span>彰化縣線西鄉復興路11-1號</span>
@@ -1383,14 +1404,25 @@ export default function Home() {
             </div>
 
             {/* 版權 */}
-            <div className="border-t border-white/10 pt-8 text-center">
-              <div className="flex justify-center gap-2 mb-3">
-                {["🍧", "❄️", "💝", "🌸", "✨"].map((e, i) => (
-                  <span key={i} className="text-lg opacity-40 animate-float" style={{ animationDelay: `${i * 0.5}s` }}>{e}</span>
-                ))}
+            <div className="border-t border-white/8 pt-8">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-px w-8 bg-gradient-to-r from-[#D4A855]/60 to-transparent" />
+                  <p className="text-white/35 text-xs tracking-widest uppercase">Since 2020 · Xianxi, Changhua</p>
+                  <div className="h-px w-8 bg-gradient-to-l from-[#D4A855]/60 to-transparent" />
+                </div>
+                <p className="text-white/30 text-xs">© 2026 小阿姨雪花冰 · Auntie Dreamice. All rights reserved.</p>
+                <div className="flex items-center gap-3">
+                  <a href="https://www.facebook.com/profile.php?id=100084743760507" target="_blank" rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-white/40 hover:text-[#D4A855] hover:border-[#D4A855]/40 transition-all duration-200">
+                    <Facebook className="w-3.5 h-3.5" />
+                  </a>
+                  <a href="https://www.instagram.com/auntie_dreamhouse" target="_blank" rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-white/40 hover:text-[#D4A855] hover:border-[#D4A855]/40 transition-all duration-200">
+                    <Instagram className="w-3.5 h-3.5" />
+                  </a>
+                </div>
               </div>
-              <p className="text-white/40 text-xs">© 2026 小阿姨雪花冰 · Auntie Dreamice. All rights reserved.</p>
-              <p className="text-white/30 text-xs mt-1">用心製作每一份幸福 · 彰化線西</p>
             </div>
           </div>
         </div>
