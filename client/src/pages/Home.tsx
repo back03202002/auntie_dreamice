@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { MapPin, Phone, Facebook, Heart, MessageCircle, Instagram, Star, ChevronUp, Clock, Calendar, ArrowRight, Sparkles } from "lucide-react";
+import { MapPin, Phone, Facebook, Heart, MessageCircle, Instagram, Star, ChevronUp, ChevronDown, Clock, Calendar, ArrowRight, Sparkles } from "lucide-react";
 import { ReviewCarousel } from "@/components/ReviewCarousel";
 import { reviews } from "@/lib/reviews";
 import { Card } from "@/components/ui/card";
@@ -102,6 +102,11 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [typedText, setTypedText] = useState("");
+  const [expandedFeature, setExpandedFeature] = useState<number | null>(null);
+
+  const toggleFeature = (idx: number) => {
+    setExpandedFeature(prev => (prev === idx ? null : idx));
+  };
   const heroSubtitles = ["一口綿密，一點療癒", "午後的甜品時光", "彰化線西的幸福滋味"];
   const [subtitleIdx, setSubtitleIdx] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -792,8 +797,16 @@ export default function Home() {
                 badgeColor: "bg-orange-100 text-orange-700",
                 cardBg: "from-[#FFFBF5] to-[#FFF5E8]",
                 cardBorder: "border-orange-100",
+                expandBorder: "border-orange-300",
+                expandBg: "bg-orange-50/80",
                 stats: { value: "100%", label: "新鮮食材" },
                 delay: "",
+                details: [
+                  { icon: "✅", text: "每日清晨精選當季新鮮水果，保證最佳品質" },
+                  { icon: "✅", text: "不使用人工色素與保存劑，食材天然健康" },
+                  { icon: "✅", text: "直接向小農家合作選購，確保食材新鮮直送" },
+                  { icon: "✅", text: "季節限定食材定期更新，帶來不同驚喜" },
+                ],
               },
               {
                 emoji: "❄️",
@@ -805,8 +818,16 @@ export default function Home() {
                 badgeColor: "bg-sky-100 text-sky-700",
                 cardBg: "from-[#F5FBFF] to-[#EBF5FF]",
                 cardBorder: "border-sky-100",
+                expandBorder: "border-sky-300",
+                expandBg: "bg-sky-50/80",
                 stats: { value: "10+", label: "精選冰品" },
                 delay: "reveal-delay-2",
+                details: [
+                  { icon: "❄️", text: "雪花冰絲細絕美，入口即化不粉不粘" },
+                  { icon: "❄️", text: "專業製冰機器精準控溫，確保每一碗都達到最佳狀態" },
+                  { icon: "❄️", text: "每一碗冰品現做現賣，保證最佳新鮮口感" },
+                  { icon: "❄️", text: "可客製甜度，滿足不同年齡顧客的口味需求" },
+                ],
               },
               {
                 emoji: "💝",
@@ -818,18 +839,31 @@ export default function Home() {
                 badgeColor: "bg-rose-100 text-rose-700",
                 cardBg: "from-[#FFF5F7] to-[#FFE8EC]",
                 cardBorder: "border-rose-100",
+                expandBorder: "border-rose-300",
+                expandBg: "bg-rose-50/80",
                 stats: { value: "4.9★", label: "顧客評分" },
                 delay: "reveal-delay-4",
+                details: [
+                  { icon: "💝", text: "小阿姨親自接待，用家人般的溫暖對待每位顧客" },
+                  { icon: "💝", text: "記得顧客偏好，常客光臨店就如回家" },
+                  { icon: "💝", text: "小朋友、長輩年齡均歡迎，每一位顧客都是家人" },
+                  { icon: "💝", text: "定期推出限定優惠，回饋常客有驚喜" },
+                ],
               },
-            ].map((item, i) => (
+            ].map((item, i) => {
+              const isExpanded = expandedFeature === i;
+              return (
               <div key={i} className={`group reveal ${item.delay}`}>
                 <div
-                  className={`bg-gradient-to-br ${item.cardBg} rounded-3xl p-8 border ${item.cardBorder}
-                    hover:shadow-[0_32px_80px_rgba(74,46,26,0.18)]
-                    hover:-translate-y-5
-                    hover:scale-[1.025]
+                  onClick={() => toggleFeature(i)}
+                  className={`bg-gradient-to-br ${item.cardBg} rounded-3xl border
                     transition-all duration-500 ease-out
-                    h-full relative overflow-hidden cursor-pointer feature-spotlight`}
+                    relative overflow-hidden cursor-pointer feature-spotlight select-none
+                    ${
+                      isExpanded
+                        ? `${item.expandBorder} shadow-[0_24px_60px_rgba(74,46,26,0.22)] -translate-y-2 scale-[1.015]`
+                        : `${item.cardBorder} hover:shadow-[0_32px_80px_rgba(74,46,26,0.18)] hover:-translate-y-5 hover:scale-[1.025]`
+                    }`}
                 >
                   {/* 懸停光斑游動層 */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
@@ -838,47 +872,76 @@ export default function Home() {
                   </div>
 
                   {/* 裝飾角落 */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/60 rounded-bl-full group-hover:w-40 group-hover:h-40 transition-all duration-500" />
-                  <div className="absolute bottom-0 left-0 w-20 h-20 bg-white/40 rounded-tr-full group-hover:w-28 group-hover:h-28 transition-all duration-500" />
+                  <div className={`absolute top-0 right-0 w-32 h-32 bg-white/60 rounded-bl-full transition-all duration-500 ${isExpanded ? 'w-40 h-40' : 'group-hover:w-40 group-hover:h-40'}`} />
+                  <div className={`absolute bottom-0 left-0 w-20 h-20 bg-white/40 rounded-tr-full transition-all duration-500 ${isExpanded ? 'w-28 h-28' : 'group-hover:w-28 group-hover:h-28'}`} />
 
-                  {/* 標籤：懸停時往上浮動 */}
-                  <div className="absolute top-5 right-5 transition-transform duration-300 group-hover:-translate-y-1">
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm group-hover:shadow-md transition-shadow duration-300 ${item.badgeColor}`}>
-                      {item.badge}
-                    </span>
+                  {/* 主要內容區 */}
+                  <div className="relative p-8">
+                    {/* 標籤 + 展開指示 */}
+                    <div className="absolute top-5 right-5 flex items-center gap-2">
+                      <span className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ${item.badgeColor}`}>
+                        {item.badge}
+                      </span>
+                      <div className={`w-6 h-6 rounded-full bg-white/80 flex items-center justify-center shadow-sm transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
+                        <ChevronDown className="w-3.5 h-3.5 text-foreground/60" />
+                      </div>
+                    </div>
+
+                    {/* 圖示 */}
+                    <div
+                      className={`feature-card-icon ${item.iconBg}
+                        ring-2 ${item.iconRing}
+                        mb-6
+                        transition-all duration-400 ease-out
+                        ${isExpanded ? 'scale-110 rotate-6 shadow-[0_0_20px_rgba(232,137,106,0.3)] ring-4' : 'group-hover:scale-125 group-hover:rotate-12 group-hover:shadow-[0_0_24px_rgba(232,137,106,0.35)] group-hover:ring-4'}`}
+                    >
+                      {item.emoji}
+                    </div>
+
+                    {/* 標題 */}
+                    <h3 className={`text-xl font-bold mb-3 font-display tracking-wide transition-colors duration-300 ${isExpanded ? 'text-primary' : 'text-foreground group-hover:text-primary'}`}>{item.title}</h3>
+
+                    {/* 簡介文字 */}
+                    <p className={`leading-relaxed text-sm mb-5 transition-colors duration-300 ${isExpanded ? 'text-foreground/75' : 'text-foreground/65 group-hover:text-foreground/80'}`}>{item.text}</p>
+
+                    {/* 統計數字 */}
+                    <div className="flex items-center gap-3 pt-4 border-t border-current/10">
+                      <div className={`font-bold text-gradient-warm font-display transition-all duration-300 ${isExpanded ? 'text-3xl' : 'text-2xl group-hover:text-3xl'}`}>{item.stats.value}</div>
+                      <div className={`text-xs font-medium transition-colors duration-300 ${isExpanded ? 'text-foreground/65' : 'text-foreground/50 group-hover:text-foreground/70'}`}>{item.stats.label}</div>
+                      <div className="ml-auto text-xs text-foreground/40 font-medium">
+                        {isExpanded ? '點擊收合' : '點擊了解更多'}
+                      </div>
+                    </div>
                   </div>
 
-                  {/* 圖示：懸停旋轉 + 放大 + 發光外圈 */}
+                  {/* 展開詳細說明 */}
                   <div
-                    className={`feature-card-icon ${item.iconBg}
-                      ring-2 ${item.iconRing}
-                      mb-6
-                      group-hover:scale-125
-                      group-hover:rotate-12
-                      group-hover:shadow-[0_0_24px_rgba(232,137,106,0.35)]
-                      group-hover:ring-4
-                      transition-all duration-400 ease-out`}
+                    style={{
+                      maxHeight: isExpanded ? '320px' : '0px',
+                      opacity: isExpanded ? 1 : 0,
+                      transition: 'max-height 0.45s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease',
+                      overflow: 'hidden',
+                    }}
                   >
-                    {item.emoji}
+                    <div className={`mx-5 mb-5 rounded-2xl border ${item.expandBorder} ${item.expandBg} backdrop-blur-sm p-5`}>
+                      <p className="text-xs font-semibold text-foreground/50 uppercase tracking-widest mb-3">我們的承諾</p>
+                      <ul className="space-y-2.5">
+                        {item.details.map((d, di) => (
+                          <li key={di} className="flex items-start gap-2.5 text-sm text-foreground/75 leading-relaxed">
+                            <span className="text-base flex-shrink-0 mt-0.5">{d.icon}</span>
+                            <span>{d.text}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
 
-                  {/* 標題：懸停時加深 */}
-                  <h3 className="text-xl font-bold mb-3 text-foreground font-display tracking-wide group-hover:text-primary transition-colors duration-300">{item.title}</h3>
-
-                  {/* 內容 */}
-                  <p className="text-foreground/65 leading-relaxed text-sm mb-6 group-hover:text-foreground/80 transition-colors duration-300">{item.text}</p>
-
-                  {/* 統計數字：懸停放大 */}
-                  <div className="flex items-center gap-3 pt-5 border-t border-current/10">
-                    <div className="text-2xl font-bold text-gradient-warm font-display group-hover:text-3xl transition-all duration-300">{item.stats.value}</div>
-                    <div className="text-xs text-foreground/50 font-medium group-hover:text-foreground/70 transition-colors duration-300">{item.stats.label}</div>
-                  </div>
-
-                  {/* 懸停底部裝飾線：滑入全寬 */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1.5 w-0 group-hover:w-full bg-gradient-to-r from-primary via-accent to-primary/60 rounded-b-3xl transition-all duration-500" />
+                  {/* 展開時底部色條（常駐顯示） */}
+                  <div className={`absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary via-accent to-primary/60 rounded-b-3xl transition-all duration-500 ${isExpanded ? 'opacity-100' : 'opacity-0 w-0 group-hover:opacity-100 group-hover:w-full'}`} />
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
