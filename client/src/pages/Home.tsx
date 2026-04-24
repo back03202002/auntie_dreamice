@@ -331,7 +331,7 @@ export default function Home() {
             </div>
             <div>
               <h1 className="text-lg font-bold text-gradient-warm font-display leading-none">小阿姨雪花冰</h1>
-              <p className="brand-english-nav">Auntie Dream ice</p>
+              <p className="brand-english-nav">Auntie Dream Ice</p>
             </div>
           </div>
 
@@ -412,18 +412,13 @@ export default function Home() {
 
         <div className="relative container py-24 md:py-40 flex items-center min-h-[680px] md:min-h-[780px]">
           <div className="max-w-xl">
-            {/* 裝飾標籤 */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/15 backdrop-blur-sm rounded-full border border-white/25 text-white/90 text-sm font-medium mb-6 animate-fade-in-down">
-              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-              彰化線西 · 手工冰品甜點
-            </div>
+
 
             {/* 英文品牌名稱動畫 */}
             <div className="mb-3 animate-fade-in-up" style={{ animationDelay: "0.05s" }}>
               <span className="brand-english-hero text-4xl md:text-6xl">
                 <span className="word-auntie">Auntie </span>
-                <span className="word-dream">Dream </span>
-                <span className="word-ice">ice</span>
+                <span className="word-dream">Dream </span>                <span className="word-ice">Ice</span>
               </span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-5 leading-tight font-display animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
@@ -539,7 +534,7 @@ export default function Home() {
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
-                }}>Auntie Dream ice</span>
+                }}>Auntie Dream Ice</span>
               </h2>
               {/* 副標 */}
               <p className="reveal reveal-delay-2 text-xl md:text-2xl text-white/85 leading-relaxed font-light mb-10">
@@ -584,7 +579,7 @@ export default function Home() {
                 <span key={i} className="text-2xl animate-float opacity-70" style={{ animationDelay: `${i * 0.4}s` }}>{e}</span>
               ))}
             </div>
-            <p className="mt-6 text-white/50 text-sm tracking-widest uppercase font-accent">— Auntie Dream ice · 彰化線西</p>
+            <p className="mt-6 text-white/50 text-sm tracking-widest uppercase font-accent">— Auntie Dream Ice · 彰化線西</p>
           </div>
         </div>
 
@@ -791,7 +786,7 @@ export default function Home() {
                   <p className="font-accent text-2xl md:text-4xl text-white leading-relaxed mb-3">
                     小阿姨陪你們找回小時候的幸福
                   </p>
-                  <p className="text-white/65 text-sm tracking-widest font-accent">— Auntie Dream ice · 彰化線西</p>
+                  <p className="text-white/65 text-sm tracking-widest font-accent">— Auntie Dream Ice · 彰化線西</p>
                   <div className="flex justify-center mt-6 gap-3">
                     {["💝", "🍧", "✨", "🌸", "💝"].map((e, i) => (
                       <span key={i} className="text-xl animate-float" style={{ animationDelay: `${i * 0.3}s` }}>{e}</span>
@@ -1076,7 +1071,7 @@ export default function Home() {
                   <p className="font-accent text-2xl md:text-3xl text-white leading-relaxed mb-2">
                     小阿姨陪你們找回小時候的幸福
                   </p>
-                  <p className="text-white/70 text-sm mt-3">— 小阿姨雪花冰 Auntie Dream ice</p>
+                  <p className="text-white/70 text-sm mt-3">— 小阿姨雪花冰 Auntie Dream Ice</p>
                   <div className="flex justify-center mt-5 gap-3">
                     {["💝", "🍧", "✨", "🌸", "💝"].map((e, i) => (
                       <span key={i} className="text-xl animate-float" style={{ animationDelay: `${i * 0.3}s` }}>{e}</span>
@@ -1703,7 +1698,7 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/30 flex items-center justify-center text-2xl shadow-lg border border-white/10">🍧</div>
                   <div>
                     <h3 className="text-xl font-bold font-display text-white tracking-wide">小阿姨雪花冰</h3>
-                    <p className="text-xs text-[#D4A855]/70 font-accent tracking-widest">Auntie Dream ice</p>
+                    <p className="text-xs text-[#D4A855]/70 font-accent tracking-widest">Auntie Dream Ice</p>
                   </div>
                 </div>
                 <p className="text-white/55 text-sm leading-relaxed mb-5">
@@ -1769,7 +1764,7 @@ export default function Home() {
                   <p className="text-white/35 text-xs tracking-widest uppercase">Since 2020 · Xianxi, Changhua</p>
                   <div className="h-px w-8 bg-gradient-to-l from-[#D4A855]/60 to-transparent" />
                 </div>
-                <p className="text-white/30 text-xs">© 2026 小阿姨雪花冰 · Auntie Dream ice. All rights reserved.</p>
+                <p className="text-white/30 text-xs">© 2026 小阿姨雪花冰 · Auntie Dream Ice. All rights reserved.</p>
                 <div className="flex items-center gap-3">
                   <a href="https://www.facebook.com/profile.php?id=100084743760507" target="_blank" rel="noopener noreferrer"
                     className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-white/40 hover:text-[#D4A855] hover:border-[#D4A855]/40 transition-all duration-200">
