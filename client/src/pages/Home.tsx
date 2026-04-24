@@ -242,11 +242,11 @@ export default function Home() {
           </div>
 
           {/* Ice Brick Flavors Image */}
-          <div className="mb-12 rounded-lg overflow-hidden shadow-lg">
+          <div className="mb-12 rounded-lg overflow-hidden shadow-lg" style={{ backgroundColor: 'var(--background)', minHeight: '400px' }}>
             <img
               src="/manus-storage/ice_brick_flavors_guide_45e866c9.webp"
               alt="冰磚口味介紹"
-              className="w-full h-auto object-cover"
+              className="w-full h-full object-cover"
               loading="lazy"
               decoding="async"
             />
