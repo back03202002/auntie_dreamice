@@ -591,7 +591,16 @@ export default function Home() {
 
       {/* ===== 品牌故事 ===== */}
       <section id="brand" className="py-20 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FFF5EE] via-[#FDF6F0] to-[#FFF5EE]" />
+        {/* 店家實景背景圖 */}
+        <div className="absolute inset-0">
+          <img
+            src="/manus-storage/store_photo_b4b014c2.jpg"
+            alt="小阿姨雪花冰店內實景"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+        {/* 半透明遮罩：保留溫暖色調並讓文字清晰可讀 */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FFF5EE]/88 via-[#FDF6F0]/85 to-[#FFF5EE]/90" />
         {/* 大裝飾引號 */}
         <div className="absolute top-4 left-4 md:top-10 md:left-10 text-[160px] md:text-[200px] text-primary/5 font-display leading-none select-none pointer-events-none" style={{ fontFamily: 'Georgia, serif' }}>“</div>
         <div className="absolute bottom-4 right-4 md:bottom-10 md:right-10 text-[160px] md:text-[200px] text-primary/5 font-display leading-none select-none pointer-events-none rotate-180" style={{ fontFamily: 'Georgia, serif' }}>“</div>
