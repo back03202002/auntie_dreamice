@@ -17,6 +17,7 @@ export default function Home() {
       price: "$99",
       description: "綿密的雪花冰搭配新鮮芒果和滑順布丁，一口咬下去就是夏日的幸福",
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/featured_mango_ice-b72sDMkyrejJdmvs6nSVUb.webp",
+      badge: "人氣必點",
     },
     {
       id: 2,
@@ -30,28 +31,28 @@ export default function Home() {
       name: "Oreo巧克力布丁雪花冰",
       price: "$79",
       description: "經典Oreo餅乾搭配濃郁巧克力布丁，巧克力愛好者的必點",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/featured_mango_ice-b72sDMkyrejJdmvs6nSVUb.webp",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/oreo_chocolate_ice-ds3rGmJiNyCAjwYfi5mLN6.webp",
     },
     {
       id: 4,
       name: "紅豆牛奶雪花冰",
       price: "$69",
       description: "傳統紅豆搭配香濃牛奶，懷舊風味中帶著溫暖",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/featured_strawberry_ice-WzHzuc9VYcRtqn9nF6oSqr.webp",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/red_bean_milk_ice-ieDLDkNxDgfbWrvq3e7MJq.webp",
     },
     {
       id: 5,
       name: "抹茶紅豆布丁&奶酪雪花冰",
       price: "$89",
       description: "清香抹茶搭配紅豆、布丁和奶酪，層次豐富的完美組合",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/featured_mango_ice-b72sDMkyrejJdmvs6nSVUb.webp",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/matcha_red_bean_ice-LdjnHyGaQAJUk93k9xxnvj.webp",
     },
     {
       id: 6,
       name: "滑嫩仙草凍",
       price: "$49",
       description: "Q彈的仙草凍搭配冰涼的糖水，清涼解渴的夏日聖品",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/featured_strawberry_ice-WzHzuc9VYcRtqn9nF6oSqr.webp",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/grass_jelly_ice-D9Bs4uWMJEtGPHKedh6wfn.webp",
     },
   ];
 
@@ -146,19 +147,24 @@ export default function Home() {
             {menuItems.map((item) => (
               <Card
                 key={item.id}
-                className="overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white border-border"
+                className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white border border-border hover:border-primary/30 hover:-translate-y-1"
               >
-                <div className="aspect-square overflow-hidden bg-muted">
+                <div className="relative aspect-square overflow-hidden bg-muted">
+                  {item.badge && (
+                    <div className="absolute top-3 right-3 z-10 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
+                      {item.badge}
+                    </div>
+                  )}
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-bold text-foreground">{item.name}</h3>
-                    <span className="text-primary font-bold text-lg">{item.price}</span>
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="text-lg font-bold text-foreground leading-snug flex-1">{item.name}</h3>
+                    <span className="text-primary font-bold text-xl ml-2 whitespace-nowrap">{item.price}</span>
                   </div>
                   <p className="text-foreground/70 text-sm leading-relaxed">
                     {item.description}
@@ -187,48 +193,54 @@ export default function Home() {
             <p className="text-lg text-foreground/70">歡迎蒞臨小阿姨雪花冰</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {/* Location */}
-            <Card className="text-center p-8 bg-white border-border hover:shadow-lg transition-shadow">
+            <Card className="text-center p-8 bg-white border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
               <div className="flex justify-center mb-4">
-                <MapPin className="w-8 h-8 text-primary" />
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                  <MapPin className="w-7 h-7 text-primary" />
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-2">地址</h3>
-              <p className="text-foreground/70">
+              <h3 className="text-xl font-bold mb-3 text-foreground">地址</h3>
+              <p className="text-foreground/70 text-sm leading-relaxed">
                 彰化縣線西鄉復興路11-1號<br />
-                <span className="text-sm">No. 11-1, Fuxing Rd, Xianxi Township, Changhua County 507, Taiwan</span>
+                <span className="text-xs text-foreground/50 mt-2 block">No. 11-1, Fuxing Rd, Xianxi Township, Changhua County 507, Taiwan</span>
               </p>
             </Card>
 
             {/* Phone */}
-            <Card className="text-center p-8 bg-white border-border hover:shadow-lg transition-shadow">
+            <Card className="text-center p-8 bg-white border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
               <div className="flex justify-center mb-4">
-                <Phone className="w-8 h-8 text-primary" />
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Phone className="w-7 h-7 text-primary" />
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-2">電話</h3>
-              <p className="text-foreground/70">
-                <a href="tel:+886475568406" className="hover:text-primary transition">
+              <h3 className="text-xl font-bold mb-3 text-foreground">電話</h3>
+              <p className="text-foreground/70 text-sm leading-relaxed">
+                <a href="tel:+886475568406" className="hover:text-primary transition font-semibold">
                   +886 4 755 6840
                 </a>
               </p>
-              <p className="text-sm text-foreground/50 mt-2">
-                (現在暫時關閉，敬請期待重新開幕)
+              <p className="text-xs text-foreground/50 mt-3">
+                現在暫時關閉<br />敬請期待重新開幕
               </p>
             </Card>
 
             {/* Social */}
-            <Card className="text-center p-8 bg-white border-border hover:shadow-lg transition-shadow">
+            <Card className="text-center p-8 bg-white border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
               <div className="flex justify-center mb-4">
-                <Facebook className="w-8 h-8 text-primary" />
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Facebook className="w-7 h-7 text-primary" />
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-2">追蹤我們</h3>
-              <p className="text-foreground/70">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition">
+              <h3 className="text-xl font-bold mb-3 text-foreground">追蹤我們</h3>
+              <p className="text-foreground/70 text-sm leading-relaxed">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition font-semibold">
                   Facebook
                 </a>
               </p>
-              <p className="text-sm text-foreground/50 mt-2">
-                獲得最新消息和優惠資訊
+              <p className="text-xs text-foreground/50 mt-3">
+                獲得最新消息<br />和優惠資訊
               </p>
             </Card>
           </div>
