@@ -1188,14 +1188,24 @@ export default function Home() {
             ].map((card, i) => (
               <div
                 key={i}
-                className={`group bg-gradient-to-br ${card.bg} rounded-2xl p-7 border border-warm hover:shadow-xl hover:-translate-y-2 transition-all duration-400 text-center`}
+                className="group relative bg-white rounded-2xl p-7 border border-[#EDD5C0]/60 hover:border-[#D4A855]/40 hover:shadow-[0_16px_48px_rgba(74,46,26,0.12),0_0_0_1px_rgba(212,168,85,0.15)] hover:-translate-y-2 transition-all duration-400 text-center overflow-hidden"
               >
-                <div className="text-3xl mb-4 group-hover:animate-bounce">{card.emoji}</div>
-                <div className="w-12 h-12 rounded-full bg-white/70 flex items-center justify-center mx-auto mb-4 text-primary shadow-sm">
-                  {card.icon}
+                {/* 頂部金色線 */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#D4A855]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* 背景漸層 */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${card.bg} opacity-60 rounded-2xl`} />
+                {/* 角落裝飾 */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#D4A855]/10 to-transparent rounded-bl-full" />
+                <div className="relative z-10">
+                  {/* 金色圖示框 */}
+                  <div className="w-14 h-14 rounded-2xl bg-white border border-[#D4A855]/25 flex items-center justify-center mx-auto mb-4 text-primary shadow-[0_4px_16px_rgba(212,168,85,0.15)] group-hover:shadow-[0_8px_24px_rgba(212,168,85,0.25)] group-hover:scale-110 transition-all duration-300">
+                    {card.icon}
+                  </div>
+                  <h3 className="text-lg font-bold mb-3 text-foreground font-display group-hover:text-primary transition-colors duration-300">{card.title}</h3>
+                  <div className="text-sm text-foreground/70 leading-relaxed">{card.content}</div>
+                  {/* 底部金色線 */}
+                  <div className="mt-5 h-px bg-gradient-to-r from-transparent via-[#D4A855]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <h3 className="text-lg font-bold mb-3 text-foreground font-display">{card.title}</h3>
-                <div className="text-sm text-foreground/70 leading-relaxed">{card.content}</div>
               </div>
             ))}
           </div>

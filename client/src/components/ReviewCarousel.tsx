@@ -65,36 +65,38 @@ function GoogleIcon() {
 function ReviewCard({ review, isActive }: { review: Review; isActive: boolean }) {
   return (
     <div
-      className={`group relative bg-white rounded-2xl p-6 border transition-all duration-500 overflow-hidden flex flex-col h-full ${
+      className={`group relative bg-white rounded-2xl p-6 border transition-all duration-500 overflow-hidden flex flex-col h-full cursor-default ${
         isActive
-          ? "border-primary/30 shadow-[0_8px_32px_rgba(74,46,26,0.12)]"
-          : "border-[#EDD5C0] shadow-[0_4px_20px_rgba(74,46,26,0.06)]"
+          ? "border-[#D4A855]/40 shadow-[0_12px_40px_rgba(74,46,26,0.14),0_0_0_1px_rgba(212,168,85,0.15)]"
+          : "border-[#EDD5C0]/70 shadow-[0_4px_20px_rgba(74,46,26,0.06)] hover:shadow-[0_8px_32px_rgba(74,46,26,0.12)] hover:border-[#D4A855]/30 hover:-translate-y-1"
       }`}
     >
-      {/* 裝飾背景角 */}
-      <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-bl from-primary/6 to-transparent rounded-bl-full pointer-events-none" />
-
-      {/* 大引號裝飾 */}
-      <div className="absolute top-3 right-4 opacity-8 pointer-events-none">
-        <Quote className="w-12 h-12 text-primary fill-primary/20" />
+      {/* 裝飾背景角 - 金色漸層 */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#D4A855]/8 via-[#D4A855]/4 to-transparent rounded-bl-full pointer-events-none" />
+      {/* 頂部金色線 */}
+      <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-[#D4A855]/40 to-transparent" />
+      {/* 大引號裝飾 - 金色 */}
+      <div className="absolute top-3 right-4 pointer-events-none">
+        <Quote className="w-14 h-14 text-[#D4A855] fill-[#D4A855]/12 opacity-70" />
       </div>
 
-      {/* 星評 */}
-      <div className="mb-3">
+      {/* 星評 + 評分數字 */}
+      <div className="mb-3 flex items-center gap-2">
         <StarRating rating={review.rating} />
+        <span className="text-xs font-bold text-[#D4A855]">{review.rating}.0</span>
       </div>
 
       {/* 評價內容 */}
-      <p className="text-foreground/72 text-sm leading-relaxed flex-1 relative z-10 mb-5">
-        <span className="text-primary/50 text-xl font-serif mr-0.5 leading-none align-top">"</span>
+      <p className="text-foreground/75 text-sm leading-relaxed flex-1 relative z-10 mb-5 italic">
+        <span className="text-[#D4A855] text-2xl font-serif mr-1 leading-none align-top not-italic">“</span>
         {review.content}
-        <span className="text-primary/50 text-xl font-serif ml-0.5 leading-none align-bottom">"</span>
+        <span className="text-[#D4A855] text-2xl font-serif ml-1 leading-none align-bottom not-italic">”</span>
       </p>
 
       {/* 評價者資訊 */}
-      <div className="border-t border-[#EDD5C0] pt-4 flex items-center gap-3">
+      <div className="border-t border-[#D4A855]/20 pt-4 flex items-center gap-3">
         <div
-          className={`w-10 h-10 rounded-full bg-gradient-to-br ${avatarColors[review.id % avatarColors.length]} flex items-center justify-center text-white text-sm font-bold flex-shrink-0 shadow-sm`}
+          className={`w-10 h-10 rounded-full bg-gradient-to-br ${avatarColors[review.id % avatarColors.length]} flex items-center justify-center text-white text-sm font-bold flex-shrink-0 shadow-md ring-2 ring-white ring-offset-1`}
         >
           {review.author.charAt(0)}
         </div>
@@ -109,13 +111,15 @@ function ReviewCard({ review, isActive }: { review: Review; isActive: boolean })
             <p className="text-xs text-foreground/45">{review.date}</p>
           </div>
         </div>
-        <div className="flex-shrink-0 opacity-40">
+        <div className="flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity">
           <GoogleIcon />
         </div>
       </div>
 
-      {/* 懸停光效 */}
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/4 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
+      {/* 懸停光效 - 金色漸層 */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#D4A855]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
+      {/* 底部金色線 */}
+      <div className="absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-[#D4A855]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </div>
   );
 }
