@@ -815,38 +815,58 @@ export default function Home() {
             ].map((item, i) => (
               <div key={i} className={`group reveal ${item.delay}`}>
                 <div
-                  className={`bg-gradient-to-br ${item.cardBg} rounded-3xl p-8 border ${item.cardBorder} hover:shadow-[0_24px_64px_rgba(74,46,26,0.12)] hover:-translate-y-4 transition-all duration-500 h-full relative overflow-hidden`}
+                  className={`bg-gradient-to-br ${item.cardBg} rounded-3xl p-8 border ${item.cardBorder}
+                    hover:shadow-[0_32px_80px_rgba(74,46,26,0.18)]
+                    hover:-translate-y-5
+                    hover:scale-[1.025]
+                    transition-all duration-500 ease-out
+                    h-full relative overflow-hidden cursor-pointer feature-spotlight`}
                 >
-                  {/* 裝飾角落 */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/60 rounded-bl-full" />
-                  <div className="absolute bottom-0 left-0 w-20 h-20 bg-white/40 rounded-tr-full" />
+                  {/* 懸停光斑游動層 */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <div className="absolute -top-20 -left-20 w-64 h-64 bg-white/30 rounded-full blur-3xl group-hover:translate-x-8 group-hover:translate-y-8 transition-transform duration-700" />
+                    <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-white/20 rounded-full blur-2xl group-hover:-translate-x-4 group-hover:-translate-y-4 transition-transform duration-700" />
+                  </div>
 
-                  {/* 標籤 */}
-                  <div className="absolute top-5 right-5">
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${item.badgeColor}`}>
+                  {/* 裝飾角落 */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/60 rounded-bl-full group-hover:w-40 group-hover:h-40 transition-all duration-500" />
+                  <div className="absolute bottom-0 left-0 w-20 h-20 bg-white/40 rounded-tr-full group-hover:w-28 group-hover:h-28 transition-all duration-500" />
+
+                  {/* 標籤：懸停時往上浮動 */}
+                  <div className="absolute top-5 right-5 transition-transform duration-300 group-hover:-translate-y-1">
+                    <span className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm group-hover:shadow-md transition-shadow duration-300 ${item.badgeColor}`}>
                       {item.badge}
                     </span>
                   </div>
 
-                  {/* 圖示 */}
-                  <div className={`feature-card-icon ${item.iconBg} ring-2 ${item.iconRing} mb-6`}>
+                  {/* 圖示：懸停旋轉 + 放大 + 發光外圈 */}
+                  <div
+                    className={`feature-card-icon ${item.iconBg}
+                      ring-2 ${item.iconRing}
+                      mb-6
+                      group-hover:scale-125
+                      group-hover:rotate-12
+                      group-hover:shadow-[0_0_24px_rgba(232,137,106,0.35)]
+                      group-hover:ring-4
+                      transition-all duration-400 ease-out`}
+                  >
                     {item.emoji}
                   </div>
 
-                  {/* 標題 */}
-                  <h3 className="text-xl font-bold mb-3 text-foreground font-display tracking-wide">{item.title}</h3>
+                  {/* 標題：懸停時加深 */}
+                  <h3 className="text-xl font-bold mb-3 text-foreground font-display tracking-wide group-hover:text-primary transition-colors duration-300">{item.title}</h3>
 
                   {/* 內容 */}
-                  <p className="text-foreground/65 leading-relaxed text-sm mb-6">{item.text}</p>
+                  <p className="text-foreground/65 leading-relaxed text-sm mb-6 group-hover:text-foreground/80 transition-colors duration-300">{item.text}</p>
 
-                  {/* 統計數字 */}
+                  {/* 統計數字：懸停放大 */}
                   <div className="flex items-center gap-3 pt-5 border-t border-current/10">
-                    <div className="text-2xl font-bold text-gradient-warm font-display">{item.stats.value}</div>
-                    <div className="text-xs text-foreground/50 font-medium">{item.stats.label}</div>
+                    <div className="text-2xl font-bold text-gradient-warm font-display group-hover:text-3xl transition-all duration-300">{item.stats.value}</div>
+                    <div className="text-xs text-foreground/50 font-medium group-hover:text-foreground/70 transition-colors duration-300">{item.stats.label}</div>
                   </div>
 
-                  {/* 懸停底部裝飾線 */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 w-0 group-hover:w-full bg-gradient-to-r from-primary via-accent to-primary/60 rounded-b-3xl transition-all duration-600" />
+                  {/* 懸停底部裝飾線：滑入全寬 */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1.5 w-0 group-hover:w-full bg-gradient-to-r from-primary via-accent to-primary/60 rounded-b-3xl transition-all duration-500" />
                 </div>
               </div>
             ))}

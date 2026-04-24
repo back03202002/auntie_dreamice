@@ -635,3 +635,60 @@
   opacity: 1;
   transform: scale(1) rotate(-6deg);
 }
+
+/* ===== Spotlight 光影掃過動畫 ===== */
+@keyframes light-sweep {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+    opacity: 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(232, 137, 106, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px 6px rgba(232, 137, 106, 0.25);
+  }
+}
+
+/* 特色卡片懸停光掃效果 */
+.feature-spotlight {
+  position: relative;
+  overflow: hidden;
+}
+.feature-spotlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 80%
+  );
+  transform: skewX(-15deg);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+  transition: none;
+}
+.feature-spotlight:hover::before {
+  animation: light-sweep 0.7s ease-out forwards;
+}
+
+/* 圖示框懸停發光脈衝 */
+.group:hover .feature-card-icon {
+  animation: glow-pulse 1.5s ease-in-out infinite;
+}
