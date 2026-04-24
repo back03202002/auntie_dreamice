@@ -206,19 +206,6 @@ export default function Home() {
             </div>
 
             <div className="space-y-6">
-              <Card className="p-8 bg-white border-2 border-primary/20 hover:border-primary/50 transition-all duration-300">
-                <h3 className="text-2xl font-bold text-primary mb-4">品牌故事</h3>
-                <p className="text-foreground/80 leading-relaxed mb-4">
-                  還記得小時候炎炎夏日吃到一口冰就覺得開心的幸福感嗎？小阿姨雪花冰就是在這樣的回憶中誕生的。
-                </p>
-                <p className="text-foreground/80 leading-relaxed mb-4">
-                  這裡是我的夢想冰店，一個充滿溫度和故事的地方。我們相信，每一份甜點都應該帶著用心和溫暖，讓顧客在享受美食的同時，也能感受到那份來自心底的關懷。
-                </p>
-                <p className="text-primary font-semibold text-lg">
-                  小阿姨陪你們找回小時候的幸福時刻 💝
-                </p>
-              </Card>
-
               <Card className="p-8 bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary/20">
                 <h3 className="text-xl font-bold text-primary mb-3">為什麼選擇我們</h3>
                 <div className="space-y-3">
