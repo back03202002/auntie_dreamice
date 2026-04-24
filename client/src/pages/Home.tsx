@@ -179,7 +179,6 @@ export default function Home() {
       ingredients: ["新鮮蝦仁", "透抽", "蟹肉棒", "濃郁起司", "番茄醬底"],
       features: ["海鮮新鮮現點現做", "起司拉絲濃郁", "6吋手工薄脆餅皮"],
       pairing: "搭配檸檬汽水，清爽解膩最佳",
-      sweetness: "鹹食，無甜度調整",
       allergens: "甲殼類（蝦仁）、頭足類（透抽）、乳製品（起司）、麥麩（餅皮）",
     },
     {
@@ -192,7 +191,6 @@ export default function Home() {
       ingredients: ["嫩切牛肉", "融化起司", "洋蔥", "青椒", "洋菇"],
       features: ["牛肉嫩滑多汁", "費城風味獨特", "蔬菜鮮甜爽口"],
       pairing: "搭配可樂或黑啤，肉食控最愛",
-      sweetness: "鹹食，無甜度調整",
       allergens: "牛肉、乳製品（起司）、麥麩（餅皮）",
     },
     {
@@ -205,7 +203,6 @@ export default function Home() {
       ingredients: ["新鮮番茄醬", "莫扎瑞拉起司", "新鮮羅勒葉", "橄欖油", "手工薄脆餅皮"],
       features: ["義式正宗風味", "起司濃郁拉絲", "羅勒清香提味"],
       pairing: "搭配紅茶或義式咖啡，品味義大利風情",
-      sweetness: "鹹食，無甜度調整",
       allergens: "乳製品（起司）、麥麩（餅皮）",
     },
     {
@@ -218,7 +215,6 @@ export default function Home() {
       ingredients: ["天然蜂蜜", "Q彈麻吉", "起司", "奶油", "手工薄脆餅皮"],
       features: ["甜鹹交織獨特", "麻吉Q彈有嚼勁", "蜂蜜香氣濃郁"],
       pairing: "搭配台灣茶或牛奶，甜蜜下午茶首選",
-      sweetness: "偏甜，可請店員調整蜂蜜用量",
       allergens: "乳製品（起司、奶油）、麥麩（餅皮、麻吉）",
     },
   ];
@@ -234,7 +230,6 @@ export default function Home() {
       ingredients: ["新鮮芒果", "手工雪花冰", "滑順布丁", "煉乳", "芒果醬"],
       features: ["當季新鮮芒果", "布丁滑嫩香甜", "雪花冰入口即化"],
       pairing: "搭配熱天午後，清涼消暑最佳",
-      sweetness: "可調整甜度（正常 / 少糖 / 半糖）",
       allergens: "乳製品、雞蛋（布丁）",
     },
     {
@@ -247,7 +242,6 @@ export default function Home() {
       ingredients: ["新鮮草莓", "手工雪花冰", "濃郁奶酪", "草莓醬", "煉乳"],
       features: ["酸甜草莓清爽", "奶酪濃郁滑順", "雙層口感層次"],
       pairing: "搭配下午茶時光，少女心滿滿",
-      sweetness: "可調整甜度（正常 / 少糖 / 半糖）",
       allergens: "乳製品",
     },
     {
@@ -259,7 +253,6 @@ export default function Home() {
       ingredients: ["Oreo餅乾碎", "手工雪花冰", "巧克力布丁", "巧克力醬", "鮮奶油"],
       features: ["巧克力香濃馥郁", "Oreo餅乾酥脆", "布丁滑嫩可口"],
       pairing: "搭配熱咖啡或牛奶，巧克力控必點",
-      sweetness: "可調整甜度（正常 / 少糖 / 半糖）",
       allergens: "乳製品、麥麩（Oreo）、雞蛋（布丁）",
     },
     {
@@ -271,7 +264,6 @@ export default function Home() {
       ingredients: ["自製紅豆", "手工雪花冰", "新鮮牛奶", "煉乳", "仙草凍（可加）"],
       features: ["紅豆鬆軟香甜", "牛奶濃郁滑順", "台灣傳統懷舊風味"],
       pairing: "搭配熱茶或黑糖飲，懷舊感滿滿",
-      sweetness: "可調整甜度（正常 / 少糖 / 半糖）",
       allergens: "乳製品",
     },
     {
@@ -283,7 +275,6 @@ export default function Home() {
       ingredients: ["日式抹茶粉", "自製紅豆", "手工布丁", "奶酪", "手工雪花冰", "煉乳"],
       features: ["抹茶清香微苦", "四層口感豐富", "日式風情特色"],
       pairing: "搭配和風點心或熱抹茶，層次更豐富",
-      sweetness: "可調整甜度（正常 / 少糖 / 半糖）",
       allergens: "乳製品、雞蛋（布丁）",
     },
     {
@@ -295,7 +286,6 @@ export default function Home() {
       ingredients: ["天然仙草", "冰糖糖水", "手工雪花冰", "紅豆（可加）", "粉圓（可加）"],
       features: ["仙草Q彈滑嫩", "天然草本清涼", "低卡健康選擇"],
       pairing: "搭配熱天午後，清涼解渴最佳",
-      sweetness: "可調整甜度（正常 / 少糖 / 半糖 / 無糖）",
       allergens: "無主要過敏原（純素可食）",
     },
   ];
@@ -1608,20 +1598,7 @@ export default function Home() {
               </div>
             )}
 
-            {/* 甜度 */}
-            {selectedMenuItem.sweetness && (
-              <div className="flex items-start gap-3 p-3.5 bg-blue-50 rounded-xl border border-blue-100">
-                <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <span className="text-xs">🧊</span>
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-blue-700 mb-0.5">甜度選擇</div>
-                  <div className="text-xs text-blue-600/80">{selectedMenuItem.sweetness}</div>
-                </div>
-              </div>
-            )}
-
-            {/* 建議搭配 */}
+             {/* 建議搭配 */}
             {selectedMenuItem.pairing && (
               <div className="flex items-start gap-3 p-3.5 bg-[#FFF5EE] rounded-xl border border-[#EDD5C0]/60">
                 <div className="w-6 h-6 rounded-full bg-[#FDEBD0] flex items-center justify-center flex-shrink-0 mt-0.5">
