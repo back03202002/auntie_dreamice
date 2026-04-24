@@ -14,7 +14,7 @@ export default function Home() {
       id: 1,
       name: "海鮮總匯披薩",
       price: "$199",
-      description: "新鮮蝦仁、透抽、淡菜搭配濃郁起司，海味十足的經典組合",
+      description: "新鮮蝦仁、透抽搭配濃郁起司，海味十足的經典組合",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/xxgtCHvQRoHPBWcA.jpg",
     },
     {
