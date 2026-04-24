@@ -118,7 +118,7 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/manus-storage/auntie_dreamice_storefront_4b35957b.webp"
+            src="/manus-storage/auntie_dreamice_hero_new_46bdf226.webp"
             alt="小阿姨雪花冰店面"
             className="w-full h-full object-cover"
           />
