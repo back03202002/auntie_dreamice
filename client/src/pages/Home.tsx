@@ -122,7 +122,7 @@ export default function Home() {
           <nav className="hidden md:flex gap-6">
             <a href="#about" className="text-foreground hover:text-primary transition">關於我們</a>
             <a href="#brand" className="text-foreground hover:text-primary transition">品牌故事</a>
-            <a href="#menu" className="text-foreground hover:text-primary transition">菜單</a>
+            <a href="#menu" className="text-foreground hover:text-primary transition">人氣美食介紹</a>
             <a href="#contact" className="text-foreground hover:text-primary transition">聯絡我們</a>
           </nav>
         </div>

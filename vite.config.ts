@@ -205,6 +205,19 @@ function vitePluginStorageProxy(): Plugin {
 
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
+// Get HMR host from environment or use localhost
+const getHmrConfig = () => {
+  const hmrHost = process.env.VITE_HMR_HOST || "localhost";
+  const hmrPort = parseInt(process.env.VITE_HMR_PORT || "3000", 10);
+  const hmrProtocol = process.env.VITE_HMR_PROTOCOL || "ws";
+
+  return {
+    protocol: hmrProtocol,
+    host: hmrHost,
+    port: hmrPort,
+  };
+};
+
 export default defineConfig({
   plugins,
   resolve: {
@@ -235,7 +248,12 @@ export default defineConfig({
     ],
     fs: {
       strict: true,
-      deny: ["**/.*"],
+      deny: ["**/..*"],
+    },
+    hmr: {
+      protocol: "ws",
+      host: "localhost",
+      port: 3000,
     },
   },
 });
