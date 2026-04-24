@@ -268,7 +268,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-3 text-foreground">地址</h3>
               <p className="text-foreground/70 text-sm leading-relaxed">
-                彰化縣線西鄉復興路11-1號<br />
+                <a href="https://maps.app.goo.gl/5K6ehAGyrB6YaQxLA" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition">彰化縣線西鄉復興路11-1號</a><br />
                 <span className="text-xs text-foreground/50 mt-2 block">No. 11-1, Fuxing Rd, Xianxi Township, Changhua County 507, Taiwan</span>
               </p>
             </Card>
