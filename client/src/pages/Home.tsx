@@ -17,28 +17,28 @@ export default function Home() {
       name: "海鮮總匯披薩",
 
       description: "新鮮蝦仁、透抽搭配濃郁起司，海味十足的經典組合",
-      image: "/manus-storage/pizza1_cropped_852d9c47.jpg",
+      image: "/manus-storage/magic_edit#TUFHeVVxS2NHNDQjMSNjZmU4YWI1MzUxZGNhZjEwNWE5ODJlNTQ0OWVmMDljMyM4MDAjI1RSQU5TRk9STUFUSU9OX1JFUVVFU1Q_8f742e97.jpg",
     },
     {
       id: 2,
       name: "費城牛肉披薩",
 
       description: "嫩牛肉搭配起司和洋蔥、青椒、洋菇，咬下去香氣四溢的美味",
-      image: "/manus-storage/pizza2_cropped_f7eee897.jpg",
+      image: "/manus-storage/magic_edit#TUFHeVVvT00zMkkjMSMxYjc4YmZlNTJhNmU5ZmNkM2RmM2EwOGIwZjk3MzRkNyM4MDAjI1RSQU5TRk9STUFUSU9OX1JFUVVFU1Q_da354435.jpg",
     },
     {
       id: 3,
       name: "瑪格麗特披薩",
 
       description: "經典義式披薩，番茄、起司、羅勒的完美組合",
-      image: "/manus-storage/pizza3_cropped_9dd54d1b.jpg",
+      image: "/manus-storage/magic_edit#TUFHeVVqSnZoWTgjMSMzY2UyMGE0MDFlODFmYjBkN2Y5NDcwZmE1ZjcxMzkwMiM4MDAjI1RSQU5TRk9STUFUSU9OX1JFUVVFU1Q_b19014c5.jpg",
     },
     {
       id: 4,
       name: "蜂蜜麻吉披薩",
 
       description: "甜蜜蜂蜜搭配Q彈麻吉，甜鹹交織的獨特風味",
-      image: "/manus-storage/pizza4_cropped_340af597.jpg",
+      image: "/manus-storage/magic_edit#TUFHeVV1d2VGZ3MjMSNlM2FjMzRkMTJhNGJjOGUxYTJjYWY5Njk3NDIwZGMxNyM4MDAjI1RSQU5TRk9STUFUSU9OX1JFUVVFU1Q_4661191a.jpg",
     },
   ];
 
