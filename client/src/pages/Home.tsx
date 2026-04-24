@@ -23,7 +23,7 @@ export default function Home() {
       id: 2,
       name: "費城牛肉披薩",
 
-      description: "嫩牛肉搭配起司和洋蔥青椒洋菇，咬下去肉汁四溢的美味",
+      description: "嫩牛肉搭配起司和洋蔥、青椒、洋菇，咬下去香氣四溢的美味",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/CjkOQbxxCttfQKQW.jpg",
     },
     {
