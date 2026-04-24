@@ -167,6 +167,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Video Introduction Section */}
+      <section className="py-16 md:py-24 bg-secondary/30">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-primary">品牌介紹影片</h2>
+            <p className="text-lg text-foreground/70">觀看小阿姨雪花冰的精彩介紹</p>
+          </div>
+          <div className="flex justify-center">
+            <div className="w-full max-w-2xl aspect-video rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/2vy-hNKVnJs?start=877&end=1010"
+                title="小阿姨雪花冰品牌介紹"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Menu Section */}
       <section id="menu" className="py-16 md:py-24 bg-background">
         <div className="container">
