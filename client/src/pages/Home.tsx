@@ -331,7 +331,7 @@ export default function Home() {
             </div>
             <div>
               <h1 className="text-lg font-bold text-gradient-warm font-display leading-none">小阿姨雪花冰</h1>
-              <p className="text-xs text-foreground/45 font-accent">Auntie Dreamice</p>
+              <p className="brand-english-nav">Auntie Dream ice</p>
             </div>
           </div>
 
@@ -418,6 +418,14 @@ export default function Home() {
               彰化線西 · 手工冰品甜點
             </div>
 
+            {/* 英文品牌名稱動畫 */}
+            <div className="mb-3 animate-fade-in-up" style={{ animationDelay: "0.05s" }}>
+              <span className="brand-english-hero text-3xl md:text-4xl">
+                <span className="word-auntie">Auntie </span>
+                <span className="word-dream">Dream </span>
+                <span className="word-ice">ice</span>
+              </span>
+            </div>
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-5 leading-tight font-display animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
               小阿姨<br />
               <span className="text-[#FFD4B8]">雪花冰</span>
@@ -781,7 +789,7 @@ export default function Home() {
                   <p className="font-accent text-2xl md:text-3xl text-white leading-relaxed mb-2">
                     小阿姨陪你們找回小時候的幸福
                   </p>
-                  <p className="text-white/70 text-sm mt-3">— 小阿姨雪花冰 Auntie Dreamice</p>
+                  <p className="text-white/70 text-sm mt-3">— 小阿姨雪花冰 Auntie Dream ice</p>
                   <div className="flex justify-center mt-5 gap-3">
                     {["💝", "🍧", "✨", "🌸", "💝"].map((e, i) => (
                       <span key={i} className="text-xl animate-float" style={{ animationDelay: `${i * 0.3}s` }}>{e}</span>
@@ -1408,7 +1416,7 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/30 flex items-center justify-center text-2xl shadow-lg border border-white/10">🍧</div>
                   <div>
                     <h3 className="text-xl font-bold font-display text-white tracking-wide">小阿姨雪花冰</h3>
-                    <p className="text-xs text-[#D4A855]/70 font-accent tracking-widest">Auntie Dreamice</p>
+                    <p className="text-xs text-[#D4A855]/70 font-accent tracking-widest">Auntie Dream ice</p>
                   </div>
                 </div>
                 <p className="text-white/55 text-sm leading-relaxed mb-5">
@@ -1474,7 +1482,7 @@ export default function Home() {
                   <p className="text-white/35 text-xs tracking-widest uppercase">Since 2020 · Xianxi, Changhua</p>
                   <div className="h-px w-8 bg-gradient-to-l from-[#D4A855]/60 to-transparent" />
                 </div>
-                <p className="text-white/30 text-xs">© 2026 小阿姨雪花冰 · Auntie Dreamice. All rights reserved.</p>
+                <p className="text-white/30 text-xs">© 2026 小阿姨雪花冰 · Auntie Dream ice. All rights reserved.</p>
                 <div className="flex items-center gap-3">
                   <a href="https://www.facebook.com/profile.php?id=100084743760507" target="_blank" rel="noopener noreferrer"
                     className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-white/40 hover:text-[#D4A855] hover:border-[#D4A855]/40 transition-all duration-200">

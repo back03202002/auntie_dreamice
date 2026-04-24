@@ -1280,3 +1280,77 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* ===== Auntie Dream ice 品牌英文動畫 ===== */
+@keyframes letterReveal {
+  0%   { opacity: 0; transform: translateY(30px) rotateX(-90deg); filter: blur(4px); }
+  60%  { opacity: 1; transform: translateY(-4px) rotateX(8deg); filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0) rotateX(0deg); filter: blur(0); }
+}
+
+@keyframes brandGlow {
+  0%, 100% { text-shadow: 0 0 20px rgba(212,168,85,0.4), 0 0 40px rgba(212,168,85,0.2); }
+  50%       { text-shadow: 0 0 30px rgba(212,168,85,0.7), 0 0 60px rgba(212,168,85,0.4), 0 0 80px rgba(255,200,120,0.2); }
+}
+
+@keyframes shimmerText {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes floatBrand {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+.brand-english-hero {
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, #FFE8C8 0%, #FFD4A0 25%, #F0C878 50%, #FFD4A0 75%, #FFE8C8 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerText 3s linear infinite, floatBrand 4s ease-in-out infinite;
+}
+
+.brand-english-hero .word-auntie,
+.brand-english-hero .word-dream,
+.brand-english-hero .word-ice {
+  display: inline-block;
+}
+
+.brand-english-hero .word-ice {
+  font-style: normal;
+  font-weight: 900;
+  background: linear-gradient(135deg, #B0E8FF 0%, #80D4FF 40%, #60C8F8 60%, #B0E8FF 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerText 2.5s linear infinite reverse, floatBrand 4s ease-in-out infinite 0.5s;
+  text-shadow: none;
+}
+
+/* 導航欄小字版 */
+.brand-english-nav {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  background: linear-gradient(90deg, #C0623A, #D4A855, #C0623A);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerText 4s linear infinite;
+}
+
+/* 字母逐一入場動畫 */
+.letter-animate {
+  display: inline-block;
+  animation: letterReveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}

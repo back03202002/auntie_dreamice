@@ -1,4 +1,4 @@
-# robots.txt for 小阿姨雪花冰 - Auntie Dreamice
+# robots.txt for 小阿姨雪花冰 - Auntie Dream ice
 # Allow all search engines to crawl the site
 
 User-agent: *

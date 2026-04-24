@@ -10,7 +10,7 @@ export function SEOSchema() {
     "@type": "LocalBusiness",
     "@id": "https://auntiedream-ef5gsx5p.manus.space",
     "name": "小阿姨雪花冰",
-    "alternateName": "Auntie Dreamice",
+    "alternateName": "Auntie Dream ice",
     "description": "彰化線西最受歡迎的雪花冰專賣店，精選新鮮水果、手工披薩、冰品菜單。提供新鮮芒果、草莓、Oreo、紅豆等多種雪花冰選擇。",
     "url": "https://auntiedream-ef5gsx5p.manus.space",
     "telephone": "+886-4-755-6840",

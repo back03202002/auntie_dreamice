@@ -96,7 +96,7 @@ export default function HomeModern() {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full" style={{ backgroundColor: "#1a2d4d" }}></div>
-            <h1 className="text-2xl font-bold" style={{ color: "#1a2d4d" }}>Auntie Dreamice</h1>
+            <h1 className="text-2xl font-bold" style={{ color: "#1a2d4d" }}>Auntie Dream ice</h1>
           </div>
           <nav className="hidden md:flex gap-8">
             <a href="#story" className="text-sm font-medium" style={{ color: "#1a2d4d" }}>品牌故事</a>
@@ -137,7 +137,7 @@ export default function HomeModern() {
             <div>
               <img 
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/modern_hero_banner-2977QsiMsN7SDPaTo8WGMP.webp"
-                alt="Auntie Dreamice"
+                alt="Auntie Dream ice"
                 className="w-full rounded-lg shadow-lg"
               />
             </div>
