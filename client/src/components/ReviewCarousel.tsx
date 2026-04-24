@@ -1,13 +1,17 @@
 /**
- * 評價輪播元件 - 升級版
- * 展示顧客評價並支援自動輪播和手動導航
- * 加入溫暖視覺設計和豐富互動效果
+ * 評價輪播元件 - 強化版
+ * 功能：
+ * - 流暢 CSS transition 滑入/滑出動畫
+ * - 桌面：3 卡並排 | 平板：2 卡 | 手機：1 卡全寬
+ * - 自動輪播（5 秒）+ 懸停暫停
+ * - 進度條顯示自動輪播倒數
+ * - 左右箭頭 + 分頁指示點手動切換
+ * - 觸控/滑鼠拖曳滑動支援
  */
 
-import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Review } from '@/lib/reviews';
+import { useState, useEffect, useRef, useCallback } from "react";
+import { ChevronLeft, ChevronRight, Quote, Pause, Play } from "lucide-react";
+import { Review } from "@/lib/reviews";
 
 interface ReviewCarouselProps {
   reviews: Review[];
@@ -15,14 +19,14 @@ interface ReviewCarouselProps {
   autoPlayInterval?: number;
 }
 
-// 星星評分元件
+// 星星評分
 function StarRating({ rating }: { rating: number }) {
   return (
     <div className="flex items-center gap-0.5">
       {Array.from({ length: 5 }).map((_, i) => (
         <svg
           key={i}
-          className={`w-4 h-4 ${i < rating ? "text-[#FFD700]" : "text-gray-200"}`}
+          className={`w-4 h-4 transition-colors ${i < rating ? "text-[#FFD700]" : "text-gray-200"}`}
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -33,7 +37,7 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-// 頭像顏色對應
+// 頭像漸層色
 const avatarColors = [
   "from-rose-400 to-pink-500",
   "from-orange-400 to-amber-500",
@@ -45,197 +49,376 @@ const avatarColors = [
   "from-teal-400 to-cyan-500",
 ];
 
-export function ReviewCarousel({ 
-  reviews, 
+// Google 圖示
+function GoogleIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-5 h-5">
+      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+    </svg>
+  );
+}
+
+// 單張評價卡片
+function ReviewCard({ review, isActive }: { review: Review; isActive: boolean }) {
+  return (
+    <div
+      className={`group relative bg-white rounded-2xl p-6 border transition-all duration-500 overflow-hidden flex flex-col h-full ${
+        isActive
+          ? "border-primary/30 shadow-[0_8px_32px_rgba(74,46,26,0.12)]"
+          : "border-[#EDD5C0] shadow-[0_4px_20px_rgba(74,46,26,0.06)]"
+      }`}
+    >
+      {/* 裝飾背景角 */}
+      <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-bl from-primary/6 to-transparent rounded-bl-full pointer-events-none" />
+
+      {/* 大引號裝飾 */}
+      <div className="absolute top-3 right-4 opacity-8 pointer-events-none">
+        <Quote className="w-12 h-12 text-primary fill-primary/20" />
+      </div>
+
+      {/* 星評 */}
+      <div className="mb-3">
+        <StarRating rating={review.rating} />
+      </div>
+
+      {/* 評價內容 */}
+      <p className="text-foreground/72 text-sm leading-relaxed flex-1 relative z-10 mb-5">
+        <span className="text-primary/50 text-xl font-serif mr-0.5 leading-none align-top">"</span>
+        {review.content}
+        <span className="text-primary/50 text-xl font-serif ml-0.5 leading-none align-bottom">"</span>
+      </p>
+
+      {/* 評價者資訊 */}
+      <div className="border-t border-[#EDD5C0] pt-4 flex items-center gap-3">
+        <div
+          className={`w-10 h-10 rounded-full bg-gradient-to-br ${avatarColors[review.id % avatarColors.length]} flex items-center justify-center text-white text-sm font-bold flex-shrink-0 shadow-sm`}
+        >
+          {review.author.charAt(0)}
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="font-semibold text-foreground text-sm truncate">{review.author}</p>
+          <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+            {review.badge && (
+              <span className="inline-block px-2 py-0.5 bg-primary/10 text-primary text-xs rounded-full font-medium">
+                {review.badge}
+              </span>
+            )}
+            <p className="text-xs text-foreground/45">{review.date}</p>
+          </div>
+        </div>
+        <div className="flex-shrink-0 opacity-40">
+          <GoogleIcon />
+        </div>
+      </div>
+
+      {/* 懸停光效 */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/4 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
+    </div>
+  );
+}
+
+export function ReviewCarousel({
+  reviews,
   itemsPerView = 3,
-  autoPlayInterval = 5000 
+  autoPlayInterval = 5000,
 }: ReviewCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
-
-  const getVisibleItems = () => {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth < 768) return 1;
-      if (window.innerWidth < 1024) return 2;
-    }
-    return itemsPerView;
-  };
-
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<"left" | "right">("right");
+  const [isAnimating, setIsAnimating] = useState(false);
   const [visibleItems, setVisibleItems] = useState(itemsPerView);
+
+  // 拖曳狀態（觸控 + 滑鼠）
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+  const isDragging = useRef(false);
+  const mouseStartX = useRef<number | null>(null);
+  const isMouseDragging = useRef(false);
+  const progressTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const progressRef = useRef(0);
+
+  // 響應式卡片數量
+  const getVisibleItems = useCallback(() => {
+    if (typeof window === "undefined") return itemsPerView;
+    if (window.innerWidth < 768) return 1;
+    if (window.innerWidth < 1024) return 2;
+    return itemsPerView;
+  }, [itemsPerView]);
 
   useEffect(() => {
     setVisibleItems(getVisibleItems());
     const handleResize = () => setVisibleItems(getVisibleItems());
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [itemsPerView]);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [getVisibleItems]);
 
+  const maxIndex = Math.max(0, reviews.length - visibleItems);
+  const totalDots = maxIndex + 1;
+
+  // 切換到指定頁
+  const goTo = useCallback(
+    (index: number, direction: "left" | "right" = "right") => {
+      if (isAnimating) return;
+      const clamped = Math.max(0, Math.min(index, maxIndex));
+      setSlideDirection(direction);
+      setIsAnimating(true);
+      setCurrentIndex(clamped);
+      // 重置進度條
+      progressRef.current = 0;
+      setProgress(0);
+      setTimeout(() => setIsAnimating(false), 400);
+    },
+    [isAnimating, maxIndex]
+  );
+
+  const handlePrev = useCallback(() => {
+    setIsPlaying(false);
+    goTo(currentIndex === 0 ? maxIndex : currentIndex - 1, "left");
+  }, [currentIndex, maxIndex, goTo]);
+
+  const handleNext = useCallback(() => {
+    setIsPlaying(false);
+    goTo(currentIndex >= maxIndex ? 0 : currentIndex + 1, "right");
+  }, [currentIndex, maxIndex, goTo]);
+
+  const handleDotClick = useCallback(
+    (index: number) => {
+      setIsPlaying(false);
+      goTo(index, index > currentIndex ? "right" : "left");
+    },
+    [currentIndex, goTo]
+  );
+
+  // 自動輪播 + 進度條
   useEffect(() => {
-    if (!isAutoPlay) return;
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => {
-        const maxIndex = Math.max(0, reviews.length - visibleItems);
-        return prev >= maxIndex ? 0 : prev + 1;
-      });
-    }, autoPlayInterval);
-    return () => clearInterval(timer);
-  }, [isAutoPlay, reviews.length, visibleItems, autoPlayInterval]);
+    if (progressTimerRef.current) clearInterval(progressTimerRef.current);
 
-  const handlePrev = () => {
-    setIsAutoPlay(false);
-    setCurrentIndex((prev) => (prev === 0 ? Math.max(0, reviews.length - visibleItems) : prev - 1));
+    if (!isPlaying || isHovered) {
+      return;
+    }
+
+      const step = 100 / (autoPlayInterval / 50); // 每 50ms 更新一次
+    progressTimerRef.current = setInterval(() => {
+      progressRef.current = Math.min(progressRef.current + step, 100);
+      setProgress(progressRef.current);
+
+      if (progressRef.current >= 100) {
+        progressRef.current = 0;
+        setProgress(0);
+        setCurrentIndex((prev) => {
+          const next = prev >= maxIndex ? 0 : prev + 1;
+          setSlideDirection("right");
+          setIsAnimating(true);
+          setTimeout(() => setIsAnimating(false), 400);
+          return next;
+        });
+      }
+    }, 50);
+
+    return () => {
+      if (progressTimerRef.current) clearInterval(progressTimerRef.current);
+    };
+  }, [isPlaying, isHovered, autoPlayInterval, maxIndex]);
+
+  // 滑鼠拖曳事件
+  const handleMouseDown = (e: React.MouseEvent) => {
+    mouseStartX.current = e.clientX;
+    isMouseDragging.current = false;
   };
 
-  const handleNext = () => {
-    setIsAutoPlay(false);
-    const maxIndex = Math.max(0, reviews.length - visibleItems);
-    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (mouseStartX.current === null) return;
+    if (Math.abs(e.clientX - mouseStartX.current) > 8) {
+      isMouseDragging.current = true;
+    }
   };
 
-  const handleDotClick = (index: number) => {
-    setIsAutoPlay(false);
-    setCurrentIndex(index);
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (!isMouseDragging.current || mouseStartX.current === null) {
+      mouseStartX.current = null;
+      isMouseDragging.current = false;
+      return;
+    }
+    const dx = e.clientX - mouseStartX.current;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0) handleNext();
+      else handlePrev();
+    }
+    mouseStartX.current = null;
+    isMouseDragging.current = false;
   };
 
-  const maxDots = Math.max(1, reviews.length - visibleItems + 1);
+  // 觸控事件
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+    isDragging.current = false;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const dx = e.touches[0].clientX - touchStartX.current;
+    const dy = e.touches[0].clientY - touchStartY.current;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
+      isDragging.current = true;
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!isDragging.current || touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0) handleNext();
+      else handlePrev();
+    }
+    touchStartX.current = null;
+    touchStartY.current = null;
+    isDragging.current = false;
+  };
+
+  // 鍵盤支援
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [handlePrev, handleNext]);
+
   const visibleReviews = reviews.slice(currentIndex, currentIndex + visibleItems);
 
   return (
-    <div className="w-full">
-      <div className="relative px-0 lg:px-16">
-        {/* 評價卡片網格 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-          {visibleReviews.map((review, idx) => (
-            <div
-              key={review.id}
-              className="group relative bg-white rounded-2xl p-6 border border-[#EDD5C0] hover:border-primary/40 transition-all duration-400 hover:-translate-y-2 overflow-hidden"
-              style={{
-                boxShadow: "0 4px 20px rgba(74, 46, 26, 0.06), 0 1px 4px rgba(74, 46, 26, 0.04)",
-                animationDelay: `${idx * 0.1}s`,
-              }}
-            >
-              {/* 裝飾背景 */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full" />
-              
-              {/* 引號裝飾 */}
-              <div className="absolute top-4 right-4 opacity-10">
-                <Quote className="w-10 h-10 text-primary fill-primary" />
-              </div>
-
-              {/* 星評 */}
-              <div className="mb-4">
-                <StarRating rating={review.rating} />
-              </div>
-
-              {/* 評價內容 */}
-              <p className="text-foreground/70 text-sm leading-relaxed mb-5 min-h-[60px] relative z-10">
-                <span className="text-primary/40 text-lg font-serif mr-1">"</span>
-                {review.content}
-                <span className="text-primary/40 text-lg font-serif ml-1">"</span>
-              </p>
-
-              {/* 評價者資訊 */}
-              <div className="border-t border-[#EDD5C0] pt-4 flex items-center gap-3">
-                {/* 頭像 */}
-                <div
-                  className={`w-9 h-9 rounded-full bg-gradient-to-br ${avatarColors[review.id % avatarColors.length]} flex items-center justify-center text-white text-sm font-bold flex-shrink-0 shadow-sm`}
-                >
-                  {review.author.charAt(0)}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-foreground text-sm truncate">{review.author}</p>
-                  <div className="flex items-center gap-2 mt-0.5">
-                    {review.badge && (
-                      <span className="inline-block px-2 py-0.5 bg-primary/10 text-primary text-xs rounded-full font-medium">
-                        {review.badge}
-                      </span>
-                    )}
-                    <p className="text-xs text-foreground/45">{review.date}</p>
-                  </div>
-                </div>
-                {/* Google 圖示 */}
-                <div className="flex-shrink-0 w-6 h-6 opacity-30">
-                  <svg viewBox="0 0 24 24" className="w-full h-full">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                  </svg>
-                </div>
-              </div>
-
-              {/* 懸停光效 */}
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
-            </div>
-          ))}
-        </div>
-
-        {/* 導航箭頭 */}
-        {reviews.length > visibleItems && (
-          <>
-            <button
-              onClick={handlePrev}
-              className="absolute -left-2 lg:-left-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-[#EDD5C0] hover:border-primary hover:bg-primary/5 shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 hidden lg:flex"
-              aria-label="上一頁評價"
-            >
-              <ChevronLeft className="w-5 h-5 text-foreground/60" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="absolute -right-2 lg:-right-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-[#EDD5C0] hover:border-primary hover:bg-primary/5 shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 hidden lg:flex"
-              aria-label="下一頁評價"
-            >
-              <ChevronRight className="w-5 h-5 text-foreground/60" />
-            </button>
-          </>
-        )}
+    <div
+      className="w-full select-none"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* 進度條 */}
+      <div className="relative h-1 bg-[#EDD5C0] rounded-full mb-8 overflow-hidden">
+        <div
+          className="absolute left-0 top-0 h-full bg-gradient-to-r from-primary to-accent rounded-full transition-none"
+          style={{ width: `${progress}%` }}
+        />
       </div>
 
-      {/* 手機版導航按鈕 */}
-      {reviews.length > visibleItems && (
-        <div className="flex justify-center gap-4 mt-6 lg:hidden">
-          <button
-            onClick={handlePrev}
-            className="w-10 h-10 rounded-full bg-white border border-[#EDD5C0] hover:border-primary shadow-sm flex items-center justify-center transition-all"
+      {/* 輪播主體 */}
+      <div className="relative px-0 lg:px-16">
+        {/* 卡片容器 */}
+        <div
+          className="overflow-hidden cursor-grab active:cursor-grabbing"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+        >
+          <div
+            className={`grid gap-5 md:gap-6 transition-all duration-400 ease-out ${
+              visibleItems === 1
+                ? "grid-cols-1"
+                : visibleItems === 2
+                ? "grid-cols-2"
+                : "grid-cols-3"
+            } ${
+              isAnimating
+                ? slideDirection === "right"
+                  ? "animate-slide-in-right"
+                  : "animate-slide-in-left"
+                : ""
+            }`}
           >
-            <ChevronLeft className="w-4 h-4 text-foreground/60" />
-          </button>
-          <button
-            onClick={handleNext}
-            className="w-10 h-10 rounded-full bg-white border border-[#EDD5C0] hover:border-primary shadow-sm flex items-center justify-center transition-all"
-          >
-            <ChevronRight className="w-4 h-4 text-foreground/60" />
-          </button>
+            {visibleReviews.map((review, idx) => (
+              <ReviewCard key={`${review.id}-${currentIndex}`} review={review} isActive={idx === 0} />
+            ))}
+          </div>
         </div>
-      )}
 
-      {/* 分頁指示點 */}
-      {reviews.length > visibleItems && (
-        <div className="flex justify-center gap-2 mt-6">
-          {Array.from({ length: maxDots }).map((_, index) => (
+        {/* 左右箭頭（桌面） */}
+        <button
+          onClick={handlePrev}
+          disabled={isAnimating}
+          className="absolute -left-2 lg:-left-14 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white border-2 border-[#EDD5C0] hover:border-primary hover:bg-primary/5 shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed hidden lg:flex group"
+          aria-label="上一則評價"
+        >
+          <ChevronLeft className="w-5 h-5 text-foreground/50 group-hover:text-primary transition-colors" />
+        </button>
+        <button
+          onClick={handleNext}
+          disabled={isAnimating}
+          className="absolute -right-2 lg:-right-14 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white border-2 border-[#EDD5C0] hover:border-primary hover:bg-primary/5 shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed hidden lg:flex group"
+          aria-label="下一則評價"
+        >
+          <ChevronRight className="w-5 h-5 text-foreground/50 group-hover:text-primary transition-colors" />
+        </button>
+      </div>
+
+      {/* 手機版箭頭 */}
+      <div className="flex justify-center gap-4 mt-6 lg:hidden">
+        <button
+          onClick={handlePrev}
+          className="w-10 h-10 rounded-full bg-white border border-[#EDD5C0] hover:border-primary shadow-sm flex items-center justify-center transition-all active:scale-95"
+          aria-label="上一則評價"
+        >
+          <ChevronLeft className="w-4 h-4 text-foreground/60" />
+        </button>
+        <button
+          onClick={handleNext}
+          className="w-10 h-10 rounded-full bg-white border border-[#EDD5C0] hover:border-primary shadow-sm flex items-center justify-center transition-all active:scale-95"
+          aria-label="下一則評價"
+        >
+          <ChevronRight className="w-4 h-4 text-foreground/60" />
+        </button>
+      </div>
+
+      {/* 分頁指示點 + 播放控制 */}
+      <div className="flex items-center justify-center gap-4 mt-6">
+        {/* 播放/暫停按鈕 */}
+        <button
+          onClick={() => setIsPlaying((p) => !p)}
+          className="w-8 h-8 rounded-full bg-white border border-[#EDD5C0] hover:border-primary hover:bg-primary/5 shadow-sm flex items-center justify-center transition-all duration-300 hover:scale-110"
+          aria-label={isPlaying ? "暫停輪播" : "繼續輪播"}
+        >
+          {isPlaying ? (
+            <Pause className="w-3.5 h-3.5 text-primary" />
+          ) : (
+            <Play className="w-3.5 h-3.5 text-primary ml-0.5" />
+          )}
+        </button>
+
+        {/* 分頁指示點 */}
+        <div className="flex items-center gap-2">
+          {Array.from({ length: totalDots }).map((_, index) => (
             <button
               key={index}
               onClick={() => handleDotClick(index)}
               className={`rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? 'w-8 h-2 bg-primary'
-                  : 'w-2 h-2 bg-[#EDD5C0] hover:bg-primary/50'
+                  ? "w-8 h-2.5 bg-gradient-to-r from-primary to-accent"
+                  : "w-2.5 h-2.5 bg-[#EDD5C0] hover:bg-primary/50 hover:scale-110"
               }`}
-              aria-label={`前往評價第 ${index + 1} 頁`}
+              aria-label={`前往第 ${index + 1} 組評價`}
             />
           ))}
         </div>
-      )}
 
-      {/* 自動播放控制 */}
-      <div className="text-center mt-4">
-        <button
-          onClick={() => setIsAutoPlay(!isAutoPlay)}
-          className="text-xs text-foreground/40 hover:text-primary transition-colors px-3 py-1 rounded-full hover:bg-primary/5"
-        >
-          {isAutoPlay ? "⏸ 暫停輪播" : "▶ 繼續輪播"}
-        </button>
+        {/* 計數 */}
+        <span className="text-xs text-foreground/40 tabular-nums">
+          {currentIndex + 1} / {totalDots}
+        </span>
       </div>
+
+      {/* 滑動提示（手機） */}
+      <p className="text-center text-xs text-foreground/35 mt-3 lg:hidden">
+        ← 左右滑動切換評價 →
+      </p>
     </div>
   );
 }
