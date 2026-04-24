@@ -313,6 +313,72 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* Customer Reviews Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-background">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-primary">⭐ 顧客評價</h2>
+            <p className="text-lg text-foreground/70">來自真實顧客的溫暖回饋</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {/* Review 1 */}
+            <Card className="p-6 bg-white border border-border hover:shadow-lg transition-all duration-300">
+              <div className="flex items-center mb-4">
+                <div className="flex text-yellow-400">
+                  {'⭐⭐⭐⭐⭐'.split('').map((star, i) => <span key={i}>{star}</span>)}
+                </div>
+              </div>
+              <p className="text-foreground/80 text-sm leading-relaxed mb-4">
+                "新鮮芒果雪花冰只要99元，還附上統一布丁。芒果非常多，真的很划算！"
+              </p>
+              <div className="border-t border-border pt-4">
+                <p className="font-semibold text-foreground text-sm">林姿秀</p>
+                <p className="text-xs text-foreground/60">Local Guide · 8個月前</p>
+              </div>
+            </Card>
+
+            {/* Review 2 */}
+            <Card className="p-6 bg-white border border-border hover:shadow-lg transition-all duration-300">
+              <div className="flex items-center mb-4">
+                <div className="flex text-yellow-400">
+                  {'⭐⭐⭐⭐⭐'.split('').map((star, i) => <span key={i}>{star}</span>)}
+                </div>
+              </div>
+              <p className="text-foreground/80 text-sm leading-relaxed mb-4">
+                "雪花冰入口即化，配料豐富，非常划算。擺盤也很獨特，老闆人非常親切！"
+              </p>
+              <div className="border-t border-border pt-4">
+                <p className="font-semibold text-foreground text-sm">杜育芯</p>
+                <p className="text-xs text-foreground/60">2年前</p>
+              </div>
+            </Card>
+
+            {/* Review 3 */}
+            <Card className="p-6 bg-white border border-border hover:shadow-lg transition-all duration-300">
+              <div className="flex items-center mb-4">
+                <div className="flex text-yellow-400">
+                  {'⭐⭐⭐⭐⭐'.split('').map((star, i) => <span key={i}>{star}</span>)}
+                </div>
+              </div>
+              <p className="text-foreground/80 text-sm leading-relaxed mb-4">
+                "芒果雪花冰只要99元！便宜、好吃，份量超大！老闆也很親切，會再來！😍"
+              </p>
+              <div className="border-t border-border pt-4">
+                <p className="font-semibold text-foreground text-sm">林家瑩</p>
+                <p className="text-xs text-foreground/60">Local Guide · 9個月前</p>
+              </div>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-foreground/70 text-sm">
+              ⭐ 4.9 星評分 (55則評價) · 在 Google 地圖上查看更多評價
+            </p>
+          </div>
+        </div>
+      </section>
       {/* Footer */}
       <footer className="bg-primary text-primary-foreground py-8">
         <div className="container text-center">
