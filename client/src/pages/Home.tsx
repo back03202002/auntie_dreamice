@@ -205,34 +205,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="space-y-6">
-              <Card className="p-8 bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary/20">
-                <h3 className="text-xl font-bold text-primary mb-3">為什麼選擇我們</h3>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <span className="text-2xl">🥭</span>
-                    <div>
-                      <p className="font-semibold text-foreground">新鮮食材</p>
-                      <p className="text-sm text-foreground/70">每日精選，嚴格把關</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-2xl">❄️</span>
-                    <div>
-                      <p className="font-semibold text-foreground">細膩雪花冰</p>
-                      <p className="text-sm text-foreground/70">入口即化的絕妙口感</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-2xl">💝</span>
-                    <div>
-                      <p className="font-semibold text-foreground">用心服務</p>
-                      <p className="text-sm text-foreground/70">把每位顧客當作家人</p>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </div>
+
           </div>
         </div>
       </section>
@@ -330,7 +303,7 @@ export default function Home() {
       <section id="menu" className="py-16 md:py-24 bg-background">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">🍧 冰品菜單</h2>
+            <h2 className="text-4xl font-bold mb-4">🍧 冰品</h2>
             <p className="text-lg text-foreground/70">精選冰品，每一口都是幸福的滋味</p>
             <p className="text-foreground/60 mt-3">
               我們的冰品菜單精心設計，每一款都經過反覆調整，只為呈現最完美的風味組合。從經典必點到創意新作，都能找到您心頭好。
