@@ -68,3 +68,10 @@
 - [x] 統計數字：懸停時數字放大 + 顏色加深
 - [x] 底部色條：懸停時從左滑入全寬彩色漸層線
 - [x] CSS：加入 spotlight 光影動畫 keyframes
+
+## 品牌故事背景圖（2026-04-24）
+
+- [x] 從 Google Maps 連結取得店家實景照片
+- [x] 上傳至 webdev 靜態儲存（/manus-storage/store_photo_b4b014c2.jpg）
+- [x] 插入品牌故事區域作為全版背景圖（object-cover）
+- [x] 加入 88-90% 奶油色漸層遮罩，圖片若隱若現且文字清晰可讀

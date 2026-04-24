@@ -599,8 +599,8 @@ export default function Home() {
             className="w-full h-full object-cover object-center"
           />
         </div>
-        {/* 半透明遮罩：保留溫暖色調並讓文字清晰可讀 */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FFF5EE]/88 via-[#FDF6F0]/85 to-[#FFF5EE]/90" />
+        {/* 半透明遮罩：降低透明度讓圖片更明顯，同時保留文字可讀性 */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FFF5EE]/68 via-[#FDF6F0]/65 to-[#FFF5EE]/70" />
         {/* 大裝飾引號 */}
         <div className="absolute top-4 left-4 md:top-10 md:left-10 text-[160px] md:text-[200px] text-primary/5 font-display leading-none select-none pointer-events-none" style={{ fontFamily: 'Georgia, serif' }}>“</div>
         <div className="absolute bottom-4 right-4 md:bottom-10 md:right-10 text-[160px] md:text-[200px] text-primary/5 font-display leading-none select-none pointer-events-none rotate-180" style={{ fontFamily: 'Georgia, serif' }}>“</div>
@@ -628,14 +628,14 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             {/* 手寫風格引言區塊 */}
             <div className="reveal mb-14">
-              <div className="relative bg-gradient-to-br from-white/80 to-[#FFF5EE] backdrop-blur-sm rounded-3xl border border-primary/15 shadow-[0_8px_40px_rgba(232,137,106,0.12)] overflow-hidden">
+              <div className="relative bg-gradient-to-br from-white/92 to-[#FFF5EE]/95 backdrop-blur-md rounded-3xl border border-primary/20 shadow-[0_8px_40px_rgba(232,137,106,0.18)] overflow-hidden">
                 {/* 裝飾左側色條 */}
                 <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-primary via-accent to-primary/50 rounded-l-3xl" />
                 {/* 大引號裝飾 */}
                 <div className="absolute -top-2 left-8 text-7xl text-primary/20 font-display leading-none select-none" style={{ fontFamily: 'Georgia, serif' }}>“</div>
                 <div className="absolute -bottom-4 right-8 text-7xl text-primary/20 font-display leading-none select-none rotate-180" style={{ fontFamily: 'Georgia, serif' }}>“</div>
                 <div className="px-10 py-10 md:py-12">
-                  <p className="font-accent text-2xl md:text-3xl text-primary leading-relaxed text-center">
+                  <p className="font-accent text-2xl md:text-3xl text-[#A84F2A] leading-relaxed text-center font-bold drop-shadow-sm">
                     還記得小時候炎炎夏日吃到一口冰
                     <br className="hidden md:block" />
                     就覺得開心的幸福感嗎？
@@ -677,12 +677,12 @@ export default function Home() {
                         <span className="absolute w-2.5 h-2.5 rounded-full bg-gradient-to-br from-primary to-accent" />
                       </div>
                       {/* 內容 */}
-                      <div className="bg-white/70 rounded-2xl p-5 border border-primary/10 hover:border-primary/25 hover:shadow-md transition-all duration-300">
+                      <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-5 border border-primary/15 hover:border-primary/30 hover:shadow-md transition-all duration-300">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-xl">{item.emoji}</span>
-                          <h4 className="font-bold text-foreground font-display text-base">{item.title}</h4>
+                          <h4 className="font-bold text-[#3D1F0A] font-display text-base">{item.title}</h4>
                         </div>
-                        <p className="text-foreground/65 text-sm leading-relaxed">{item.text}</p>
+                        <p className="text-[#5A3A1A]/85 text-sm leading-relaxed">{item.text}</p>
                       </div>
                     </div>
                   ))}
@@ -691,22 +691,22 @@ export default function Home() {
 
               {/* 右欄：文字內容 */}
               <div className="reveal reveal-right space-y-6">
-                <div className="bg-white/60 rounded-2xl p-6 border border-primary/10 hover:border-primary/20 hover:shadow-md transition-all duration-300">
-                  <p className="text-foreground/72 leading-relaxed">
-                    無論是經典的芒果布丁、新鮮的草莓奶酪，還是特色的蜂蜜麺吉披薩，每一款都是我們對美食的執著和對顧客的尊重。
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-primary/15 hover:border-primary/25 hover:shadow-md transition-all duration-300">
+                  <p className="text-[#5A3A1A]/90 leading-relaxed font-medium">
+                    無論是經典的芒果布丁、新鮮的草莓奶酪，還是特色的蜂蜜麻吉披薩，每一款都是我們對美食的執著和對顧客的尊重。
                   </p>
                 </div>
-                <div className="bg-white/60 rounded-2xl p-6 border border-primary/10 hover:border-primary/20 hover:shadow-md transition-all duration-300">
-                  <p className="text-foreground/72 leading-relaxed">
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-primary/15 hover:border-primary/25 hover:shadow-md transition-all duration-300">
+                  <p className="text-[#5A3A1A]/90 leading-relaxed font-medium">
                     在彰化線西，我們用最溫暖的服務和最用心的製作，為每一位顧客創造獨特的美食體驗。每一次的相遇，都是一份幸福的開始。
                   </p>
                 </div>
                 {/* 小裝飾卡 */}
-                <div className="bg-gradient-to-br from-primary/8 to-accent/8 rounded-2xl p-5 border border-primary/15 flex items-center gap-4">
+                <div className="bg-white/85 backdrop-blur-sm rounded-2xl p-5 border border-primary/20 flex items-center gap-4">
                   <div className="text-4xl animate-heartbeat">🍧</div>
                   <div>
-                    <p className="font-bold text-foreground font-display text-sm">位於彰化線西</p>
-                    <p className="text-foreground/55 text-xs mt-0.5">週二至週日 12:00–21:00 營業</p>
+                    <p className="font-bold text-[#3D1F0A] font-display text-sm">位於彰化線西</p>
+                    <p className="text-[#5A3A1A]/70 text-xs mt-0.5">週二至週日 12:00–21:00 營業</p>
                   </div>
                 </div>
               </div>
