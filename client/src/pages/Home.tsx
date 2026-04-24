@@ -525,7 +525,7 @@ export default function Home() {
               {/* 標籤 */}
               <div className="reveal inline-flex items-center gap-2 px-4 py-1.5 bg-white/15 backdrop-blur-sm rounded-full border border-white/30 text-white/90 text-sm font-medium mb-8">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D4A855] animate-pulse" />
-                我們的故事 · Since 2020
+                我們的故事
               </div>
               {/* 主標題 */}
               <h2 className="reveal reveal-delay-1 font-display font-bold leading-tight mb-6">
@@ -547,7 +547,7 @@ export default function Home() {
                 {[
                   { value: "4.9★", label: "Google 評分" },
                   { value: "55+", label: "顧客好評" },
-                  { value: "2020", label: "創立年份" },
+
                   { value: "100%", label: "新鮮食材" },
                 ].map((s, i) => (
                   <div key={i} className="text-center">
@@ -607,7 +607,7 @@ export default function Home() {
 
               {[
                 {
-                  year: "2020",
+                  year: "起源",
                   side: "left",
                   emoji: "🌱",
                   title: "夢想萌芽",
@@ -1590,7 +1590,7 @@ export default function Home() {
               <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="h-px w-8 bg-gradient-to-r from-[#D4A855]/60 to-transparent" />
-                  <p className="text-white/35 text-xs tracking-widest uppercase">Since 2020 · Xianxi, Changhua</p>
+                  <p className="text-white/35 text-xs tracking-widest uppercase">Xianxi, Changhua</p>
                   <div className="h-px w-8 bg-gradient-to-l from-[#D4A855]/60 to-transparent" />
                 </div>
                 <p className="text-white/30 text-xs">© 2026 小阿姨雪花冰 · Auntie Dream Ice. All rights reserved.</p>
