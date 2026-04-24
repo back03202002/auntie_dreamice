@@ -1092,34 +1092,47 @@ export default function Home() {
       </div>
 
       {/* ===== 為什麼選擇我們 ===== */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
-        {/* 背景 */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FDF6F0] via-[#FFF5EE] to-[#FDF6F0]" />
-        {/* 裝飾元素 */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/3 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-accent/4 rounded-full blur-3xl" />
-        {/* 小點裝飾 */}
-        {["top-16 left-16", "top-1/3 right-20", "bottom-24 left-1/3", "bottom-16 right-1/4"].map((pos, i) => (
-          <div key={i} className={`absolute ${pos} w-2 h-2 rounded-full bg-primary/25 animate-pulse`} style={{ animationDelay: `${i * 0.8}s` }} />
+      <section className="py-20 md:py-36 relative overflow-hidden">
+        {/* 深色背景底層 */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#2C1810] via-[#3D1F0A] to-[#2C1810]" />
+        {/* 大光暈 */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-primary/15 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[400px] bg-accent/10 rounded-full blur-[100px]" />
+        <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[#D4A855]/8 rounded-full blur-[80px]" />
+        {/* 細網格紋理 */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+        {/* 浮動光點 */}
+        {["top-20 left-[10%]", "top-1/3 right-[8%]", "bottom-32 left-[15%]", "bottom-20 right-[20%]", "top-1/2 left-[50%]"].map((pos, i) => (
+          <div key={i} className={`absolute ${pos} w-1.5 h-1.5 rounded-full bg-[#D4A855]/50 animate-pulse`} style={{ animationDelay: `${i * 0.9}s` }} />
         ))}
 
         <div className="container relative z-10">
           {/* 標題 */}
-          <div className="text-center mb-16 md:mb-20">
-            <div className="reveal flex justify-center mb-5">
-              <span className="section-tag">
-                <Sparkles className="w-3 h-3" />
+          <div className="text-center mb-16 md:mb-24">
+            <div className="reveal flex justify-center mb-6">
+              <span className="inline-flex items-center gap-2 px-5 py-2 bg-[#D4A855]/15 border border-[#D4A855]/30 rounded-full text-[#D4A855] text-sm font-semibold tracking-widest backdrop-blur-sm">
+                <Sparkles className="w-3.5 h-3.5" />
                 我們的特色
               </span>
             </div>
-            <h2 className="reveal reveal-delay-1 text-4xl md:text-5xl lg:text-6xl font-bold mb-5 font-display text-gradient-warm leading-tight">
-              為什麼選擇小阿姨
+            <h2 className="reveal reveal-delay-1 text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display leading-tight">
+              <span className="text-white">為什麼選擇</span>
+              <span className="block" style={{
+                background: 'linear-gradient(135deg, #FFE8C8, #F0C878, #D4A855, #F0C878, #FFE8C8)',
+                backgroundSize: '200% auto',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                animation: 'shimmerText 4s linear infinite',
+              }}>小阿姨雪花冰</span>
             </h2>
-            <p className="reveal reveal-delay-2 text-lg text-foreground/60 max-w-2xl mx-auto leading-relaxed">
+            <p className="reveal reveal-delay-2 text-lg text-white/55 max-w-2xl mx-auto leading-relaxed">
               我們的承諾與堅持，讓每一口都是幸福的滋味
             </p>
-            <div className="reveal reveal-delay-3 mt-6 flex justify-center">
-              <div className="h-0.5 w-20 bg-gradient-to-r from-primary to-accent rounded-full" />
+            <div className="reveal reveal-delay-3 mt-8 flex justify-center items-center gap-3">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#D4A855]/60" />
+              <div className="w-2 h-2 rounded-full bg-[#D4A855]/70 animate-pulse" />
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#D4A855]/60" />
             </div>
           </div>
 
@@ -1128,65 +1141,53 @@ export default function Home() {
             {[
               {
                 emoji: "🥭",
-                iconBg: "bg-gradient-to-br from-orange-100 to-amber-50",
-                iconRing: "ring-orange-200",
+                glowColor: "rgba(251,146,60,0.25)",
+                accentColor: "#FB923C",
+                borderColor: "rgba(251,146,60,0.25)",
                 title: "嚴選新鮮食材",
                 text: "每日精選新鮮水果，嚴格把關食材品質。我們相信，好的冰品從好的食材開始，絕不妥協。",
                 badge: "每日新鮮",
-                badgeColor: "bg-orange-100 text-orange-700",
-                cardBg: "from-[#FFFBF5] to-[#FFF5E8]",
-                cardBorder: "border-orange-100",
-                expandBorder: "border-orange-300",
-                expandBg: "bg-orange-50/80",
                 stats: { value: "100%", label: "新鮮食材" },
                 delay: "",
                 details: [
-                  { icon: "✅", text: "每日清晨精選當季新鮮水果，保證最佳品質" },
-                  { icon: "✅", text: "不使用人工色素與保存劑，食材天然健康" },
-                  { icon: "✅", text: "直接向小農家合作選購，確保食材新鮮直送" },
-                  { icon: "✅", text: "季節限定食材定期更新，帶來不同驚喜" },
+                  "每日清晨精選當季新鮮水果，保證最佳品質",
+                  "不使用人工色素與保存劑，食材天然健康",
+                  "直接向小農家合作選購，確保食材新鮮直送",
+                  "季節限定食材定期更新，帶來不同驚喜",
                 ],
               },
               {
                 emoji: "❄️",
-                iconBg: "bg-gradient-to-br from-sky-100 to-blue-50",
-                iconRing: "ring-sky-200",
+                glowColor: "rgba(56,189,248,0.25)",
+                accentColor: "#38BDF8",
+                borderColor: "rgba(56,189,248,0.25)",
                 title: "細致雪花冰技術",
                 text: "採用專業製冰技術，呈現入口即化的絕妙口感。每一口都是綿密的幸福，讓您感受真正的冰品藝術。",
                 badge: "入口即化",
-                badgeColor: "bg-sky-100 text-sky-700",
-                cardBg: "from-[#F5FBFF] to-[#EBF5FF]",
-                cardBorder: "border-sky-100",
-                expandBorder: "border-sky-300",
-                expandBg: "bg-sky-50/80",
                 stats: { value: "10+", label: "精選冰品" },
                 delay: "reveal-delay-2",
                 details: [
-                  { icon: "❄️", text: "雪花冰絲細絕美，入口即化不粉不粘" },
-                  { icon: "❄️", text: "專業製冰機器精準控溫，確保每一碗都達到最佳狀態" },
-                  { icon: "❄️", text: "每一碗冰品現做現賣，保證最佳新鮮口感" },
-                  { icon: "❄️", text: "可客製甜度，滿足不同年齡顧客的口味需求" },
+                  "雪花冰絲細絕美，入口即化不粉不粘",
+                  "專業製冰機器精準控溫，確保每一磗都達到最佳狀態",
+                  "每一磗冰品現做現賣，保證最佳新鮮口感",
+                  "可客製甜度，滿足不同年齡顧客的口味需求",
                 ],
               },
               {
                 emoji: "💝",
-                iconBg: "bg-gradient-to-br from-rose-100 to-pink-50",
-                iconRing: "ring-rose-200",
+                glowColor: "rgba(251,113,133,0.25)",
+                accentColor: "#FB7185",
+                borderColor: "rgba(251,113,133,0.25)",
                 title: "溫暖用心服務",
-                text: "我們把每位顧客都當作家人，用溫暖的笑容和細心的服務，為您創造最舒適的用餐體驗。",
+                text: "我們把每位顧客都當作家人，用溫暖的笑容和細心的服務，為您創造最舐適的用餐體驗。",
                 badge: "如家溫暖",
-                badgeColor: "bg-rose-100 text-rose-700",
-                cardBg: "from-[#FFF5F7] to-[#FFE8EC]",
-                cardBorder: "border-rose-100",
-                expandBorder: "border-rose-300",
-                expandBg: "bg-rose-50/80",
                 stats: { value: "4.9★", label: "顧客評分" },
                 delay: "reveal-delay-4",
                 details: [
-                  { icon: "💝", text: "小阿姨親自接待，用家人般的溫暖對待每位顧客" },
-                  { icon: "💝", text: "記得顧客偏好，常客光臨店就如回家" },
-                  { icon: "💝", text: "小朋友、長輩年齡均歡迎，每一位顧客都是家人" },
-                  { icon: "💝", text: "定期推出限定優惠，回饋常客有驚喜" },
+                  "小阿姨親自接待，用家人般的溫暖對待每位顧客",
+                  "記得顧客偏好，常客光臨店就如回家",
+                  "小朋友、長輩年齡均歡迎，每一位顧客都是家人",
+                  "定期推出限定優惠，回饵常客有驚喜",
                 ],
               },
             ].map((item, i) => {
@@ -1195,59 +1196,75 @@ export default function Home() {
               <div key={i} className={`group reveal ${item.delay}`}>
                 <div
                   onClick={() => toggleFeature(i)}
-                  className={`bg-gradient-to-br ${item.cardBg} rounded-3xl border
-                    transition-all duration-500 ease-out
-                    relative overflow-hidden cursor-pointer feature-spotlight select-none
-                    ${
-                      isExpanded
-                        ? `${item.expandBorder} shadow-[0_24px_60px_rgba(74,46,26,0.22)] -translate-y-2 scale-[1.015]`
-                        : `${item.cardBorder} hover:shadow-[0_32px_80px_rgba(74,46,26,0.18)] hover:-translate-y-5 hover:scale-[1.025]`
-                    }`}
+                  className="relative rounded-3xl cursor-pointer select-none transition-all duration-500 ease-out overflow-hidden"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 100%)',
+                    border: `1px solid ${isExpanded ? item.accentColor + '60' : 'rgba(255,255,255,0.12)'}`,
+                    backdropFilter: 'blur(20px)',
+                    boxShadow: isExpanded
+                      ? `0 32px 80px ${item.glowColor}, 0 0 0 1px ${item.accentColor}30, inset 0 1px 0 rgba(255,255,255,0.15)`
+                      : 'inset 0 1px 0 rgba(255,255,255,0.08)',
+                    transform: isExpanded ? 'translateY(-8px) scale(1.02)' : undefined,
+                  }}
                 >
-                  {/* 懸停光斑游動層 */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <div className="absolute -top-20 -left-20 w-64 h-64 bg-white/30 rounded-full blur-3xl group-hover:translate-x-8 group-hover:translate-y-8 transition-transform duration-700" />
-                    <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-white/20 rounded-full blur-2xl group-hover:-translate-x-4 group-hover:-translate-y-4 transition-transform duration-700" />
-                  </div>
-
-                  {/* 裝飾角落 */}
-                  <div className={`absolute top-0 right-0 w-32 h-32 bg-white/60 rounded-bl-full transition-all duration-500 ${isExpanded ? 'w-40 h-40' : 'group-hover:w-40 group-hover:h-40'}`} />
-                  <div className={`absolute bottom-0 left-0 w-20 h-20 bg-white/40 rounded-tr-full transition-all duration-500 ${isExpanded ? 'w-28 h-28' : 'group-hover:w-28 group-hover:h-28'}`} />
+                  {/* 懸停光暈效果 */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl"
+                    style={{ boxShadow: `0 0 80px ${item.glowColor}` }}
+                  />
+                  {/* 頂部彩色線條 */}
+                  <div
+                    className="absolute top-0 left-0 right-0 h-0.5 rounded-t-3xl"
+                    style={{ background: `linear-gradient(90deg, transparent, ${item.accentColor}, transparent)`, opacity: isExpanded ? 1 : 0.4 }}
+                  />
+                  {/* 角落裝飾光暈 */}
+                  <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-10" style={{ background: item.accentColor, filter: 'blur(40px)' }} />
 
                   {/* 主要內容區 */}
                   <div className="relative p-8">
                     {/* 標籤 + 展開指示 */}
                     <div className="absolute top-5 right-5 flex items-center gap-2">
-                      <span className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ${item.badgeColor}`}>
+                      <span
+                        className="px-3 py-1 rounded-full text-xs font-semibold"
+                        style={{ background: item.accentColor + '20', color: item.accentColor, border: `1px solid ${item.accentColor}40` }}
+                      >
                         {item.badge}
                       </span>
-                      <div className={`w-6 h-6 rounded-full bg-white/80 flex items-center justify-center shadow-sm transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
-                        <ChevronDown className="w-3.5 h-3.5 text-foreground/60" />
+                      <div
+                        className={`w-6 h-6 rounded-full flex items-center justify-center transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                        style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}
+                      >
+                        <ChevronDown className="w-3.5 h-3.5 text-white/60" />
                       </div>
                     </div>
 
                     {/* 圖示 */}
                     <div
-                      className={`feature-card-icon ${item.iconBg}
-                        ring-2 ${item.iconRing}
-                        mb-6
-                        transition-all duration-400 ease-out
-                        ${isExpanded ? 'scale-110 rotate-6 shadow-[0_0_20px_rgba(232,137,106,0.3)] ring-4' : 'group-hover:scale-125 group-hover:rotate-12 group-hover:shadow-[0_0_24px_rgba(232,137,106,0.35)] group-hover:ring-4'}`}
+                      className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-6 transition-all duration-400 ease-out
+                        ${isExpanded ? 'scale-110 rotate-6' : 'group-hover:scale-125 group-hover:rotate-12'}`}
+                      style={{
+                        background: `linear-gradient(135deg, ${item.accentColor}25, ${item.accentColor}10)`,
+                        border: `2px solid ${item.accentColor}35`,
+                        boxShadow: isExpanded ? `0 0 24px ${item.accentColor}40` : undefined,
+                      }}
                     >
                       {item.emoji}
                     </div>
 
                     {/* 標題 */}
-                    <h3 className={`text-xl font-bold mb-3 font-display tracking-wide transition-colors duration-300 ${isExpanded ? 'text-primary' : 'text-foreground group-hover:text-primary'}`}>{item.title}</h3>
+                    <h3 className="text-xl font-bold mb-3 font-display tracking-wide text-white">{item.title}</h3>
 
                     {/* 簡介文字 */}
-                    <p className={`leading-relaxed text-sm mb-5 transition-colors duration-300 ${isExpanded ? 'text-foreground/75' : 'text-foreground/65 group-hover:text-foreground/80'}`}>{item.text}</p>
+                    <p className="leading-relaxed text-sm mb-5 text-white/55">{item.text}</p>
 
                     {/* 統計數字 */}
-                    <div className="flex items-center gap-3 pt-4 border-t border-current/10">
-                      <div className={`font-bold text-gradient-warm font-display transition-all duration-300 ${isExpanded ? 'text-3xl' : 'text-2xl group-hover:text-3xl'}`}>{item.stats.value}</div>
-                      <div className={`text-xs font-medium transition-colors duration-300 ${isExpanded ? 'text-foreground/65' : 'text-foreground/50 group-hover:text-foreground/70'}`}>{item.stats.label}</div>
-                      <div className="ml-auto text-xs text-foreground/40 font-medium">
+                    <div className="flex items-center gap-3 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                      <div
+                        className={`font-bold font-display transition-all duration-300 ${isExpanded ? 'text-3xl' : 'text-2xl group-hover:text-3xl'}`}
+                        style={{ color: item.accentColor }}
+                      >{item.stats.value}</div>
+                      <div className="text-xs font-medium text-white/40">{item.stats.label}</div>
+                      <div className="ml-auto text-xs text-white/30 font-medium">
                         {isExpanded ? '點擊收合' : '點擊了解更多'}
                       </div>
                     </div>
@@ -1262,21 +1279,35 @@ export default function Home() {
                       overflow: 'hidden',
                     }}
                   >
-                    <div className={`mx-5 mb-5 rounded-2xl border ${item.expandBorder} ${item.expandBg} backdrop-blur-sm p-5`}>
-                      <p className="text-xs font-semibold text-foreground/50 uppercase tracking-widest mb-3">我們的承諾</p>
+                    <div
+                      className="mx-5 mb-5 rounded-2xl p-5"
+                      style={{
+                        background: `linear-gradient(135deg, ${item.accentColor}12, ${item.accentColor}06)`,
+                        border: `1px solid ${item.accentColor}30`,
+                      }}
+                    >
+                      <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: item.accentColor + 'aa' }}>我們的承諾</p>
                       <ul className="space-y-2.5">
                         {item.details.map((d, di) => (
-                          <li key={di} className="flex items-start gap-2.5 text-sm text-foreground/75 leading-relaxed">
-                            <span className="text-base flex-shrink-0 mt-0.5">{d.icon}</span>
-                            <span>{d.text}</span>
+                          <li key={di} className="flex items-start gap-2.5 text-sm text-white/65 leading-relaxed">
+                            <div className="w-4 h-4 rounded-full flex-shrink-0 mt-0.5 flex items-center justify-center" style={{ background: item.accentColor + '30' }}>
+                              <div className="w-1.5 h-1.5 rounded-full" style={{ background: item.accentColor }} />
+                            </div>
+                            <span>{d}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
 
-                  {/* 展開時底部色條（常駐顯示） */}
-                  <div className={`absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary via-accent to-primary/60 rounded-b-3xl transition-all duration-500 ${isExpanded ? 'opacity-100' : 'opacity-0 w-0 group-hover:opacity-100 group-hover:w-full'}`} />
+                  {/* 展開時底部色條 */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-1 rounded-b-3xl transition-all duration-500"
+                    style={{
+                      background: `linear-gradient(90deg, transparent, ${item.accentColor}, transparent)`,
+                      opacity: isExpanded ? 1 : 0,
+                    }}
+                  />
                 </div>
               </div>
               );
@@ -1457,126 +1488,169 @@ export default function Home() {
       </section>
 
        {/* ===== 聯絡我們 ===== */}
-      <section id="contact" className="py-16 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0">
+      <section id="contact" className="py-20 md:py-36 relative overflow-hidden">
+        {/* 深色背景 */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1A0D06] via-[#2C1810] to-[#1A0D06]" />
+        {/* 背景圖片深色疊加 */}
+        <div className="absolute inset-0 opacity-15">
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/contact_section_bg-QFP7d7rxXTUbFLv3XWvdpn.webp"
-            alt="聯絡背景"
+            alt=""
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-white/85 backdrop-blur-sm" />
         </div>
+        {/* 光暈 */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[300px] bg-[#D4A855]/8 rounded-full blur-[80px]" />
+        {/* 細點裝飾 */}
+        {["top-16 left-[15%]", "top-1/3 right-[12%]", "bottom-20 left-[25%]", "bottom-12 right-[18%]"].map((pos, i) => (
+          <div key={i} className={`absolute ${pos} w-1 h-1 rounded-full bg-[#D4A855]/40 animate-pulse`} style={{ animationDelay: `${i * 1.1}s` }} />
+        ))}
 
         <div className="relative container z-10">
-          <SectionHeader
-            tag="聯絡資訊"
-            title="歡迎蒞臨小阿姨"
-            subtitle="位於彰化線西，期待與您分享每一份甜蜜時光"
-          />
+          {/* 標題 */}
+          <div className="text-center mb-16 md:mb-20">
+            <div className="reveal flex justify-center mb-6">
+              <span className="inline-flex items-center gap-2 px-5 py-2 bg-[#D4A855]/15 border border-[#D4A855]/30 rounded-full text-[#D4A855] text-sm font-semibold tracking-widest backdrop-blur-sm">
+                <MapPin className="w-3.5 h-3.5" />
+                聯絡資訊
+              </span>
+            </div>
+            <h2 className="reveal reveal-delay-1 text-4xl md:text-5xl font-bold mb-5 font-display text-white leading-tight">
+              歡迎蒞臨
+              <span className="block" style={{
+                background: 'linear-gradient(135deg, #FFE8C8, #F0C878, #D4A855)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>小阿姨雪花冰</span>
+            </h2>
+            <p className="reveal reveal-delay-2 text-white/50 max-w-xl mx-auto leading-relaxed">位於彰化線西，期待與您分享每一份甜蜜時光</p>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
+          {/* 三欄聯絡卡片 */}
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto mb-14">
             {[
               {
                 icon: <MapPin className="w-6 h-6" />,
                 title: "店面地址",
-                content: (
-                  <>
-                    <a
-                      href="https://maps.app.goo.gl/5K6ehAGyrB6YaQxLA"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline font-semibold block mb-1"
-                    >
-                      彰化縣線西鄉復興路11-1號
-                    </a>
-                    <span className="text-xs text-foreground/45">Xianxi Township, Changhua County</span>
-                  </>
-                ),
-                emoji: "📍",
-                bg: "from-orange-50 to-amber-50",
+                accentColor: "#FB923C",
+                mainText: "彰化縣線西鄉復興路11-1號",
+                mainHref: "https://maps.app.goo.gl/5K6ehAGyrB6YaQxLA",
+                subText: "Xianxi Township, Changhua County",
               },
               {
                 icon: <Phone className="w-6 h-6" />,
                 title: "聯絡電話",
-                content: (
-                  <>
-                    <a href="tel:+886475568406" className="text-primary hover:underline font-semibold block mb-1">
-                      +886 4 755 6840
-                    </a>
-                    <span className="text-xs text-foreground/45">現在暫時關閉，敬請期待重新開幕</span>
-                  </>
-                ),
-                emoji: "📞",
-                bg: "from-blue-50 to-sky-50",
+                accentColor: "#38BDF8",
+                mainText: "+886 4 755 6840",
+                mainHref: "tel:+886475568406",
+                subText: "現在暫時關閉，敬請期待重新開幕",
               },
               {
                 icon: <Facebook className="w-6 h-6" />,
                 title: "追蹤我們",
-                content: (
-                  <>
-                    <a
-                      href="https://www.facebook.com/profile.php?id=100084743760507&mibextid=ZbWKwL"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline font-semibold block mb-1"
-                    >
-                      Facebook 粉絲專頁
-                    </a>
-                    <span className="text-xs text-foreground/45">獲得最新消息和優惠資訊</span>
-                  </>
-                ),
-                emoji: "💙",
-                bg: "from-indigo-50 to-blue-50",
+                accentColor: "#818CF8",
+                mainText: "Facebook 粉絲專頁",
+                mainHref: "https://www.facebook.com/profile.php?id=100084743760507&mibextid=ZbWKwL",
+                subText: "獲得最新消息和優惠資訊",
               },
             ].map((card, i) => (
               <div
                 key={i}
-                className="group relative bg-white rounded-2xl p-7 border border-[#EDD5C0]/60 hover:border-[#D4A855]/40 hover:shadow-[0_16px_48px_rgba(74,46,26,0.12),0_0_0_1px_rgba(212,168,85,0.15)] hover:-translate-y-2 transition-all duration-400 text-center overflow-hidden"
+                className="group relative rounded-3xl p-7 text-center overflow-hidden transition-all duration-500 hover:-translate-y-3 reveal"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 100%)',
+                  border: '1px solid rgba(255,255,255,0.10)',
+                  backdropFilter: 'blur(20px)',
+                  animationDelay: `${i * 0.15}s`,
+                }}
               >
-                {/* 頂部金色線 */}
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#D4A855]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                {/* 背景漸層 */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${card.bg} opacity-60 rounded-2xl`} />
-                {/* 角落裝飾 */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#D4A855]/10 to-transparent rounded-bl-full" />
+                {/* 懸停光暈 */}
+                <div
+                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{ boxShadow: `0 0 60px ${card.accentColor}30` }}
+                />
+                {/* 頂部彩色線 */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-0.5 rounded-t-3xl"
+                  style={{ background: `linear-gradient(90deg, transparent, ${card.accentColor}, transparent)`, opacity: 0.5 }}
+                />
+                {/* 角落光暈 */}
+                <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full" style={{ background: card.accentColor, filter: 'blur(40px)', opacity: 0.08 }} />
+
                 <div className="relative z-10">
-                  {/* 金色圖示框 */}
-                  <div className="w-14 h-14 rounded-2xl bg-white border border-[#D4A855]/25 flex items-center justify-center mx-auto mb-4 text-primary shadow-[0_4px_16px_rgba(212,168,85,0.15)] group-hover:shadow-[0_8px_24px_rgba(212,168,85,0.25)] group-hover:scale-110 transition-all duration-300">
+                  {/* 圖示圈 */}
+                  <div
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5 transition-all duration-400 group-hover:scale-110"
+                    style={{
+                      background: `linear-gradient(135deg, ${card.accentColor}25, ${card.accentColor}10)`,
+                      border: `2px solid ${card.accentColor}35`,
+                      color: card.accentColor,
+                      boxShadow: `0 8px 24px ${card.accentColor}20`,
+                    }}
+                  >
                     {card.icon}
                   </div>
-                  <h3 className="text-lg font-bold mb-3 text-foreground font-display group-hover:text-primary transition-colors duration-300">{card.title}</h3>
-                  <div className="text-sm text-foreground/70 leading-relaxed">{card.content}</div>
-                  {/* 底部金色線 */}
-                  <div className="mt-5 h-px bg-gradient-to-r from-transparent via-[#D4A855]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <h3 className="text-lg font-bold mb-4 font-display text-white">{card.title}</h3>
+                  <a
+                    href={card.mainHref}
+                    target={card.mainHref.startsWith('http') ? '_blank' : undefined}
+                    rel={card.mainHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="font-semibold block mb-2 transition-colors duration-200 hover:opacity-80"
+                    style={{ color: card.accentColor }}
+                  >
+                    {card.mainText}
+                  </a>
+                  <p className="text-xs text-white/35 leading-relaxed">{card.subText}</p>
+                  {/* 底部裝飾線 */}
+                  <div
+                    className="mt-5 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: `linear-gradient(90deg, transparent, ${card.accentColor}50, transparent)` }}
+                  />
                 </div>
               </div>
             ))}
           </div>
 
           {/* Google Maps 嵌入 */}
-          <div className="mt-12 max-w-4xl mx-auto">
-            <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-white/60">
+          <div className="max-w-4xl mx-auto reveal">
+            <div
+              className="relative rounded-3xl overflow-hidden"
+              style={{
+                border: '1px solid rgba(212,168,85,0.25)',
+                boxShadow: '0 32px 80px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)',
+              }}
+            >
+              {/* 地圖框頂部裝飾列 */}
+              <div className="flex items-center gap-3 px-5 py-3" style={{ background: 'rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(212,168,85,0.15)' }}>
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-400/60" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-400/60" />
+                  <div className="w-3 h-3 rounded-full bg-green-400/60" />
+                </div>
+                <span className="text-xs text-white/40 font-mono">maps.google.com · 小阿姨雪花冰</span>
+                <a
+                  href="https://maps.app.goo.gl/5K6ehAGyrB6YaQxLA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-auto flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg transition-all duration-200 hover:opacity-80"
+                  style={{ background: 'rgba(212,168,85,0.2)', color: '#D4A855', border: '1px solid rgba(212,168,85,0.3)' }}
+                >
+                  <MapPin className="w-3 h-3" />
+                  開啟地圖
+                </a>
+              </div>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.3!2d120.4!3d24.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346f3b3b3b3b3b3b%3A0x0!2z5bGx5YyX57aT5YWJ5YyW5YWJ5YyW!5e0!3m2!1szh-TW!2stw!4v1234567890"
                 width="100%"
-                height="280"
-                style={{ border: 0 }}
+                height="300"
+                style={{ border: 0, display: 'block' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="小阿姨雪花冰位置"
-                className="w-full"
               />
-              {/* 地圖遮罩按鈕 */}
-              <a
-                href="https://maps.app.goo.gl/5K6ehAGyrB6YaQxLA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute bottom-4 right-4 btn-warm text-sm inline-flex items-center gap-2 px-4 py-2"
-              >
-                <MapPin className="w-4 h-4" />
-                在 Google Maps 開啟
-              </a>
             </div>
           </div>
         </div>
@@ -1590,31 +1664,74 @@ export default function Home() {
       </div>
 
       {/* ===== 顧客評價 ===== */}
-      <section className="py-16 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FFF5EE] via-background to-[#FFF5EE]" />
-        {/* 裝飾星星 */}
-        {["top-8 left-12", "top-16 right-20", "bottom-12 left-24", "bottom-8 right-16"].map((pos, i) => (
-          <div key={i} className={`absolute ${pos} text-2xl opacity-15 animate-sparkle`} style={{ animationDelay: `${i * 0.7}s` }}>⭐</div>
+      <section className="py-20 md:py-36 relative overflow-hidden">
+        {/* 深色背景 */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FFF5EE] via-[#FDF6F0] to-[#FFF5EE]" />
+        {/* 大光暈裝飾 */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-primary/6 rounded-full blur-[80px]" />
+        {/* 浮動星星 */}
+        {[
+          { pos: "top-12 left-[8%]", size: "text-3xl", delay: 0 },
+          { pos: "top-20 right-[10%]", size: "text-2xl", delay: 0.8 },
+          { pos: "bottom-16 left-[20%]", size: "text-xl", delay: 1.5 },
+          { pos: "bottom-10 right-[15%]", size: "text-3xl", delay: 0.4 },
+          { pos: "top-1/2 left-[5%]", size: "text-lg", delay: 1.2 },
+        ].map((s, i) => (
+          <div key={i} className={`absolute ${s.pos} ${s.size} opacity-20 animate-sparkle select-none`} style={{ animationDelay: `${s.delay}s` }}>⭐</div>
         ))}
 
         <div className="container relative z-10">
-          <SectionHeader
-            tag="顧客回饋"
-            title="⭐ 真實顧客評價"
-            subtitle="每一個評價都是我們持續進步的動力，感謝所有顧客的信任與支持"
-          />
+          {/* 標題 */}
+          <div className="text-center mb-16 md:mb-20">
+            <div className="reveal flex justify-center mb-6">
+              <span className="section-tag">
+                <Star className="w-3.5 h-3.5 fill-current" />
+                顧客回饋
+              </span>
+            </div>
+            <h2 className="reveal reveal-delay-1 text-4xl md:text-5xl font-bold mb-5 font-display text-gradient-warm leading-tight">
+              真實顧客評價
+            </h2>
+            <p className="reveal reveal-delay-2 text-foreground/55 max-w-2xl mx-auto leading-relaxed">
+              每一個評價都是我們持續進步的動力，感謝所有顧客的信任與支持
+            </p>
+            {/* 評分統計橫幅 */}
+            <div className="reveal reveal-delay-3 mt-8 flex justify-center">
+              <div
+                className="inline-flex items-center gap-4 px-8 py-4 rounded-2xl"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(212,168,85,0.12), rgba(212,168,85,0.06))',
+                  border: '1px solid rgba(212,168,85,0.25)',
+                  boxShadow: '0 8px 32px rgba(212,168,85,0.1)',
+                }}
+              >
+                <div className="flex">
+                  {[1,2,3,4,5].map(i => (
+                    <Star key={i} className="w-5 h-5 fill-[#FFD700] text-[#FFD700]" />
+                  ))}
+                </div>
+                <div className="h-5 w-px bg-[#D4A855]/30" />
+                <span className="text-foreground/70 text-sm font-semibold">4.9 星評分</span>
+                <div className="h-5 w-px bg-[#D4A855]/30" />
+                <span className="text-foreground/55 text-sm">55則 Google 評價</span>
+              </div>
+            </div>
+          </div>
 
           <ReviewCarousel reviews={reviews} itemsPerView={3} autoPlayInterval={5000} />
 
-          <div className="text-center mt-10">
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/70 backdrop-blur-sm rounded-full border border-warm shadow-sm">
-              <div className="flex">
-                {[1,2,3,4,5].map(i => (
-                  <Star key={i} className="w-4 h-4 fill-[#FFD700] text-[#FFD700]" />
-                ))}
-              </div>
-              <span className="text-foreground/70 text-sm font-medium">4.9 星評分 · 55則 Google 評價</span>
-            </div>
+          {/* 底部 CTA */}
+          <div className="text-center mt-12">
+            <a
+              href="https://maps.app.goo.gl/5K6ehAGyrB6YaQxLA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 hover:opacity-70"
+              style={{ color: '#D4A855' }}
+            >
+              <Star className="w-4 h-4 fill-current" />
+              在 Google Maps 留下您的評價
+            </a>
           </div>
         </div>
       </section>

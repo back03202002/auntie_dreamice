@@ -1,5 +1,5 @@
 /**
- * 評價輪播元件 - 強化版
+ * 評價輪播元件 - 精品玻璃卡片版
  * 功能：
  * - 流暢 CSS transition 滑入/滑出動畫
  * - 桌面：3 卡並排 | 平板：2 卡 | 手機：1 卡全寬
@@ -10,7 +10,7 @@
  */
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { ChevronLeft, ChevronRight, Quote, Pause, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { Review } from "@/lib/reviews";
 
 interface ReviewCarouselProps {
@@ -39,20 +39,20 @@ function StarRating({ rating }: { rating: number }) {
 
 // 頭像漸層色
 const avatarColors = [
-  "from-rose-400 to-pink-500",
-  "from-orange-400 to-amber-500",
-  "from-emerald-400 to-teal-500",
-  "from-violet-400 to-purple-500",
-  "from-sky-400 to-blue-500",
-  "from-fuchsia-400 to-pink-500",
-  "from-amber-400 to-orange-500",
-  "from-teal-400 to-cyan-500",
+  ["#FF6B6B", "#FF8E53"],
+  ["#FF9A3C", "#FFD166"],
+  ["#06D6A0", "#1B9AAA"],
+  ["#7B2FBE", "#A855F7"],
+  ["#3B82F6", "#06B6D4"],
+  ["#EC4899", "#F43F5E"],
+  ["#F59E0B", "#EF4444"],
+  ["#14B8A6", "#06B6D4"],
 ];
 
 // Google 圖示
 function GoogleIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="w-5 h-5">
+    <svg viewBox="0 0 24 24" className="w-4 h-4">
       <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
       <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
       <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
@@ -61,65 +61,92 @@ function GoogleIcon() {
   );
 }
 
-// 單張評價卡片
+// 單張評價卡片 - 精品玻璃風格
 function ReviewCard({ review, isActive }: { review: Review; isActive: boolean }) {
+  const colors = avatarColors[review.id % avatarColors.length];
   return (
     <div
-      className={`group relative bg-white rounded-2xl p-6 border transition-all duration-500 overflow-hidden flex flex-col h-full cursor-default ${
-        isActive
-          ? "border-[#D4A855]/40 shadow-[0_12px_40px_rgba(74,46,26,0.14),0_0_0_1px_rgba(212,168,85,0.15)]"
-          : "border-[#EDD5C0]/70 shadow-[0_4px_20px_rgba(74,46,26,0.06)] hover:shadow-[0_8px_32px_rgba(74,46,26,0.12)] hover:border-[#D4A855]/30 hover:-translate-y-1"
-      }`}
+      className="group relative rounded-2xl p-6 overflow-hidden flex flex-col h-full cursor-default transition-all duration-500"
+      style={{
+        background: isActive
+          ? 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,248,240,0.95) 100%)'
+          : 'linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,248,240,0.85) 100%)',
+        border: isActive
+          ? '1px solid rgba(212,168,85,0.45)'
+          : '1px solid rgba(237,213,192,0.7)',
+        boxShadow: isActive
+          ? '0 16px 48px rgba(74,46,26,0.14), 0 0 0 1px rgba(212,168,85,0.15)'
+          : '0 4px 20px rgba(74,46,26,0.07)',
+        backdropFilter: 'blur(12px)',
+        transform: isActive ? 'translateY(-2px)' : undefined,
+      }}
     >
-      {/* 裝飾背景角 - 金色漸層 */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#D4A855]/8 via-[#D4A855]/4 to-transparent rounded-bl-full pointer-events-none" />
       {/* 頂部金色線 */}
-      <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-[#D4A855]/40 to-transparent" />
-      {/* 大引號裝飾 - 金色 */}
-      <div className="absolute top-3 right-4 pointer-events-none">
-        <Quote className="w-14 h-14 text-[#D4A855] fill-[#D4A855]/12 opacity-70" />
+      <div
+        className="absolute top-0 left-6 right-6 h-px"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(212,168,85,0.5), transparent)' }}
+      />
+      {/* 角落裝飾 */}
+      <div
+        className="absolute top-0 right-0 w-28 h-28 rounded-bl-full pointer-events-none"
+        style={{ background: 'linear-gradient(225deg, rgba(212,168,85,0.08), transparent)' }}
+      />
+
+      {/* 大引號裝飾 */}
+      <div className="absolute top-3 right-4 pointer-events-none select-none">
+        <span style={{ fontSize: '4rem', lineHeight: 1, color: 'rgba(212,168,85,0.15)', fontFamily: 'Georgia, serif' }}>"</span>
       </div>
 
-      {/* 星評 + 評分數字 */}
+      {/* 星評 */}
       <div className="mb-3 flex items-center gap-2">
         <StarRating rating={review.rating} />
-        <span className="text-xs font-bold text-[#D4A855]">{review.rating}.0</span>
+        <span className="text-xs font-bold" style={{ color: '#D4A855' }}>{review.rating}.0</span>
       </div>
 
       {/* 評價內容 */}
-      <p className="text-foreground/75 text-sm leading-relaxed flex-1 relative z-10 mb-5 italic">
-        <span className="text-[#D4A855] text-2xl font-serif mr-1 leading-none align-top not-italic">“</span>
+      <p className="text-sm leading-relaxed flex-1 relative z-10 mb-5 italic" style={{ color: 'rgba(44,24,16,0.75)' }}>
+        <span className="text-2xl font-serif mr-1 leading-none align-top not-italic" style={{ color: '#D4A855' }}>"</span>
         {review.content}
-        <span className="text-[#D4A855] text-2xl font-serif ml-1 leading-none align-bottom not-italic">”</span>
+        <span className="text-2xl font-serif ml-1 leading-none align-bottom not-italic" style={{ color: '#D4A855' }}>"</span>
       </p>
 
       {/* 評價者資訊 */}
-      <div className="border-t border-[#D4A855]/20 pt-4 flex items-center gap-3">
+      <div className="pt-4 flex items-center gap-3" style={{ borderTop: '1px solid rgba(212,168,85,0.2)' }}>
         <div
-          className={`w-10 h-10 rounded-full bg-gradient-to-br ${avatarColors[review.id % avatarColors.length]} flex items-center justify-center text-white text-sm font-bold flex-shrink-0 shadow-md ring-2 ring-white ring-offset-1`}
+          className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 shadow-md"
+          style={{
+            background: `linear-gradient(135deg, ${colors[0]}, ${colors[1]})`,
+            boxShadow: `0 4px 12px ${colors[0]}40`,
+          }}
         >
           {review.author.charAt(0)}
         </div>
         <div className="flex-1 min-w-0">
-          <p className="font-semibold text-foreground text-sm truncate">{review.author}</p>
+          <p className="font-semibold text-sm truncate" style={{ color: 'rgba(44,24,16,0.85)' }}>{review.author}</p>
           <div className="flex items-center gap-2 mt-0.5 flex-wrap">
             {review.badge && (
-              <span className="inline-block px-2 py-0.5 bg-primary/10 text-primary text-xs rounded-full font-medium">
+              <span className="inline-block px-2 py-0.5 text-xs rounded-full font-medium" style={{ background: 'rgba(232,137,106,0.12)', color: '#C0623A' }}>
                 {review.badge}
               </span>
             )}
-            <p className="text-xs text-foreground/45">{review.date}</p>
+            <p className="text-xs" style={{ color: 'rgba(44,24,16,0.4)' }}>{review.date}</p>
           </div>
         </div>
-        <div className="flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity">
+        <div className="flex-shrink-0 opacity-50 hover:opacity-100 transition-opacity">
           <GoogleIcon />
         </div>
       </div>
 
-      {/* 懸停光效 - 金色漸層 */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#D4A855]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
+      {/* 懸停光效 */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl"
+        style={{ background: 'linear-gradient(to top, rgba(212,168,85,0.05), transparent)' }}
+      />
       {/* 底部金色線 */}
-      <div className="absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-[#D4A855]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div
+        className="absolute bottom-0 left-6 right-6 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(212,168,85,0.35), transparent)' }}
+      />
     </div>
   );
 }
@@ -172,7 +199,6 @@ export function ReviewCarousel({
       setSlideDirection(direction);
       setIsAnimating(true);
       setCurrentIndex(clamped);
-      // 重置進度條
       progressRef.current = 0;
       setProgress(0);
       setTimeout(() => setIsAnimating(false), 400);
@@ -201,12 +227,9 @@ export function ReviewCarousel({
   // 自動輪播 + 進度條
   useEffect(() => {
     if (progressTimerRef.current) clearInterval(progressTimerRef.current);
+    if (!isPlaying || isHovered) return;
 
-    if (!isPlaying || isHovered) {
-      return;
-    }
-
-      const step = 100 / (autoPlayInterval / 50); // 每 50ms 更新一次
+    const step = 100 / (autoPlayInterval / 50);
     progressTimerRef.current = setInterval(() => {
       progressRef.current = Math.min(progressRef.current + step, 100);
       setProgress(progressRef.current);
@@ -304,10 +327,13 @@ export function ReviewCarousel({
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* 進度條 */}
-      <div className="relative h-1 bg-[#EDD5C0] rounded-full mb-8 overflow-hidden">
+      <div className="relative h-1 rounded-full mb-8 overflow-hidden" style={{ background: 'rgba(212,168,85,0.15)' }}>
         <div
-          className="absolute left-0 top-0 h-full bg-gradient-to-r from-primary to-accent rounded-full transition-none"
-          style={{ width: `${progress}%` }}
+          className="absolute left-0 top-0 h-full rounded-full transition-none"
+          style={{
+            width: `${progress}%`,
+            background: 'linear-gradient(90deg, #D4A855, #F0C878)',
+          }}
         />
       </div>
 
@@ -349,7 +375,8 @@ export function ReviewCarousel({
         <button
           onClick={handlePrev}
           disabled={isAnimating}
-          className="absolute -left-2 lg:-left-14 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white border-2 border-[#EDD5C0] hover:border-primary hover:bg-primary/5 shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed hidden lg:flex group"
+          className="absolute -left-2 lg:-left-14 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed hidden lg:flex group"
+          style={{ background: 'white', border: '2px solid rgba(237,213,192,0.8)' }}
           aria-label="上一則評價"
         >
           <ChevronLeft className="w-5 h-5 text-foreground/50 group-hover:text-primary transition-colors" />
@@ -357,7 +384,8 @@ export function ReviewCarousel({
         <button
           onClick={handleNext}
           disabled={isAnimating}
-          className="absolute -right-2 lg:-right-14 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white border-2 border-[#EDD5C0] hover:border-primary hover:bg-primary/5 shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed hidden lg:flex group"
+          className="absolute -right-2 lg:-right-14 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed hidden lg:flex group"
+          style={{ background: 'white', border: '2px solid rgba(237,213,192,0.8)' }}
           aria-label="下一則評價"
         >
           <ChevronRight className="w-5 h-5 text-foreground/50 group-hover:text-primary transition-colors" />
@@ -368,14 +396,16 @@ export function ReviewCarousel({
       <div className="flex justify-center gap-4 mt-6 lg:hidden">
         <button
           onClick={handlePrev}
-          className="w-10 h-10 rounded-full bg-white border border-[#EDD5C0] hover:border-primary shadow-sm flex items-center justify-center transition-all active:scale-95"
+          className="w-10 h-10 rounded-full shadow-sm flex items-center justify-center transition-all active:scale-95"
+          style={{ background: 'white', border: '1px solid rgba(237,213,192,0.8)' }}
           aria-label="上一則評價"
         >
           <ChevronLeft className="w-4 h-4 text-foreground/60" />
         </button>
         <button
           onClick={handleNext}
-          className="w-10 h-10 rounded-full bg-white border border-[#EDD5C0] hover:border-primary shadow-sm flex items-center justify-center transition-all active:scale-95"
+          className="w-10 h-10 rounded-full shadow-sm flex items-center justify-center transition-all active:scale-95"
+          style={{ background: 'white', border: '1px solid rgba(237,213,192,0.8)' }}
           aria-label="下一則評價"
         >
           <ChevronRight className="w-4 h-4 text-foreground/60" />
@@ -387,7 +417,8 @@ export function ReviewCarousel({
         {/* 播放/暫停按鈕 */}
         <button
           onClick={() => setIsPlaying((p) => !p)}
-          className="w-8 h-8 rounded-full bg-white border border-[#EDD5C0] hover:border-primary hover:bg-primary/5 shadow-sm flex items-center justify-center transition-all duration-300 hover:scale-110"
+          className="w-8 h-8 rounded-full shadow-sm flex items-center justify-center transition-all duration-300 hover:scale-110"
+          style={{ background: 'white', border: '1px solid rgba(237,213,192,0.8)' }}
           aria-label={isPlaying ? "暫停輪播" : "繼續輪播"}
         >
           {isPlaying ? (
@@ -403,26 +434,24 @@ export function ReviewCarousel({
             <button
               key={index}
               onClick={() => handleDotClick(index)}
-              className={`rounded-full transition-all duration-300 ${
-                index === currentIndex
-                  ? "w-8 h-2.5 bg-gradient-to-r from-primary to-accent"
-                  : "w-2.5 h-2.5 bg-[#EDD5C0] hover:bg-primary/50 hover:scale-110"
-              }`}
+              className="rounded-full transition-all duration-300"
+              style={{
+                width: index === currentIndex ? '2rem' : '0.625rem',
+                height: '0.625rem',
+                background: index === currentIndex
+                  ? 'linear-gradient(90deg, #D4A855, #F0C878)'
+                  : 'rgba(212,168,85,0.25)',
+              }}
               aria-label={`前往第 ${index + 1} 組評價`}
             />
           ))}
         </div>
 
         {/* 計數 */}
-        <span className="text-xs text-foreground/40 tabular-nums">
+        <span className="text-xs tabular-nums" style={{ color: 'rgba(44,24,16,0.4)' }}>
           {currentIndex + 1} / {totalDots}
         </span>
       </div>
-
-      {/* 滑動提示（手機） */}
-      <p className="text-center text-xs text-foreground/35 mt-3 lg:hidden">
-        ← 左右滑動切換評價 →
-      </p>
     </div>
   );
 }
