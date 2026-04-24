@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
+  <url>
+    <loc>https://auntie-dreamice.manus.space/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/hero_banner-nPiGZtp9N3i3Bi3iwsyvub.webp</image:loc>
+      <image:title>小阿姨雪花冰店面</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/OfJxJFhbgWYQVFvW.png</image:loc>
+      <image:title>新鮮芒果布丁雪花冰</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/fUOVTtiUSdlcgtUW.png</image:loc>
+      <image:title>新鮮草莓奶酪雪花冰</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/YZiSIUzAAlNKHzgC.png</image:loc>
+      <image:title>Oreo巧克力布丁雪花冰</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/nVKrAcBpRhrFllUC.png</image:loc>
+      <image:title>紅豆牛奶雪花冰</image:title>
+    </image:image>
+  </url>
+</urlset>
