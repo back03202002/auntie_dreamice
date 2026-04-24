@@ -118,7 +118,7 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/hero_banner-nPiGZtp9N3i3Bi3iwsyvub.webp"
+            src="/manus-storage/auntie_dreamice_storefront_4b35957b.webp"
             alt="小阿姨雪花冰店面"
             className="w-full h-full object-cover"
           />
@@ -126,12 +126,15 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
         
         <div className="relative container py-20 md:py-32 flex items-center min-h-[500px]">
-          <div className="max-w-xl">
+          <div className="max-w-2xl">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
               小阿姨雪花冰
             </h1>
-            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+            <p className="text-xl text-white/90 mb-4 leading-relaxed">
               一口綿密，一點療癒，午後的甜品時光
+            </p>
+            <p className="text-lg text-white/80 mb-8 leading-relaxed">
+              位於彰化線西，我們用最新鮮的水果和最細膩的雪花冰，為您打造每一份獨特的冰品體驗。無論是經典的芒果雪花冰，還是創意十足的手工披薩，每一口都是對品質的承諾。
             </p>
             <button
               className="px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all duration-300 hover:shadow-lg"
@@ -232,6 +235,40 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Ice Brick Flavors Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-primary/10 to-background">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-primary">冰磚口味介紹</h2>
+            <p className="text-lg text-foreground/70">豐富多彩的冰磚選擇，讓您享受無限的冰品樂趣</p>
+          </div>
+          <div className="flex justify-center">
+            <div className="w-full max-w-3xl rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <img
+                src="/manus-storage/ice_brick_flavors_2248ae0e.webp"
+                alt="冰磚口味介紹"
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+          <div className="mt-12 grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 rounded-lg shadow-md border border-border">
+              <h3 className="text-2xl font-bold text-primary mb-4">單色冰磚</h3>
+              <p className="text-foreground/80 leading-relaxed">
+                我們精心選擇多種經典口味，從清爽的牛奶、花生，到濃郁的巧克力、抹茶，每一種都能帶給您獨特的冰品體驗。無論您是喜歡傳統風味還是創新口味，我們都有適合您的選擇。
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-md border border-border">
+              <h3 className="text-2xl font-bold text-primary mb-4">雙色冰磚</h3>
+              <p className="text-foreground/80 leading-relaxed">
+                結合兩種不同的口味，創造出層次豐富的冰品體驗。巧克力與花生的完美搭配，抹茶與草莓的優雅組合，讓您一次享受雙倍的美味。我們的雙色冰磚是為了讓您發現新的風味組合。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Hot Food Section - Pizza */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-background">
         <div className="container">
