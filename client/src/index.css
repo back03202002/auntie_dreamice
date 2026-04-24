@@ -1303,18 +1303,21 @@
   50%       { transform: translateY(-6px); }
 }
 
+/* ===== 藝術簽名字體 ===== */
 .brand-english-hero {
   display: inline-block;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-style: italic;
-  letter-spacing: 0.05em;
-  background: linear-gradient(135deg, #FFE8C8 0%, #FFD4A0 25%, #F0C878 50%, #FFD4A0 75%, #FFE8C8 100%);
-  background-size: 200% auto;
+  font-family: 'Great Vibes', 'Dancing Script', cursive;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #FFE8C8 0%, #FFD4A0 20%, #F0C878 45%, #E8A855 65%, #FFD4A0 80%, #FFE8C8 100%);
+  background-size: 250% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shimmerText 3s linear infinite, floatBrand 4s ease-in-out infinite;
+  animation: shimmerText 4s linear infinite, floatBrand 5s ease-in-out infinite;
+  filter: drop-shadow(0 2px 8px rgba(212, 168, 85, 0.35));
 }
 
 .brand-english-hero .word-auntie,
@@ -1323,30 +1326,33 @@
   display: inline-block;
 }
 
+/* ice 用冰藍色簽名風格，與 Auntie Dream 形成對比 */
 .brand-english-hero .word-ice {
-  font-style: normal;
-  font-weight: 900;
-  background: linear-gradient(135deg, #B0E8FF 0%, #80D4FF 40%, #60C8F8 60%, #B0E8FF 100%);
-  background-size: 200% auto;
+  font-family: 'Great Vibes', 'Dancing Script', cursive;
+  font-weight: 400;
+  background: linear-gradient(135deg, #C8EEFF 0%, #90D8FF 35%, #60C8F8 55%, #90D8FF 75%, #C8EEFF 100%);
+  background-size: 250% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shimmerText 2.5s linear infinite reverse, floatBrand 4s ease-in-out infinite 0.5s;
-  text-shadow: none;
+  animation: shimmerText 3s linear infinite reverse, floatBrand 5s ease-in-out infinite 0.8s;
+  filter: drop-shadow(0 2px 8px rgba(96, 200, 248, 0.3));
 }
 
-/* 導航欄小字版 */
+/* 導航欄簽名小字版 */
 .brand-english-nav {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  background: linear-gradient(90deg, #C0623A, #D4A855, #C0623A);
-  background-size: 200% auto;
+  font-family: 'Great Vibes', 'Dancing Script', cursive;
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #C0623A, #D4A855, #E8896A, #D4A855, #C0623A);
+  background-size: 250% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shimmerText 4s linear infinite;
+  animation: shimmerText 5s linear infinite;
+  filter: drop-shadow(0 1px 3px rgba(192, 98, 58, 0.2));
 }
 
 /* 字母逐一入場動畫 */

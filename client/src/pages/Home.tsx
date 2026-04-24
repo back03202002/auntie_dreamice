@@ -420,7 +420,7 @@ export default function Home() {
 
             {/* 英文品牌名稱動畫 */}
             <div className="mb-3 animate-fade-in-up" style={{ animationDelay: "0.05s" }}>
-              <span className="brand-english-hero text-3xl md:text-4xl">
+              <span className="brand-english-hero text-4xl md:text-6xl">
                 <span className="word-auntie">Auntie </span>
                 <span className="word-dream">Dream </span>
                 <span className="word-ice">ice</span>
@@ -508,16 +508,303 @@ export default function Home() {
       </div>
 
       {/* ===== 關於我們 ===== */}
-      <section id="about" className="py-20 md:py-32 relative overflow-hidden">
-        {/* 背景裝飾 */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FFF5EE] via-background to-[#FFF0E8]" />
-        {/* 大圓形裝飾 */}
-        <div className="absolute -top-20 -right-20 w-[500px] h-[500px] bg-primary/4 rounded-full blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-accent/5 rounded-full blur-3xl" />
-        {/* 小點裝飾 */}
-        <div className="absolute top-1/3 left-8 w-3 h-3 rounded-full bg-primary/30 animate-pulse" />
-        <div className="absolute top-2/3 right-12 w-2 h-2 rounded-full bg-accent/40 animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/4 w-1.5 h-1.5 rounded-full bg-primary/20 animate-pulse" style={{ animationDelay: '2s' }} />
+      <section id="about" className="relative overflow-hidden">
+        {/* ── 第一幕：品牌宣言 Hero ── */}
+        <div className="relative py-24 md:py-36 overflow-hidden">
+          {/* 背景：店家實景照片 */}
+          <div className="absolute inset-0">
+            <img
+              src="/manus-storage/store_photo_b4b014c2.jpg"
+              alt="小阿姨雪花冰店內實景"
+              className="w-full h-full object-cover object-center scale-105"
+              style={{ filter: 'brightness(0.45) saturate(1.2)' }}
+            />
+          </div>
+          {/* 漸層遮罩 */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#3D1F0A]/60 via-transparent to-transparent" />
+
+          <div className="container relative z-10">
+            <div className="max-w-2xl">
+              {/* 標籤 */}
+              <div className="reveal inline-flex items-center gap-2 px-4 py-1.5 bg-white/15 backdrop-blur-sm rounded-full border border-white/30 text-white/90 text-sm font-medium mb-8">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4A855] animate-pulse" />
+                我們的故事 · Since 2020
+              </div>
+              {/* 主標題 */}
+              <h2 className="reveal reveal-delay-1 font-display font-bold leading-tight mb-6">
+                <span className="block text-5xl md:text-7xl text-white drop-shadow-lg">關於</span>
+                <span className="block text-5xl md:text-7xl" style={{
+                  background: 'linear-gradient(135deg, #FFD4A0, #F0C878, #D4A855)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}>Auntie Dream ice</span>
+              </h2>
+              {/* 副標 */}
+              <p className="reveal reveal-delay-2 text-xl md:text-2xl text-white/85 leading-relaxed font-light mb-10">
+                一間充滿溫度的冰品甜點專賣店<br />
+                <span className="text-[#FFD4A0]">用最用心的製作，為您帶來每一份幸福滋味</span>
+              </p>
+              {/* 數字統計橫排 */}
+              <div className="reveal reveal-delay-3 flex flex-wrap gap-6">
+                {[
+                  { value: "4.9★", label: "Google 評分" },
+                  { value: "55+", label: "顧客好評" },
+                  { value: "2020", label: "創立年份" },
+                  { value: "100%", label: "新鮮食材" },
+                ].map((s, i) => (
+                  <div key={i} className="text-center">
+                    <div className="text-2xl md:text-3xl font-bold font-display" style={{
+                      background: 'linear-gradient(135deg, #FFD4A0, #F0C878)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}>{s.value}</div>
+                    <div className="text-white/60 text-xs mt-1 tracking-wide">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── 第二幕：品牌核心引言 ── */}
+        <div className="bg-gradient-to-br from-[#3D1F0A] to-[#5A2D0C] py-16 md:py-20 relative overflow-hidden">
+          {/* 大裝飾引號 */}
+          <div className="absolute top-0 left-8 text-[200px] text-white/4 font-display leading-none select-none" style={{ fontFamily: 'Georgia, serif' }}>"</div>
+          <div className="absolute bottom-0 right-8 text-[200px] text-white/4 font-display leading-none select-none rotate-180" style={{ fontFamily: 'Georgia, serif' }}>"</div>
+          <div className="container relative z-10 text-center">
+            <p className="reveal font-accent text-2xl md:text-4xl text-[#FFD4A0] leading-relaxed font-bold max-w-3xl mx-auto">
+              還記得小時候炎炎夏日<br />
+              吃到一口冰就覺得開心的幸福感嗎？
+            </p>
+            <div className="flex justify-center mt-8 gap-2">
+              {["🌸", "✨", "🍧", "✨", "🌸"].map((e, i) => (
+                <span key={i} className="text-2xl animate-float opacity-70" style={{ animationDelay: `${i * 0.4}s` }}>{e}</span>
+              ))}
+            </div>
+            <p className="mt-6 text-white/50 text-sm tracking-widest uppercase font-accent">— Auntie Dream ice · 彰化線西</p>
+          </div>
+        </div>
+
+        {/* ── 第三幕：品牌故事時間軸 ── */}
+        <div className="bg-gradient-to-br from-[#FFF5EE] via-background to-[#FFF0E8] py-20 md:py-32 relative overflow-hidden">
+          <div className="absolute -top-20 -right-20 w-[500px] h-[500px] bg-primary/4 rounded-full blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-accent/5 rounded-full blur-3xl" />
+
+          <div className="container relative z-10">
+            <div className="text-center mb-16">
+              <div className="reveal flex justify-center mb-5">
+                <span className="section-tag">
+                  <Sparkles className="w-3 h-3" />
+                  品牌歷程
+                </span>
+              </div>
+              <h3 className="reveal reveal-delay-1 text-3xl md:text-4xl font-bold font-display text-gradient-warm">我們的故事，從一個夢想開始</h3>
+            </div>
+
+            {/* 時間軸 */}
+            <div className="relative max-w-4xl mx-auto">
+              {/* 中央軸線 */}
+              <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/30 via-accent/50 to-primary/20 hidden md:block" />
+
+              {[
+                {
+                  year: "2020",
+                  side: "left",
+                  emoji: "🌱",
+                  title: "夢想萌芽",
+                  text: "小阿姨雪花冰誕生於一個簡單卻深刻的夢想——讓每一位顧客都能在享受美食的同時，感受到來自心底的溫暖與關懷。我們相信，好的冰品不僅是食物，更是一份情感的傳遞。",
+                  color: "from-emerald-50 to-green-50",
+                  border: "border-emerald-200",
+                  dot: "bg-emerald-400",
+                },
+                {
+                  year: "用心",
+                  side: "right",
+                  emoji: "❄️",
+                  title: "精心製冰",
+                  text: "每一份冰品都精心製作，我們堅持使用最新鮮的水果、最細膩的雪花冰和最優質的配料，為您呈現最美好的午後時光。每一口都是我們對品質的承諾。",
+                  color: "from-sky-50 to-blue-50",
+                  border: "border-sky-200",
+                  dot: "bg-sky-400",
+                },
+                {
+                  year: "堅持",
+                  side: "left",
+                  emoji: "🥭",
+                  title: "嚴選食材",
+                  text: "在彰化線西這片溫暖的土地上，我們每日精選當季新鮮水果，嚴格把關每一項食材的品質。我們相信，好的冰品從好的食材開始，絕不妥協。",
+                  color: "from-amber-50 to-yellow-50",
+                  border: "border-amber-200",
+                  dot: "bg-amber-400",
+                },
+                {
+                  year: "今日",
+                  side: "right",
+                  emoji: "💝",
+                  title: "溫暖傳遞",
+                  text: "如今，小阿姨雪花冰已成為彰化線西最受歡迎的甜點去處。每一次的相遇，都是一份幸福的開始。我們持續創新，不斷推出限定新品，只為讓您的每一次造訪都有驚喜。",
+                  color: "from-rose-50 to-pink-50",
+                  border: "border-rose-200",
+                  dot: "bg-rose-400",
+                },
+              ].map((item, i) => (
+                <div key={i} className={`reveal relative flex md:items-center mb-10 md:mb-16 ${
+                  item.side === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'
+                } flex-col`}>
+                  {/* 內容卡片 */}
+                  <div className={`md:w-[45%] ${
+                    item.side === 'left' ? 'md:pr-12' : 'md:pl-12'
+                  }`}>
+                    <div className={`group bg-gradient-to-br ${item.color} rounded-3xl p-7 border ${item.border} hover:shadow-[0_20px_60px_rgba(74,46,26,0.12)] hover:-translate-y-2 transition-all duration-500 relative overflow-hidden`}>
+                      {/* 角落裝飾 */}
+                      <div className="absolute top-0 right-0 w-20 h-20 bg-white/50 rounded-bl-full" />
+                      {/* 年份標籤 */}
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/70 rounded-full text-xs font-bold text-foreground/60 mb-4 border border-white/80">
+                        <span className="w-1.5 h-1.5 rounded-full" style={{ background: item.dot.replace('bg-', '') }} />
+                        {item.year}
+                      </div>
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="text-3xl group-hover:animate-bounce">{item.emoji}</span>
+                        <h4 className="text-xl font-bold font-display text-foreground">{item.title}</h4>
+                      </div>
+                      <p className="text-foreground/70 leading-relaxed text-sm">{item.text}</p>
+                      {/* 底部裝飾線 */}
+                      <div className="mt-5 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-primary/50 to-accent/50 rounded-full transition-all duration-600" />
+                    </div>
+                  </div>
+
+                  {/* 中央圓點（桌面） */}
+                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-4 border-primary/30 items-center justify-center shadow-md z-10 text-lg">
+                    {item.emoji}
+                  </div>
+
+                  {/* 手機版左側線條 */}
+                  <div className="md:hidden absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/30 to-transparent" />
+                  <div className="md:hidden absolute left-3 top-7 w-5 h-5 rounded-full bg-white border-2 border-primary/40 flex items-center justify-center text-xs">
+                    {item.emoji}
+                  </div>
+
+                  {/* 空白佔位（另一側） */}
+                  <div className="md:w-[45%]" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ── 第四幕：品牌價值三欄 ── */}
+        <div className="bg-gradient-to-br from-[#FDF6F0] to-[#FFF5EE] py-20 md:py-28 relative overflow-hidden">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary/3 rounded-full blur-3xl" />
+
+          <div className="container relative z-10">
+            <div className="text-center mb-14">
+              <div className="reveal flex justify-center mb-5">
+                <span className="section-tag">
+                  <Sparkles className="w-3 h-3" />
+                  我們的承諾
+                </span>
+              </div>
+              <h3 className="reveal reveal-delay-1 text-3xl md:text-4xl font-bold font-display text-gradient-warm">用心，是我們唯一的堅持</h3>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-14">
+              {[
+                {
+                  icon: "🥭",
+                  iconBg: "bg-gradient-to-br from-amber-100 to-orange-50",
+                  iconRing: "ring-amber-200",
+                  title: "嚴選新鮮食材",
+                  subtitle: "Farm to Cup",
+                  text: "每日精選當季新鮮水果，嚴格把關食材品質。我們相信，好的冰品從好的食材開始，絕不妥協。每一份冰品都承載著對品質的執著。",
+                  cardBg: "from-[#FFFBEB] to-[#FEF3C7]",
+                  cardBorder: "border-amber-100",
+                  highlights: ["每日新鮮採購", "當季水果優先", "嚴格品質把關"],
+                  delay: "",
+                },
+                {
+                  icon: "❄️",
+                  iconBg: "bg-gradient-to-br from-sky-100 to-blue-50",
+                  iconRing: "ring-sky-200",
+                  title: "細膩製冰工藝",
+                  subtitle: "Artisan Craft",
+                  text: "採用專業製冰技術，呈現入口即化的絕妙口感。每一口都是綿密的幸福，讓您感受真正的冰品藝術。雪花冰的細膩，是我們最驕傲的技藝。",
+                  cardBg: "from-[#EFF6FF] to-[#DBEAFE]",
+                  cardBorder: "border-sky-100",
+                  highlights: ["入口即化口感", "專業製冰設備", "持續精進技術"],
+                  delay: "reveal-delay-2",
+                },
+                {
+                  icon: "💝",
+                  iconBg: "bg-gradient-to-br from-rose-100 to-pink-50",
+                  iconRing: "ring-rose-200",
+                  title: "溫暖用心服務",
+                  subtitle: "From the Heart",
+                  text: "我們把每位顧客都當作家人，用溫暖的笑容和細心的服務，為您創造最舒適的用餐體驗。每一次相遇，都是一份珍貴的緣分。",
+                  cardBg: "from-[#FFF1F2] to-[#FFE4E6]",
+                  cardBorder: "border-rose-100",
+                  highlights: ["視顧客如家人", "溫暖笑容服務", "用心對待每一位"],
+                  delay: "reveal-delay-4",
+                },
+              ].map((card, i) => (
+                <div key={i} className={`group reveal ${card.delay}`}>
+                  <div className={`bg-gradient-to-br ${card.cardBg} rounded-3xl p-8 border ${card.cardBorder} hover:shadow-[0_20px_60px_rgba(74,46,26,0.12)] hover:-translate-y-3 transition-all duration-500 h-full relative overflow-hidden`}>
+                    <div className="absolute top-0 right-0 w-28 h-28 bg-white/50 rounded-bl-full" />
+                    <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/30 rounded-tr-full" />
+                    {/* 圖示 */}
+                    <div className={`feature-card-icon ${card.iconBg} ring-2 ${card.iconRing} mb-5`}>{card.icon}</div>
+                    {/* 標題 */}
+                    <div className="mb-4">
+                      <h4 className="text-xl font-bold font-display text-foreground">{card.title}</h4>
+                      <p className="text-xs text-foreground/40 font-accent tracking-widest mt-0.5">{card.subtitle}</p>
+                    </div>
+                    {/* 說明 */}
+                    <p className="text-foreground/68 text-sm leading-relaxed mb-5">{card.text}</p>
+                    {/* 標籤列表 */}
+                    <div className="flex flex-col gap-2">
+                      {card.highlights.map((h, j) => (
+                        <div key={j} className="flex items-center gap-2 text-xs text-foreground/65">
+                          <div className="w-4 h-4 rounded-full bg-white/80 flex items-center justify-center flex-shrink-0 shadow-sm">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+                          </div>
+                          <span className="font-medium">{h}</span>
+                        </div>
+                      ))}
+                    </div>
+                    {/* 底部裝飾線 */}
+                    <div className="mt-6 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-primary/60 to-accent/60 rounded-full transition-all duration-600" />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* 核心標語 */}
+            <div className="reveal">
+              <div className="relative overflow-hidden rounded-3xl p-10 md:p-14 text-center">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#C0623A] via-[#E8896A] to-[#D4A574] animate-gradient-shift" />
+                <div className="absolute -top-10 -right-10 w-48 h-48 bg-white/10 rounded-full" />
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-white/8 rounded-full" />
+                <div className="relative z-10">
+                  <div className="text-5xl mb-5 animate-float">🍧</div>
+                  <p className="font-accent text-2xl md:text-4xl text-white leading-relaxed mb-3">
+                    小阿姨陪你們找回小時候的幸福
+                  </p>
+                  <p className="text-white/65 text-sm tracking-widest font-accent">— Auntie Dream ice · 彰化線西</p>
+                  <div className="flex justify-center mt-6 gap-3">
+                    {["💝", "🍧", "✨", "🌸", "💝"].map((e, i) => (
+                      <span key={i} className="text-xl animate-float" style={{ animationDelay: `${i * 0.3}s` }}>{e}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── 舊版佔位（保留 id=about 的錨點，實際內容已移至上方） ── */}
+        <div className="hidden" />
 
         <div className="container relative z-10">
           {/* 標題區 */}
