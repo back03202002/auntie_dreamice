@@ -13,28 +13,28 @@ export default function Home() {
     {
       id: 1,
       name: "海鮮總匯披薩",
-      price: "$199",
+
       description: "新鮮蝦仁、透抽搭配濃郁起司，海味十足的經典組合",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/xxgtCHvQRoHPBWcA.jpg",
     },
     {
       id: 2,
       name: "費城牛肉披薩",
-      price: "$199",
+
       description: "嫩牛肉搭配起司和洋蔵，咬下去肉汁四溢的美味",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/CjkOQbxxCttfQKQW.jpg",
     },
     {
       id: 3,
       name: "瑪格麗特披薩",
-      price: "$199",
+
       description: "經典義式披薩，番茄、起司、羅勒的完美組合",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/NjljuSyLjTqZcRVU.jpg",
     },
     {
       id: 4,
       name: "蜂蜜麻吉披薩",
-      price: "$199",
+
       description: "甜蜜蜂蜜搭配Q彈麻吉，甜鹹交織的獨特風味",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/kWbcmPtlrCpXrpwo.jpg",
     },
@@ -44,7 +44,7 @@ export default function Home() {
     {
       id: 1,
       name: "新鮮芒果布丁雪花冰",
-      price: "$99",
+
       description: "綿密的雪花冰搭配新鮮芒果和滑順布丁，一口咬下去就是夏日的幸福",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/OfJxJFhbgWYQVFvW.png",
       badge: "人氣必點",
@@ -52,35 +52,35 @@ export default function Home() {
     {
       id: 2,
       name: "新鮮草莓奶酪雪花冰",
-      price: "$89",
+
       description: "新鮮草莓搭配濃郁奶酪，酸酸甜甜的滋味在舌尖綻放",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/fUOVTtiUSdlcgtUW.png",
     },
     {
       id: 3,
       name: "Oreo巧克力布丁雪花冰",
-      price: "$79",
+
       description: "經典Oreo餅乾搭配濃郁巧克力布丁，巧克力愛好者的必點",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/YZiSIUzAAlNKHzgC.png",
     },
     {
       id: 4,
       name: "紅豆牛奶雪花冰",
-      price: "$69",
+
       description: "傳統紅豆搭配香濃牛奶，懷舊風味中帶著溫暖",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/nVKrAcBpRhrFllUC.png",
     },
     {
       id: 5,
       name: "抹茶紅豆布丁&奶酪雪花冰",
-      price: "$89",
+
       description: "清香抹茶搭配紅豆、布丁和奶酪，層次豐富的完美組合",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/YwSIinLCkdiSlPIs.png",
     },
     {
       id: 6,
       name: "滑嫩仙草凍",
-      price: "$49",
+
       description: "Q彈的仙草凍搭配冰涼的糖水，清涼解渴的夏日聖品",
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/grass_jelly_ice-D9Bs4uWMJEtGPHKedh6wfn.webp",
     },
@@ -196,7 +196,6 @@ export default function Home() {
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-3">
                     <h3 className="text-lg font-bold text-foreground leading-snug flex-1">{item.name}</h3>
-                    <span className="text-primary font-bold text-xl ml-2 whitespace-nowrap">{item.price}</span>
                   </div>
                   <p className="text-foreground/70 text-sm leading-relaxed">
                     {item.description}
@@ -232,7 +231,6 @@ export default function Home() {
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-3">
                     <h3 className="text-lg font-bold text-foreground leading-snug flex-1">{item.name}</h3>
-                    <span className="text-primary font-bold text-xl ml-2 whitespace-nowrap">{item.price}</span>
                   </div>
                   <p className="text-foreground/70 text-sm leading-relaxed">
                     {item.description}
