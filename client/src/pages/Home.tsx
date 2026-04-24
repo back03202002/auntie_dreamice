@@ -91,11 +91,23 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Business Hours Announcement */}
-      <div className="bg-gradient-to-r from-primary/90 to-primary text-primary-foreground py-3 px-4 text-center shadow-md">
+      <div className="bg-gradient-to-r from-primary via-primary to-primary/95 text-primary-foreground py-5 md:py-6 px-4 text-center shadow-lg border-b-4 border-primary-foreground/20">
         <div className="container">
-          <p className="text-sm md:text-base font-semibold">
-            ⏰ 營業時間：週二至週日 12:00-21:00，週一公休
-          </p>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+            <div className="flex-1">
+              <p className="text-xs md:text-sm text-primary-foreground/80 mb-2 font-medium">營業時間</p>
+              <p className="text-lg md:text-2xl font-bold tracking-wide">
+                ⏰ 週二至週日 12:00-21:00
+              </p>
+            </div>
+            <div className="hidden md:block w-1 h-10 bg-primary-foreground/40 rounded-full"></div>
+            <div className="flex-1">
+              <p className="text-xs md:text-sm text-primary-foreground/80 mb-2 font-medium">公休日</p>
+              <p className="text-lg md:text-2xl font-bold tracking-wide">
+                📅 週一
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
