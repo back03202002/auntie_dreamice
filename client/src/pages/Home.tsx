@@ -450,19 +450,7 @@ export default function Home() {
               </button>
             </div>
 
-            {/* 評分展示 */}
-            <div className="mt-10 flex items-center gap-4 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-              <div className="flex items-center gap-1.5 bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 border border-white/25">
-                <div className="flex">
-                  {[1,2,3,4,5].map(i => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-[#F0C878] text-[#F0C878] drop-shadow-sm" />
-                  ))}
-                </div>
-                <span className="text-white text-sm font-bold ml-1">4.9</span>
-              </div>
-              <div className="h-4 w-px bg-white/30" />
-              <span className="text-white/80 text-sm">55則 Google 評價</span>
-            </div>
+
           </div>
         </div>
 
