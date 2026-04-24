@@ -232,6 +232,30 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom"],
+          "vendor-ui": [
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-dropdown-menu",
+            "@radix-ui/react-popover",
+            "@radix-ui/react-select",
+            "@radix-ui/react-tabs",
+          ],
+          "vendor-forms": ["react-hook-form", "@hookform/resolvers", "zod"],
+          "vendor-utils": ["clsx", "tailwind-merge", "wouter"],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
   },
   server: {
     port: 3000,
@@ -261,5 +285,19 @@ export default defineConfig({
           host: "localhost",
           port: 3000,
         },
+  },
+  optimizeDeps: {
+    include: [
+      "react",
+      "react-dom",
+      "wouter",
+      "clsx",
+      "tailwind-merge",
+      "@radix-ui/react-dialog",
+      "@radix-ui/react-dropdown-menu",
+      "sonner",
+      "framer-motion",
+    ],
+    exclude: ["@manus"],
   },
 });
