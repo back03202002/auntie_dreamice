@@ -207,6 +207,41 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* Seasonal Promotion Section */}
+      <section className="py-12 px-4 bg-gradient-to-b from-secondary/10 to-accent/10">
+        <div className="container">
+          <div className="mb-8 overflow-hidden rounded-lg shadow-lg">
+            <img 
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/mango_season_banner-G9TQMpbsqtHXNGUkyRzkqP.webp" 
+              alt="芒果季限定優惠" 
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-lg p-6 shadow-md border-2 border-primary/20">
+              <div className="flex items-start gap-4">
+                <div className="text-4xl">🥭</div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-primary mb-2">新鮮芒果布丁雪花冰</h3>
+                  <p className="text-foreground/70 mb-3">限時優惠價 $89</p>
+                  <p className="text-sm text-foreground/60">新鮮芒果搭配滑順布丁，芒果季必點！</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-lg p-6 shadow-md border-2 border-primary/20">
+              <div className="flex items-start gap-4">
+                <div className="text-4xl">🎁</div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-primary mb-2">消費滿 $200 送優惠券</h3>
+                  <p className="text-foreground/70 mb-3">下次消費享 $30 折扣</p>
+                  <p className="text-sm text-foreground/60">芒果季期間限定，數量有限，敬請把握！</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Hot Food Section - Pizza */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-background">
         <div className="container">
