@@ -123,6 +123,7 @@
     font-family: var(--font-body, 'Noto Sans TC', sans-serif);
     font-size: 16px;
     line-height: 1.6;
+    background: linear-gradient(135deg, #FBF8F3 0%, #FFF5F0 100%);
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display, 'Playfair Display', serif);
@@ -235,6 +236,33 @@
   }
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(244, 165, 130, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(244, 165, 130, 0.6);
+  }
+}
+
 @layer utilities {
   .animate-fade-in {
     animation: fadeIn 0.5s ease-out;
@@ -246,5 +274,31 @@
   
   .animate-slide-in-right {
     animation: slideInRight 0.5s ease-out;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+  
+  /* Card design enhancements */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+  }
+  
+  /* Text gradient effect */
+  .text-gradient {
+    background: linear-gradient(135deg, #F4A582 0%, #F5D4D4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Decorative border */
+  .border-gradient {
+    border-image: linear-gradient(135deg, #F4A582 0%, #F5D4D4 100%) 1;
   }
 }

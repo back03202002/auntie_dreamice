@@ -263,11 +263,12 @@ export default function Home() {
             {menuItems.map((item) => (
               <Card
                 key={item.id}
-                className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white border border-border hover:border-primary/30 hover:-translate-y-1"
+                className="overflow-hidden hover:shadow-2xl transition-all duration-300 bg-white border border-border hover:border-primary/50 hover:-translate-y-2 group"
               >
                 <div className="relative aspect-square overflow-hidden bg-muted">
                   {item.badge && (
-                    <div className="absolute top-3 right-3 z-10 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
+                    <div className="absolute top-4 right-4 z-10 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-4 py-2 rounded-lg text-sm font-bold shadow-lg transform -rotate-3 group-hover:rotate-0 transition-transform duration-300">
+                      <span className="inline-block animate-pulse mr-1">⭐</span>
                       {item.badge}
                     </div>
                   )}
@@ -306,7 +307,7 @@ export default function Home() {
             {pizzaItems.map((item) => (
               <Card
                 key={item.id}
-                className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white border border-border hover:border-primary/30 hover:-translate-y-1"
+                className="overflow-hidden hover:shadow-2xl transition-all duration-300 bg-white border border-border hover:border-primary/50 hover:-translate-y-2 group"
               >
                 <div className="relative aspect-square overflow-hidden bg-muted">
                   <img
