@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { MapPin, Phone, Facebook } from "lucide-react";
 
@@ -58,6 +57,15 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Business Hours Announcement */}
+      <div className="bg-gradient-to-r from-primary/90 to-primary text-primary-foreground py-3 px-4 text-center shadow-md">
+        <div className="container">
+          <p className="text-sm md:text-base font-semibold">
+            ⏰ 營業時間：週二至週日 12:00-21:00，週一公休
+          </p>
+        </div>
+      </div>
+
       {/* Navigation Header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container flex items-center justify-between h-16">
@@ -92,13 +100,12 @@ export default function Home() {
             <p className="text-xl text-white/90 mb-8 leading-relaxed">
               一口綿密，一點療癒，午後的甜品時光
             </p>
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+            <button
+              className="px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all duration-300 hover:shadow-lg"
               onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}
             >
               探索菜單
-            </Button>
+            </button>
           </div>
         </div>
       </section>
