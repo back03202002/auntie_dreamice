@@ -238,7 +238,7 @@ export default function Home() {
       </section>
 
       {/* Brand Story Section */}
-      <section id="brand" className="py-8 md:py-16">
+      <section id="brand" className="py-4 md:py-8">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-8 items-start">
             <div>
@@ -267,9 +267,9 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-primary/5 to-background">
+      <section className="py-8 md:py-12 bg-gradient-to-b from-primary/5 to-background">
         <div className="container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="text-4xl font-bold mb-4 text-primary">為什麼選擇小阿姨雪花冰</h2>
             <p className="text-lg text-foreground/70">我們的承諾與特色</p>
           </div>
