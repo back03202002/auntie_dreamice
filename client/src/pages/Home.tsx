@@ -17,7 +17,7 @@ export default function Home() {
       name: "海鮮總匯披薩",
 
       description: "新鮮蝦仁、透抽搭配濃郁起司，海味十足的經典組合",
-      image: "/manus-storage/seafood_combo_pizza_new_e09af4d8.jpg",
+      image: "/manus-storage/seafood_combo_pizza_v2_09ef9a1f.jpg",
     },
     {
       id: 2,
