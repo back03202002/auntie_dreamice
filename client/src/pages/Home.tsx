@@ -1,7 +1,7 @@
-import { Card } from "@/components/ui/card";
 import { MapPin, Phone, Facebook, Heart, MessageCircle, Instagram } from "lucide-react";
 import { ReviewCarousel } from "@/components/ReviewCarousel";
 import { reviews } from "@/lib/reviews";
+import { Card } from "@/components/ui/card";
 
 /**
  * Home Page - 小阿姨雪花冰官方網站
@@ -130,8 +130,11 @@ export default function Home() {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
               小阿姨雪花冰
             </h1>
-            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+            <p className="text-xl text-white/90 mb-4 leading-relaxed">
               一口綿密，一點療癒，午後的甜品時光
+            </p>
+            <p className="text-lg text-white/80 mb-8 leading-relaxed">
+              彰化線西最溫暖的冰品甜點專賣店，用最新鮮的食材和用心的製作，為您帶來每一份幸福滋味
             </p>
             <button
               className="px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all duration-300 hover:shadow-lg"
@@ -151,20 +154,59 @@ export default function Home() {
               <h2 className="text-4xl font-bold mb-6 text-primary">品牌故事</h2>
               <div className="space-y-4 text-lg text-foreground leading-relaxed">
                 <p>
-                  還記得小時候炎炎夏日吃到一口冰就覺得開心的幸福感嗎？
+                  還記得小時候炎炎夏日吃到一口冰就覺得開心的幸福感嗎？小阿姨雪花冰就是在這樣的回憶中誕生的。
                 </p>
                 <p>
-                  這裡是我的夢想冰店，一個充滿溫度和故事的地方。
+                  這裡是我的夢想冰店，一個充滿溫度和故事的地方。我們相信，每一份甜點都應該帶著用心和溫暖，讓顧客在享受美食的同時，也能感受到那份來自心底的關懷。
                 </p>
                 <p>
-                  每一份冰品都精心製作，用最新鮮的水果和最細膩的雪花冰，為您呈現最美好的午後時光。
+                  每一份冰品都精心製作，我們堅持使用最新鮮的水果、最細膩的雪花冰和最優質的配料，為您呈現最美好的午後時光。無論是經典的芒果布丁、新鮮的草莓奶酪，還是特色的蜂蜜麻吉披薩，每一款都是我們對美食的執著和對顧客的尊重。
                 </p>
                 <p className="text-primary font-semibold text-xl pt-4">
                   小阿姨陪你們找回小時候的幸福時刻 💝
                 </p>
+                <p className="text-foreground/70 text-base pt-2">
+                  在彰化線西，我們用最溫暖的服務和最用心的製作，為每一位顧客創造獨特的美食體驗。
+                </p>
               </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-primary/5 to-background">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-primary">為什麼選擇小阿姨雪花冰</h2>
+            <p className="text-lg text-foreground/70">我們的承諾與特色</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-8 bg-white border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
+              <div className="text-4xl mb-4">🥭</div>
+              <h3 className="text-xl font-bold mb-3 text-foreground">新鮮食材</h3>
+              <p className="text-foreground/70 leading-relaxed">
+                每日精選新鮮水果，嚴格把關食材品質。我們相信，好的冰品從好的食材開始，絕不妥協。
+              </p>
+            </Card>
+
+            <Card className="p-8 bg-white border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
+              <div className="text-4xl mb-4">❄️</div>
+              <h3 className="text-xl font-bold mb-3 text-foreground">細膩雪花冰</h3>
+              <p className="text-foreground/70 leading-relaxed">
+                採用專業製冰技術，呈現入口即化的絕妙口感。每一口都是綿密的幸福，讓您感受真正的冰品藝術。
+              </p>
+            </Card>
+
+            <Card className="p-8 bg-white border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
+              <div className="text-4xl mb-4">💝</div>
+              <h3 className="text-xl font-bold mb-3 text-foreground">用心服務</h3>
+              <p className="text-foreground/70 leading-relaxed">
+                我們把每位顧客都當作家人，用溫暖的笑容和細心的服務，為您創造最舒適的用餐體驗。
+              </p>
+            </Card>
           </div>
         </div>
       </section>
@@ -174,7 +216,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-primary">品牌介紹影片</h2>
-            <p className="text-lg text-foreground/70">觀看小阿姨雪花冰的精彩介紹</p>
+            <p className="text-lg text-foreground/70">觀看小阿姨雪花冰的精彩介紹，了解我們的故事</p>
           </div>
           <div className="flex justify-center">
             <div className="w-full max-w-2xl aspect-video rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
@@ -199,6 +241,9 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">🍧 冰品菜單</h2>
             <p className="text-lg text-foreground/70">精選冰品，每一口都是幸福的滋味</p>
+            <p className="text-foreground/60 mt-3">
+              我們的冰品菜單精心設計，每一款都經過反覆調整，只為呈現最完美的風味組合。從經典必點到創意新作，都能找到您心頭好。
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -239,6 +284,9 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-primary">🍕 熱食區</h2>
             <p className="text-lg text-foreground/70">6吋手工披薩，現做現烤的美味</p>
+            <p className="text-foreground/60 mt-3">
+              除了冰品，小阿姨也提供精心製作的手工披薩。使用新鮮食材和傳統烘烤技術，每一片披薩都是用心的傑作。無論是海鮮、肉類還是素食，都能滿足您的味蕾。
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
@@ -283,6 +331,9 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">聯絡我們</h2>
             <p className="text-lg text-foreground/70">歡迎蒞臨小阿姨雪花冰</p>
+            <p className="text-foreground/60 mt-3">
+              位於彰化線西的小阿姨雪花冰，期待與您分享每一份甜蜜時光。無論是外帶享受或在店內品嚐，我們都準備好用最溫暖的服務迎接您。
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -346,6 +397,9 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-primary">⭐ 顧客評價</h2>
             <p className="text-lg text-foreground/70">來自真實顧客的溫暖回饋</p>
+            <p className="text-foreground/60 mt-3">
+              每一個評價都是我們持續進步的動力。感謝所有顧客的信任與支持，讓小阿姨雪花冰能夠不斷提升服務品質。
+            </p>
           </div>
 
           <ReviewCarousel reviews={reviews} itemsPerView={3} autoPlayInterval={5000} />
@@ -362,6 +416,9 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-primary">📸 Instagram 最新貼文</h2>
             <p className="text-lg text-foreground/70">追蹤我們的社群，看更多美食分享</p>
+            <p className="text-foreground/60 mt-3">
+              在 Instagram 上，我們分享每一份用心製作的冰品和披薩，以及顧客的幸福時刻。追蹤 @auntie_dreamhouse，成為小阿姨大家庭的一份子！
+            </p>
           </div>
           <div className="grid md:grid-cols-4 gap-6 mb-12">
             {/* Instagram Post 1 */}
@@ -476,6 +533,7 @@ export default function Home() {
           <p className="mb-2">小阿姨雪花冰 🍧 Auntie Dreamice</p>
           <p className="text-sm opacity-90">一口綿密，一點療癒，午後的甜品時光</p>
           <p className="text-xs opacity-75 mt-4">© 2026 小阿姨雪花冰. All rights reserved.</p>
+          <p className="text-xs opacity-70 mt-2">位於彰化線西，用心製作每一份幸福</p>
         </div>
       </footer>
     </div>
