@@ -238,12 +238,12 @@ export default function Home() {
       </section>
 
       {/* Brand Story Section */}
-      <section id="brand" className="py-16 md:py-24">
+      <section id="brand" className="py-8 md:py-16">
         <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 items-start">
             <div>
-              <h2 className="text-4xl font-bold mb-6 text-primary">品牌故事</h2>
-              <div className="space-y-4 text-lg text-foreground leading-relaxed">
+              <h2 className="text-3xl font-bold mb-4 text-primary">品牌故事</h2>
+              <div className="space-y-3 text-base text-foreground leading-relaxed">
                 <p>
                   還記得小時候炎炎夏日吃到一口冰就覺得開心的幸福感嗎？小阿姨雪花冰就是在這樣的回憶中誕生的。
                 </p>
