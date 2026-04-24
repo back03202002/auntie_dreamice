@@ -242,7 +242,7 @@ export default function Home() {
           </div>
 
           {/* Ice Brick Flavors Image */}
-          <div className="mb-12 rounded-lg overflow-hidden shadow-lg" style={{ backgroundColor: 'var(--background)', minHeight: '400px' }}>
+          <div className="-mx-4 md:-mx-8 mb-12 overflow-hidden" style={{ backgroundColor: 'var(--background)', minHeight: '400px', width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
             <img
               src="/manus-storage/ice_brick_flavors_guide_45e866c9.webp"
               alt="冰磚口味介紹"
