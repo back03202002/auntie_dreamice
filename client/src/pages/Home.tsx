@@ -129,13 +129,13 @@ export default function Home() {
         
         <div className="relative container py-20 md:py-32 flex items-center justify-start h-full md:h-auto md:min-h-[600px]">
           <div className="max-w-2xl">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,0.5)' }}>
               小阿姨雪花冰
             </h1>
-            <p className="text-xl text-white/90 mb-4 leading-relaxed">
+            <p className="text-xl text-white/95 mb-4 leading-relaxed" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.6)' }}>
               一口綿密，一點療癒，午後的甜品時光
             </p>
-            <p className="text-lg text-white/80 mb-8 leading-relaxed">
+            <p className="text-lg text-white/90 mb-8 leading-relaxed" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.6)' }}>
               位於彰化線西，我們用最新鮮的水果和最細膩的雪花冰，為您打造每一份獨特的冰品體驗。無論是經典的芒果雪花冰，還是創意十足的手工披薩，每一口都是對品質的承諾。
             </p>
             <button
