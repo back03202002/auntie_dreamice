@@ -232,6 +232,45 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Ice Brick Flavors Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-primary/5 via-background to-background">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-primary">🧊 冰磚口味介紹</h2>
+            <p className="text-lg text-foreground/70">豐富多彩的冰磚選擇，讓您享受無限的冰品樂趣</p>
+          </div>
+
+          {/* Ice Brick Flavors Image */}
+          <div className="mb-12 rounded-lg overflow-hidden shadow-lg">
+            <img
+              src="/manus-storage/ice_brick_flavors_guide_45e866c9.webp"
+              alt="冰磚口味介紹"
+              className="w-full h-auto object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          {/* Ice Brick Descriptions */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="p-8 bg-white border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
+              <h3 className="text-2xl font-bold mb-4 text-primary">單色冰磚</h3>
+              <p className="text-foreground/70 leading-relaxed">
+                我們精心選擇多種經典口味，從清爽的牛奶、花生，到濃郁的巧克力、抹茶，每一種都能帶給您獨特的冰品體驗。無論您是喜歡傳統風味還是創新口味，我們都有適合您的選擇。
+              </p>
+            </Card>
+
+            <Card className="p-8 bg-white border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
+              <h3 className="text-2xl font-bold mb-4 text-primary">雙色冰磚</h3>
+              <p className="text-foreground/70 leading-relaxed">
+                結合兩種不同的口味，創造出層次豐富的冰品體驗。巧克力與花生的完美搭配，抹茶與草莓的優雅組合，讓您一次享受雙倍的美味。我們的雙色冰磚是為了讓您發現新的風味組合。
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Hot Food Section - Pizza */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-background">
         <div className="container">
