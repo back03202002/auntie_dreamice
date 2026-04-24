@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { MapPin, Phone, Facebook } from "lucide-react";
+import { MapPin, Phone, Facebook, Heart, MessageCircle, Instagram } from "lucide-react";
 
 /**
  * Home Page - 小阿姨雪花冰官方網站
@@ -144,7 +144,7 @@ export default function Home() {
       {/* Brand Story Section */}
       <section id="brand" className="py-16 md:py-24">
         <div className="container">
-          <div className="grid md:grid-cols.2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold mb-6 text-primary">品牌故事</h2>
               <div className="space-y-4 text-lg text-foreground leading-relaxed">
@@ -399,6 +399,120 @@ export default function Home() {
             <p className="text-foreground/70 text-sm">
               ⭐ 4.9 星評分 (55則評價) · 在 Google 地圖上查看更多評價
             </p>
+          </div>
+        </div>
+      </section>
+      {/* Instagram Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-primary">📸 Instagram 最新貼文</h2>
+            <p className="text-lg text-foreground/70">追蹤我們的社群，看更多美食分享</p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-6 mb-12">
+            {/* Instagram Post 1 */}
+            <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className="aspect-square bg-muted overflow-hidden">
+                <img
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/OfJxJFhbgWYQVFvW.png"
+                  alt="新鮮芒果布丁雪花冰"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex items-center justify-between mb-3 text-foreground/60 text-sm">
+                  <div className="flex items-center gap-2">
+                    <Heart className="w-4 h-4" />
+                    <span>128</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MessageCircle className="w-4 h-4" />
+                    <span>24</span>
+                  </div>
+                </div>
+                <p className="text-sm text-foreground leading-relaxed">新鮮芒果布丁雪花冰 🥭 綿密入口即化，夏日必點！</p>
+              </div>
+            </div>
+            {/* Instagram Post 2 */}
+            <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className="aspect-square bg-muted overflow-hidden">
+                <img
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/fUOVTtiUSdlcgtUW.png"
+                  alt="新鮮草莓奶酪雪花冰"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex items-center justify-between mb-3 text-foreground/60 text-sm">
+                  <div className="flex items-center gap-2">
+                    <Heart className="w-4 h-4" />
+                    <span>156</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MessageCircle className="w-4 h-4" />
+                    <span>32</span>
+                  </div>
+                </div>
+                <p className="text-sm text-foreground leading-relaxed">新鮮草莓奶酪雪花冰 🍓 酸酸甜甜，療癒滋味</p>
+              </div>
+            </div>
+            {/* Instagram Post 3 */}
+            <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className="aspect-square bg-muted overflow-hidden">
+                <img
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/YZiSIUzAAlNKHzgC.png"
+                  alt="Oreo巧克力布丁雪花冰"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex items-center justify-between mb-3 text-foreground/60 text-sm">
+                  <div className="flex items-center gap-2">
+                    <Heart className="w-4 h-4" />
+                    <span>189</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MessageCircle className="w-4 h-4" />
+                    <span>41</span>
+                  </div>
+                </div>
+                <p className="text-sm text-foreground leading-relaxed">Oreo 巧克力布丁雪花冰 🍫 巧克力愛好者必點！</p>
+              </div>
+            </div>
+            {/* Instagram Post 4 */}
+            <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className="aspect-square bg-muted overflow-hidden">
+                <img
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/nVKrAcBpRhrFllUC.png"
+                  alt="紅豆牛奶雪花冰"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex items-center justify-between mb-3 text-foreground/60 text-sm">
+                  <div className="flex items-center gap-2">
+                    <Heart className="w-4 h-4" />
+                    <span>142</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MessageCircle className="w-4 h-4" />
+                    <span>28</span>
+                  </div>
+                </div>
+                <p className="text-sm text-foreground leading-relaxed">紅豆牛奶雪花冰 🍶 懷舊風味，溫暖陪伴</p>
+              </div>
+            </div>
+          </div>
+          <div className="text-center">
+            <a
+              href="https://www.instagram.com/auntie_dreamhouse"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-lg transition-all duration-300 hover:shadow-lg"
+            >
+              <Instagram className="w-5 h-5" />
+              追蹤我們的 Instagram
+            </a>
           </div>
         </div>
       </section>
