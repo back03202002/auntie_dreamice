@@ -15,28 +15,28 @@ export default function Home() {
       name: "海鮮總匯披薩",
       price: "$199",
       description: "新鮮蝦仁、透抽、淡菜搭配濃郁起司，海味十足的經典組合",
-      image: "/manus-storage/海鮮總匯_de7a788e.jpg",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/海鮮總匯_de7a788e.jpg",
     },
     {
       id: 2,
       name: "費城牛肉披薩",
       price: "$199",
-      description: "嫩牛肉搭配起司和洋蔥，咬下去肉汁四溢的美味",
-      image: "/manus-storage/費城牛肉_5bce433d.jpg",
+      description: "嫩牛肉搭配起司和洋蔵，咬下去肉汁四溢的美味",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/費城牛肉_5bce433d.jpg",
     },
     {
       id: 3,
       name: "瑪格麗特披薩",
       price: "$199",
       description: "經典義式披薩，番茄、起司、羅勒的完美組合",
-      image: "/manus-storage/瑪格麗特_75e1dfa9.jpg",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/瑪格麗特_75e1dfa9.jpg",
     },
     {
       id: 4,
       name: "蜂蜜麻吉披薩",
       price: "$199",
       description: "甜蜜蜂蜜搭配Q彈麻吉，甜鹹交織的獨特風味",
-      image: "/manus-storage/蜂蜜麻吉_b33798ad.jpg",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/蜂蜜麻吉_b33798ad.jpg",
     },
   ];
 
@@ -173,21 +173,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hot Food Section - Pizza */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-background">
+      {/* Menu Section */}
+      <section id="menu" className="py-16 md:py-24 bg-background">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-primary">🍕 熱食區</h2>
-            <p className="text-lg text-foreground/70">6吋手工披薩，現做現烤的美味</p>
+            <h2 className="text-4xl font-bold mb-4">🍧 冰品菜單</h2>
+            <p className="text-lg text-foreground/70">精選冰品，每一口都是幸福的滋味</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {pizzaItems.map((item) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {menuItems.map((item) => (
               <Card
                 key={item.id}
                 className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white border border-border hover:border-primary/30 hover:-translate-y-1"
               >
                 <div className="relative aspect-square overflow-hidden bg-muted">
+                  {item.badge && (
+                    <div className="absolute top-3 right-3 z-10 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
+                      {item.badge}
+                    </div>
+                  )}
                   <img
                     src={item.image}
                     alt={item.name}
@@ -209,26 +214,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Menu Section */}
-      <section id="menu" className="py-16 md:py-24 bg-background">
+      {/* Hot Food Section - Pizza */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-background">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">🍧 冰品菜單</h2>
-            <p className="text-lg text-foreground/70">精選冰品，每一口都是幸福的滋味</p>
+            <h2 className="text-4xl font-bold mb-4 text-primary">🍕 熱食區</h2>
+            <p className="text-lg text-foreground/70">6吋手工披薩，現做現烤的美味</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {menuItems.map((item) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {pizzaItems.map((item) => (
               <Card
                 key={item.id}
                 className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white border border-border hover:border-primary/30 hover:-translate-y-1"
               >
                 <div className="relative aspect-square overflow-hidden bg-muted">
-                  {item.badge && (
-                    <div className="absolute top-3 right-3 z-10 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
-                      {item.badge}
-                    </div>
-                  )}
                   <img
                     src={item.image}
                     alt={item.name}
