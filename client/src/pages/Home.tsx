@@ -15,28 +15,28 @@ export default function Home() {
       name: "海鮮總匯披薩",
       price: "$199",
       description: "新鮮蝦仁、透抽、淡菜搭配濃郁起司，海味十足的經典組合",
-      image: "/manus-storage/海鮮總匯_cfabe9cf.jpg",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/xxgtCHvQRoHPBWcA.jpg",
     },
     {
       id: 2,
       name: "費城牛肉披薩",
       price: "$199",
       description: "嫩牛肉搭配起司和洋蔵，咬下去肉汁四溢的美味",
-      image: "/manus-storage/費城牛肉_c13584db.jpg",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/CjkOQbxxCttfQKQW.jpg",
     },
     {
       id: 3,
       name: "瑪格麗特披薩",
       price: "$199",
       description: "經典義式披薩，番茄、起司、羅勒的完美組合",
-      image: "/manus-storage/瑪格麗特_01a64e7d.jpg",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/NjljuSyLjTqZcRVU.jpg",
     },
     {
       id: 4,
       name: "蜂蜜麻吉披薩",
       price: "$199",
       description: "甜蜜蜂蜜搭配Q彈麻吉，甜鹹交織的獨特風味",
-      image: "/manus-storage/蜂蜜麻吉_a3ce3f8e.jpg",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/kWbcmPtlrCpXrpwo.jpg",
     },
   ];
 
