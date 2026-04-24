@@ -142,7 +142,7 @@ export default function Home() {
       </section>
 
       {/* Brand Story Section */}
-      <section id="brand" className="py-16 md:py-24 bg-white">
+      <section id="brand" className="py-16 md:py-24">
         <div className="container">
           <div className="grid md:grid-cols.2 gap-12 items-center">
             <div>
@@ -162,13 +162,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="relative">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/brand_story_bg-QFP7d7rxXTUbFLv3XWvdpn.webp"
-                alt="品牌故事背景"
-                className="rounded-lg shadow-lg"
-              />
-            </div>
+
           </div>
         </div>
       </section>
