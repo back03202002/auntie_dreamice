@@ -452,12 +452,23 @@ export default function Home() {
           </div>
           {/* 品牌 LOGO 右側 */}
           <div className="hidden md:flex items-center justify-center flex-shrink-0 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-            <div className="relative">
+            <div className="relative w-72 h-72 md:w-80 md:h-80">
+              {/* 暨色調暫變遠層（底部游離漸層） */}
+              <div className="absolute inset-0 rounded-full pointer-events-none" style={{
+                background: 'radial-gradient(ellipse at center, transparent 55%, rgba(60,35,15,0.55) 100%)'
+              }} />
+              {/* 暨色調暫變遠層（底部淡出） */}
+              <div className="absolute bottom-0 left-0 right-0 h-1/3 rounded-b-full pointer-events-none" style={{
+                background: 'linear-gradient(to top, rgba(90,55,25,0.45) 0%, transparent 100%)'
+              }} />
               <img
                 src="/manus-storage/brand_logo_transparent_b5c82c24.png"
                 alt="小阿姨雪花冰 品牌 LOGO"
-                className="relative w-72 h-72 md:w-80 md:h-80 object-contain"
-                style={{ filter: 'drop-shadow(0 4px 24px rgba(0,0,0,0.35))' }}
+                className="w-full h-full object-contain"
+                style={{
+                  filter: 'drop-shadow(0 4px 20px rgba(80,45,10,0.5)) sepia(18%) saturate(0.9) brightness(0.95)',
+                  mixBlendMode: 'normal'
+                }}
               />
             </div>
           </div>
