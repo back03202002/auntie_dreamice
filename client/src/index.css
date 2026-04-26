@@ -1155,8 +1155,11 @@
   transform: translateY(-1px);
 }
 .btn-premium:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(192, 98, 58, 0.3);
+  transform: translateY(1px) scale(0.96);
+  box-shadow: 0 1px 4px rgba(192, 98, 58, 0.5), inset 0 2px 6px rgba(0,0,0,0.15);
+  background-position: right center;
+  filter: brightness(0.9);
+  transition: all 0.08s ease;
 }
 
 /* 精品輪廓按鈕 */
@@ -1180,6 +1183,14 @@
   color: #C0623A;
   background: rgba(212, 168, 85, 0.08);
   box-shadow: 0 4px 16px rgba(212, 168, 85, 0.15);
+}
+.btn-outline-premium:active {
+  transform: translateY(1px) scale(0.96);
+  background: rgba(212, 168, 85, 0.18);
+  border-color: #C0623A;
+  box-shadow: 0 1px 4px rgba(212, 168, 85, 0.3), inset 0 2px 6px rgba(0,0,0,0.08);
+  filter: brightness(0.92);
+  transition: all 0.08s ease;
 }
 
 /* 精品標籤 */
