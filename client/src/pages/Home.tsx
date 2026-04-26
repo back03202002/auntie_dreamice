@@ -410,8 +410,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
-        <div className="relative container pt-4 pb-16 md:py-40 flex flex-col md:flex-row items-center md:justify-between min-h-[680px] md:min-h-[780px]">
-          <div className="max-w-xl">
+        <div className="relative container py-20 md:py-40 flex flex-row items-center justify-between min-h-[680px] md:min-h-[780px]">
+          <div className="flex-1 max-w-xl">
             {/* 英文品牌名稱動畫 */}
             <div className="mb-3 animate-fade-in-up" style={{ animationDelay: "0.05s" }}>
               <span className="brand-english-hero text-4xl md:text-6xl">
@@ -419,10 +419,27 @@ export default function Home() {
                 <span className="word-dream">Dream </span>                <span className="word-ice">Ice</span>
               </span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-5 leading-tight font-display animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-              小阿姨<br />
-              <span className="text-[#FFD4B8]">雪花冰</span>
-            </h1>
+            {/* 手機版：標題 + LOGO 並排 */}
+            <div className="flex items-center gap-3">
+              <h1 className="text-4xl md:text-7xl font-bold text-white mb-5 leading-tight font-display animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+                小阿姨<br />
+                <span className="text-[#FFD4B8]">雪花冰</span>
+              </h1>
+              {/* 手機版 LOGO（品牌文字旁，md 以上隱藏） */}
+              <div className="flex-shrink-0 md:hidden mb-4 animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
+                <div className="relative w-28 h-28 sm:w-32 sm:h-32">
+                  <div className="absolute inset-0 rounded-full pointer-events-none" style={{
+                    background: 'radial-gradient(ellipse at center, transparent 50%, rgba(60,35,15,0.5) 100%)'
+                  }} />
+                  <img
+                    src="/manus-storage/brand_logo_transparent_b5c82c24.png"
+                    alt="小阿姨雪花冰 品牌 LOGO"
+                    className="w-full h-full object-contain"
+                    style={{ filter: 'drop-shadow(0 3px 16px rgba(80,45,10,0.45)) sepia(18%) saturate(0.9) brightness(0.95)' }}
+                  />
+                </div>
+              </div>
+            </div>
 
             <p className="text-xl md:text-2xl text-white/90 mb-3 leading-relaxed font-light animate-fade-in-up min-h-[2rem]" style={{ animationDelay: "0.2s" }}>
               {typedText}<span className="inline-block w-0.5 h-6 bg-white/80 ml-0.5 align-middle" style={{ animation: "blink 1s step-end infinite" }} />
@@ -450,21 +467,6 @@ export default function Home() {
 
 
           </div>
-        {/* 手機版 LOGO 置中（文字上方） */}
-        <div className="md:hidden flex justify-center pt-16 pb-2 animate-fade-in-up" style={{ animationDelay: "0.05s" }}>
-          <div className="relative w-44 h-44">
-            <div className="absolute inset-0 rounded-full pointer-events-none" style={{
-              background: 'radial-gradient(ellipse at center, transparent 50%, rgba(60,35,15,0.5) 100%)'
-            }} />
-            <img
-              src="/manus-storage/brand_logo_transparent_b5c82c24.png"
-              alt="小阿姨雪花冰 品牌 LOGO"
-              className="w-full h-full object-contain"
-              style={{ filter: 'drop-shadow(0 3px 16px rgba(80,45,10,0.45)) sepia(18%) saturate(0.9) brightness(0.95)' }}
-            />
-          </div>
-        </div>
-
           {/* 品牌 LOGO 右側（桌面版 md 以上） */}
           <div className="hidden md:flex items-center justify-center flex-shrink-0 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
             <div className="relative w-72 h-72 md:w-80 md:h-80">
