@@ -1120,7 +1120,7 @@ export default function Home() {
           <SectionHeader
             tag="人氣冰品"
             title="精選冰品"
-            iconImg="https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/icon_shaveice_handdrawn-nWGBgT8iPjdvwcrQunRQXf.webp"
+            iconImg="/manus-storage/icon_shaveice_transparent_51cce4a5.png"
             subtitle="每一口都是幸福的滋味，精心製作的雪花冰等您來品嚐"
           />
 
@@ -1193,7 +1193,7 @@ export default function Home() {
           <SectionHeader
             tag="熱食區"
             title="手工披薩"
-            iconImg="https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/icon_pizza_handdrawn-fVKWKvZUVr7oE2Pr62KZpP.webp"
+            iconImg="/manus-storage/icon_pizza_transparent_bc0a11ea.png"
             subtitle="6吋手工披薩，現做現烤。新鮮食材搭配傳統烘烤技術，每一片都是用心的傑作"
           />
 
