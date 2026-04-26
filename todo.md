@@ -112,3 +112,13 @@
 - [x] Modal 動畫：淡入放大進場 + 背景模糊遮罩
 - [x] 鍵盤 ESC 關閉 + 點擊遮罩關閉
 - [x] 冰品與披薩兩個菜單區塊都套用
+
+## 全站配色協調（2026-04-26）
+
+- [x] 背景漸層統一：各區段使用奶油色系交替（#FFF5EE / #FDF6F0 / #FFF8F2 / #FDF0E8）
+- [x] 補充缺失 CSS 類：nav-glass（毛玻璃導航）、nav-link-premium（精品導航連結）
+- [x] 補充缺失 CSS 類：btn-premium（精品按鈕）、btn-outline-premium（輪廓按鈕）
+- [x] 補充缺失 CSS 類：menu-card-premium（菜單卡片）、badge-premium（標籤）
+- [x] 波浪分隔條顏色與相鄰區段背景色統一
+- [x] Instagram 區段背景漸層方向統一
+- [x] TypeScript 0 錯誤確認，Vite HMR 正常

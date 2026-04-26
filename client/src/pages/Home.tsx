@@ -627,9 +627,20 @@ export default function Home() {
         </div>
 
         {/* ── 第三幕：品牌故事時間軸 ── */}
-        <div className="bg-gradient-to-br from-[#FFF5EE] via-background to-[#FFF0E8] py-20 md:py-32 relative overflow-hidden">
-          <div className="absolute -top-20 -right-20 w-[500px] h-[500px] bg-primary/4 rounded-full blur-3xl" />
-          <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-accent/5 rounded-full blur-3xl" />
+        <div className="py-20 md:py-32 relative overflow-hidden">
+          {/* 水彩插圖背景 */}
+          <div className="absolute inset-0">
+            <img
+              src="/manus-storage/brand_story_bg_warmth_9a3b0fb6.png"
+              alt=""
+              className="w-full h-full object-cover object-center"
+              style={{ filter: 'saturate(0.9) brightness(1.05)' }}
+            />
+          </div>
+          {/* 柔和遮罩：保留圖片質感同時確保文字可讀 */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#FFF8F2]/60 via-[#FFF5EE]/40 to-[#FFF8F2]/60" />
+          <div className="absolute -top-20 -right-20 w-[500px] h-[500px] bg-primary/3 rounded-full blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-accent/4 rounded-full blur-3xl" />
 
           <div className="container relative z-10">
             <div className="text-center mb-16">
@@ -750,18 +761,8 @@ export default function Home() {
             className="w-full h-full object-cover object-center"
           />
         </div>
-        {/* 半透明遮罩：降低透明度讓圖片更明顯，同時保留文字可讀性 */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FFF5EE]/68 via-[#FDF6F0]/65 to-[#FFF5EE]/70" />
-        {/* 溫馨水彩插圖背景層 */}
-        <div
-          className="absolute inset-0 opacity-20 pointer-events-none"
-          style={{
-            backgroundImage: `url(https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/brand_story_bg_warmth-CZZRMxiFzJhv5J5fL7tZCz.webp)`,
-            backgroundSize: '600px auto',
-            backgroundRepeat: 'repeat',
-            mixBlendMode: 'multiply',
-          }}
-        />
+        {/* 半透明遮罩：調低透明度讓圖片清晰可見，頂部和底部稍深保留文字可讀性 */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FFF5EE]/55 via-[#FDF6F0]/30 to-[#FFF5EE]/55" />
         {/* 大裝飾引號 */}
         <div className="absolute top-4 left-4 md:top-10 md:left-10 text-[160px] md:text-[200px] text-primary/5 font-display leading-none select-none pointer-events-none" style={{ fontFamily: 'Georgia, serif' }}>“</div>
         <div className="absolute bottom-4 right-4 md:bottom-10 md:right-10 text-[160px] md:text-[200px] text-primary/5 font-display leading-none select-none pointer-events-none rotate-180" style={{ fontFamily: 'Georgia, serif' }}>“</div>
