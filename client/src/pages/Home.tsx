@@ -355,14 +355,16 @@ export default function Home() {
 
       {/* ===== 導航欄 ===== */}
       <header
-        className={[
-          "sticky top-0 z-50 nav-glass",
-          // 進場動畫：從上方滑入 + 淡入
-          "transition-[transform,opacity,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-          navMounted ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0",
-          // 滞動隱藏/顯示
-          navVisible ? "translate-y-0" : "-translate-y-full",
-        ].join(" ")}
+        className="sticky top-0 z-50 nav-glass"
+        style={{
+          transform: (!navMounted || !navVisible) ? "translateY(-100%)" : "translateY(0)",
+          opacity: navMounted ? 1 : 0,
+          // 進場 & 重新顯示：柔和緩慢（700ms spring）
+          // 隱藏：迅速滞出（280ms ease-in）
+          transition: navVisible
+            ? "transform 700ms cubic-bezier(0.16, 1, 0.3, 1), opacity 600ms cubic-bezier(0.16, 1, 0.3, 1)"
+            : "transform 280ms cubic-bezier(0.4, 0, 1, 1), opacity 200ms ease-in",
+        }}
       >
         <div className="container flex items-center justify-between h-16">
           {/* Logo */}
