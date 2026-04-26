@@ -60,7 +60,7 @@ function WaveDivider({ color = "#FDF6F0", flip = false }: { color?: string; flip
 }
 
 // 區段標題元件
-function SectionHeader({ tag, title, subtitle, center = true }: { tag?: string; title: string; subtitle?: string; center?: boolean }) {
+function SectionHeader({ tag, title, subtitle, center = true, iconImg }: { tag?: string; title: string; subtitle?: string; center?: boolean; iconImg?: string }) {
   return (
     <div className={`mb-12 md:mb-16 ${center ? "text-center" : ""}`}>
       {tag && (
@@ -71,11 +71,27 @@ function SectionHeader({ tag, title, subtitle, center = true }: { tag?: string; 
           </span>
         </div>
       )}
-      <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display text-gradient-warm leading-tight">
-        {title}
-      </h2>
+      <div className={`flex items-center gap-4 ${center ? "justify-center" : ""}`}>
+        {iconImg && (
+          <img
+            src={iconImg}
+            alt="section icon"
+            className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-md flex-shrink-0"
+          />
+        )}
+        <h2 className="text-4xl md:text-5xl font-bold mb-0 font-display text-gradient-warm leading-tight">
+          {title}
+        </h2>
+        {iconImg && (
+          <img
+            src={iconImg}
+            alt="section icon"
+            className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-md flex-shrink-0 scale-x-[-1]"
+          />
+        )}
+      </div>
       {subtitle && (
-        <p className="text-lg text-foreground/65 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-lg text-foreground/65 leading-relaxed max-w-2xl mx-auto mt-4">
           {subtitle}
         </p>
       )}
@@ -1103,7 +1119,8 @@ export default function Home() {
         <div className="container relative z-10">
           <SectionHeader
             tag="人氣冰品"
-            title="🍧 精選冰品"
+            title="精選冰品"
+            iconImg="https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/icon_shaveice_handdrawn-nWGBgT8iPjdvwcrQunRQXf.webp"
             subtitle="每一口都是幸福的滋味，精心製作的雪花冰等您來品嚐"
           />
 
@@ -1175,7 +1192,8 @@ export default function Home() {
         <div className="container relative z-10">
           <SectionHeader
             tag="熱食區"
-            title="🍕 手工披薩"
+            title="手工披薩"
+            iconImg="https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/icon_pizza_handdrawn-fVKWKvZUVr7oE2Pr62KZpP.webp"
             subtitle="6吋手工披薩，現做現烤。新鮮食材搭配傳統烘烤技術，每一片都是用心的傑作"
           />
 
