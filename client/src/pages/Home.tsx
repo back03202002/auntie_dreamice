@@ -410,7 +410,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
-        <div className="relative container py-24 md:py-40 flex items-center justify-between min-h-[680px] md:min-h-[780px]">
+        <div className="relative container pt-4 pb-16 md:py-40 flex flex-col md:flex-row items-center md:justify-between min-h-[680px] md:min-h-[780px]">
           <div className="max-w-xl">
             {/* 英文品牌名稱動畫 */}
             <div className="mb-3 animate-fade-in-up" style={{ animationDelay: "0.05s" }}>
@@ -450,7 +450,22 @@ export default function Home() {
 
 
           </div>
-          {/* 品牌 LOGO 右側 */}
+        {/* 手機版 LOGO 置中（文字上方） */}
+        <div className="md:hidden flex justify-center pt-16 pb-2 animate-fade-in-up" style={{ animationDelay: "0.05s" }}>
+          <div className="relative w-44 h-44">
+            <div className="absolute inset-0 rounded-full pointer-events-none" style={{
+              background: 'radial-gradient(ellipse at center, transparent 50%, rgba(60,35,15,0.5) 100%)'
+            }} />
+            <img
+              src="/manus-storage/brand_logo_transparent_b5c82c24.png"
+              alt="小阿姨雪花冰 品牌 LOGO"
+              className="w-full h-full object-contain"
+              style={{ filter: 'drop-shadow(0 3px 16px rgba(80,45,10,0.45)) sepia(18%) saturate(0.9) brightness(0.95)' }}
+            />
+          </div>
+        </div>
+
+          {/* 品牌 LOGO 右側（桌面版 md 以上） */}
           <div className="hidden md:flex items-center justify-center flex-shrink-0 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
             <div className="relative w-72 h-72 md:w-80 md:h-80">
               {/* 暨色調暫變遠層（底部游離漸層） */}
