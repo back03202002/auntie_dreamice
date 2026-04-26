@@ -752,6 +752,16 @@ export default function Home() {
         </div>
         {/* 半透明遮罩：降低透明度讓圖片更明顯，同時保留文字可讀性 */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#FFF5EE]/68 via-[#FDF6F0]/65 to-[#FFF5EE]/70" />
+        {/* 溫馨水彩插圖背景層 */}
+        <div
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage: `url(https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/brand_story_bg_warmth-CZZRMxiFzJhv5J5fL7tZCz.webp)`,
+            backgroundSize: '600px auto',
+            backgroundRepeat: 'repeat',
+            mixBlendMode: 'multiply',
+          }}
+        />
         {/* 大裝飾引號 */}
         <div className="absolute top-4 left-4 md:top-10 md:left-10 text-[160px] md:text-[200px] text-primary/5 font-display leading-none select-none pointer-events-none" style={{ fontFamily: 'Georgia, serif' }}>“</div>
         <div className="absolute bottom-4 right-4 md:bottom-10 md:right-10 text-[160px] md:text-[200px] text-primary/5 font-display leading-none select-none pointer-events-none rotate-180" style={{ fontFamily: 'Georgia, serif' }}>“</div>
@@ -1108,7 +1118,8 @@ export default function Home() {
       </section>
 
       {/* ===== 冰品菜單 ===== */}
-      <section id="menu" className="py-16 md:py-28 bg-background relative overflow-hidden">
+      <section id="menu" className="py-16 md:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FFF5EE] via-[#FDF6F0] to-[#FFF5EE]" />
         {/* 頂部波浪 */}
         <div className="absolute top-0 left-0 right-0">
           <svg viewBox="0 0 1440 60" preserveAspectRatio="none" className="w-full h-12">
@@ -1499,7 +1510,7 @@ export default function Home() {
       </div>
 
       {/* ===== Instagram ===== */}
-      <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #FFF8F2 0%, #FDF0E8 50%, #FFF8F2 100%)' }}>
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #FFF5EE 0%, #FDF6F0 40%, #FFF8F2 70%, #FFF5EE 100%)' }}>
         {/* 背景裝飾 */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-10 left-[5%] w-64 h-64 rounded-full" style={{ background: 'radial-gradient(circle, rgba(232,137,106,0.07) 0%, transparent 70%)' }} />
