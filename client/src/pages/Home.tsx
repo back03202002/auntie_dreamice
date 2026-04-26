@@ -1196,7 +1196,17 @@ export default function Home() {
 
       {/* ===== 冰品菜單 ===== */}
       <section id="menu" className="py-16 md:py-28 relative overflow-hidden">
+        {/* 奶油漸層底色 */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#FFF5EE] via-[#FDF6F0] to-[#FFF5EE]" />
+        {/* 水彩插圖背景 */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/menu_section_watercolor_bg-SqJnZpmWvhDvNtTJdfRp7t.webp')`,
+            opacity: 0.55,
+            mixBlendMode: "multiply",
+          }}
+        />
         {/* 頂部波浪 */}
         <div className="absolute top-0 left-0 right-0">
           <svg viewBox="0 0 1440 60" preserveAspectRatio="none" className="w-full h-12">
