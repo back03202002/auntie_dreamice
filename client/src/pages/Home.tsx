@@ -453,12 +453,11 @@ export default function Home() {
           {/* 品牌 LOGO 右側 */}
           <div className="hidden md:flex items-center justify-center flex-shrink-0 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
             <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-white/10 blur-2xl scale-110" />
               <img
-                src="/manus-storage/brand_logo_ee45fb74.jpg"
+                src="/manus-storage/brand_logo_transparent_b5c82c24.png"
                 alt="小阿姨雪花冰 品牌 LOGO"
-                className="relative w-72 h-72 md:w-80 md:h-80 object-contain drop-shadow-2xl"
-                style={{ filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.4))' }}
+                className="relative w-72 h-72 md:w-80 md:h-80 object-contain"
+                style={{ filter: 'drop-shadow(0 4px 24px rgba(0,0,0,0.35))' }}
               />
             </div>
           </div>
