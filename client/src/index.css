@@ -1407,3 +1407,9 @@ a {
     animation: btn-press 0.25s ease forwards;
   }
 }
+
+/* 骨架屏光掃動畫 */
+@keyframes skeleton-shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}

@@ -4,6 +4,7 @@ import { ReviewCarousel } from "@/components/ReviewCarousel";
 import { reviews } from "@/lib/reviews";
 import { Card } from "@/components/ui/card";
 import { useAuth } from "@/_core/hooks/useAuth";
+import { LazyImage } from "@/components/LazyImage";
 
 /**
  * Home Page - 小阿姨雪花冰官方網站
@@ -418,10 +419,13 @@ export default function Home() {
       {/* ===== 英雄區段 ===== */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <LazyImage
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/hero_banner_ghibli-PypU9pjWRBkpJyDoWh4FFY.webp"
             alt="小阿姨雪花冰店面"
             className="w-full h-full object-cover object-top"
+            isCover
+            transitionDuration={800}
+            rootMargin="0px"
           />
         </div>
         {/* 漸層遮罩 */}
@@ -449,11 +453,13 @@ export default function Home() {
                   <div className="absolute inset-0 rounded-full pointer-events-none" style={{
                     background: 'radial-gradient(ellipse at center, transparent 50%, rgba(60,35,15,0.5) 100%)'
                   }} />
-                  <img
+                  <LazyImage
                     src="/manus-storage/brand_logo_transparent_b5c82c24.png"
                     alt="小阿姨雪花冰 品牌 LOGO"
                     className="w-full h-full object-contain"
                     style={{ filter: 'drop-shadow(0 3px 16px rgba(80,45,10,0.45)) sepia(18%) saturate(0.9) brightness(0.95)' }}
+                    isCover
+                    transitionDuration={700}
                   />
                 </div>
               </div>
@@ -496,7 +502,7 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 right-0 h-1/3 rounded-b-full pointer-events-none" style={{
                 background: 'linear-gradient(to top, rgba(90,55,25,0.45) 0%, transparent 100%)'
               }} />
-              <img
+              <LazyImage
                 src="/manus-storage/brand_logo_transparent_b5c82c24.png"
                 alt="小阿姨雪花冰 品牌 LOGO"
                 className="w-full h-full object-contain"
@@ -504,6 +510,8 @@ export default function Home() {
                   filter: 'drop-shadow(0 4px 20px rgba(80,45,10,0.5)) sepia(18%) saturate(0.9) brightness(0.95)',
                   mixBlendMode: 'normal'
                 }}
+                isCover
+                transitionDuration={700}
               />
             </div>
           </div>
@@ -551,11 +559,13 @@ export default function Home() {
         <div className="relative py-24 md:py-36 overflow-hidden">
           {/* 背景：店家實景照片 */}
           <div className="absolute inset-0">
-            <img
+            <LazyImage
               src="/manus-storage/store_photo_b4b014c2.jpg"
               alt="小阿姨雪花冰店內實景"
               className="w-full h-full object-cover object-center scale-105"
               style={{ filter: 'brightness(0.45) saturate(1.2)' }}
+              isCover
+              transitionDuration={900}
             />
           </div>
           {/* 漸層遮罩 */}
@@ -630,11 +640,13 @@ export default function Home() {
         <div className="py-20 md:py-32 relative overflow-hidden">
           {/* 水彩插圖背景 */}
           <div className="absolute inset-0">
-            <img
+            <LazyImage
               src="/manus-storage/brand_story_bg_warmth_9a3b0fb6.png"
               alt=""
               className="w-full h-full object-cover object-center"
               style={{ filter: 'saturate(0.9) brightness(1.05)' }}
+              isCover
+              transitionDuration={900}
             />
           </div>
           {/* 柔和遮罩：保留圖片質感同時確保文字可讀 */}
@@ -783,10 +795,12 @@ export default function Home() {
       <section id="brand" className="py-20 md:py-32 relative overflow-hidden">
         {/* 店家實景背景圖 */}
         <div className="absolute inset-0">
-          <img
+          <LazyImage
             src="/manus-storage/store_photo_b4b014c2.jpg"
             alt="小阿姨雪花冰店內實景"
             className="w-full h-full object-cover object-center"
+            isCover
+            transitionDuration={900}
           />
         </div>
         {/* 半透明遮罩：調低透明度讓圖片清晰可見，頂部和底部稍深保留文字可讀性 */}
@@ -1180,11 +1194,13 @@ export default function Home() {
                       </div>
                     </div>
                   )}
-                  <img
+                  <LazyImage
                     src={item.image}
                     alt={item.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     style={{ transition: "transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
+                    isCover
+                    transitionDuration={600}
                   />
                   {/* 圖片底部漸層 */}
                   <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/30 to-transparent" />
@@ -1250,10 +1266,12 @@ export default function Home() {
                 </div>
 
                 <div className="relative aspect-square overflow-hidden bg-amber-50">
-                  <img
+                  <LazyImage
                     src={item.image}
                     alt={item.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-600"
+                    isCover
+                    transitionDuration={600}
                   />
                   <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/15 to-transparent" />
                 </div>
@@ -1288,10 +1306,12 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#1A0D06] via-[#2C1810] to-[#1A0D06]" />
         {/* 背景圖片深色疊加 */}
         <div className="absolute inset-0 opacity-15">
-          <img
+          <LazyImage
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/contact_section_bg-QFP7d7rxXTUbFLv3XWvdpn.webp"
             alt=""
             className="w-full h-full object-cover"
+            isCover
+            transitionDuration={900}
           />
         </div>
         {/* 光暈 */}
@@ -1593,10 +1613,12 @@ export default function Home() {
                 }}
               >
                 <div className="aspect-square overflow-hidden bg-muted">
-                  <img
+                  <LazyImage
                     src={post.src}
                     alt={post.alt}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-600"
+                    isCover
+                    transitionDuration={600}
                   />
                 </div>
                  {/* Instagram 圖示（懸停顯示） */}
@@ -1775,10 +1797,13 @@ export default function Home() {
 
           {/* 圖片區 */}
           <div className={`relative h-56 overflow-hidden bg-gradient-to-br ${selectedMenuItem.color || "from-amber-50 to-orange-50"}`}>
-            <img
+            <LazyImage
               src={selectedMenuItem.image}
               alt={selectedMenuItem.name}
               className="w-full h-full object-cover"
+              isCover
+              transitionDuration={500}
+              rootMargin="0px"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             {selectedMenuItem.badge && (
