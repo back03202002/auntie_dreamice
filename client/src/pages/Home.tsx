@@ -115,6 +115,9 @@ export default function Home() {
   const { user, loading } = useAuth();
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [navVisible, setNavVisible] = useState(true);   // 向上捲動時顯示
+  const [navMounted, setNavMounted] = useState(false);  // 進場動畫觸發
+  const lastScrollY = useRef(0);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [typedText, setTypedText] = useState("");
   const [expandedFeature, setExpandedFeature] = useState<number | null>(null);
@@ -144,11 +147,24 @@ export default function Home() {
     return () => clearTimeout(timeout);
   }, [typedText, isDeleting, subtitleIdx]);
 
+  // 進場動畫：組件載入後 80ms 觸發
+  useEffect(() => {
+    const timer = setTimeout(() => setNavMounted(true), 80);
+    return () => clearTimeout(timer);
+  }, []);
   useEffect(() => {
     const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 500);
+      const currentY = window.scrollY;
+      setShowScrollTop(currentY > 500);
+      // 向下滞動超過 80px 且不在頂部時隱藏導覽列
+      if (currentY > lastScrollY.current + 8 && currentY > 80) {
+        setNavVisible(false);
+      } else if (currentY < lastScrollY.current - 4 || currentY <= 80) {
+        setNavVisible(true);
+      }
+      lastScrollY.current = currentY;
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -338,10 +354,26 @@ export default function Home() {
       </div>
 
       {/* ===== 導航欄 ===== */}
-      <header className="sticky top-0 z-50 nav-glass transition-all duration-300">
+      <header
+        className={[
+          "sticky top-0 z-50 nav-glass",
+          // 進場動畫：從上方滑入 + 淡入
+          "transition-[transform,opacity,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+          navMounted ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0",
+          // 滞動隱藏/顯示
+          navVisible ? "translate-y-0" : "-translate-y-full",
+        ].join(" ")}
+      >
         <div className="container flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2.5">
+          <div
+            className={[
+              "flex items-center gap-2.5",
+              "transition-[transform,opacity] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]",
+              navMounted ? "translate-x-0 opacity-100" : "-translate-x-6 opacity-0",
+            ].join(" ")}
+            style={{ transitionDelay: navMounted ? "0ms" : "0ms" }}
+          >
             <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white text-lg shadow-md">
               🍧
             </div>
@@ -358,17 +390,27 @@ export default function Home() {
               { href: "#brand", label: "品牌故事" },
               { href: "#menu", label: "人氣美食" },
               { href: "#contact", label: "聯絡我們" },
-            ].map((item) => (
+            ].map((item, idx) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="nav-link-premium text-sm"
+                className={[
+                  "nav-link-premium text-sm",
+                  "transition-[transform,opacity] duration-600 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                  navMounted ? "translate-y-0 opacity-100" : "-translate-y-3 opacity-0",
+                ].join(" ")}
+                style={{ transitionDelay: navMounted ? `${(idx + 1) * 80}ms` : "0ms" }}
               >
                 {item.label}
               </a>
             ))}
             <button
-              className="btn-premium btn-interactive text-sm px-5 py-2"
+              className={[
+                "btn-premium btn-interactive text-sm px-5 py-2",
+                "transition-[transform,opacity] duration-600 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                navMounted ? "translate-y-0 opacity-100" : "-translate-y-3 opacity-0",
+              ].join(" ")}
+              style={{ transitionDelay: navMounted ? "440ms" : "0ms" }}
               onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}
             >
               探索菜單
@@ -377,7 +419,12 @@ export default function Home() {
 
           {/* 手機漢堡選單 */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-primary/10 transition btn-interactive-circle"
+            className={[
+              "md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-primary/10 transition btn-interactive-circle",
+              "transition-[transform,opacity] duration-600 ease-[cubic-bezier(0.22,1,0.36,1)]",
+              navMounted ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0",
+            ].join(" ")}
+            style={{ transitionDelay: navMounted ? "160ms" : "0ms" }}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="開啟選單"
           >
