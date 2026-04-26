@@ -702,31 +702,59 @@ export default function Home() {
               ].map((item, i) => (
                 <div key={i} className={`reveal relative flex md:items-center mb-10 md:mb-16 ${
                   item.side === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'
-                } flex-col`}>
+                } flex-col group/row`}>
                   {/* 內容卡片 */}
                   <div className={`md:w-[45%] ${
                     item.side === 'left' ? 'md:pr-12' : 'md:pl-12'
                   }`}>
-                    <div className={`group bg-gradient-to-br ${item.color} rounded-3xl p-7 border ${item.border} hover:shadow-[0_20px_60px_rgba(74,46,26,0.12)] hover:-translate-y-2 transition-all duration-500 relative overflow-hidden`}>
-                      {/* 角落裝飾 */}
-                      <div className="absolute top-0 right-0 w-20 h-20 bg-white/50 rounded-bl-full" />
+                    <div className={`group bg-gradient-to-br ${item.color} rounded-3xl p-7 border ${item.border} shadow-[0_4px_20px_rgba(74,46,26,0.06)]
+                      hover:shadow-[0_24px_64px_rgba(74,46,26,0.18),0_0_0_3px_rgba(255,160,100,0.25)]
+                      hover:-translate-y-3 hover:scale-[1.025]
+                      hover:border-primary/50
+                      transition-all duration-500 ease-out
+                      relative overflow-hidden cursor-default`}>
+
+                      {/* 光掃效果：hover 時從左到右掃過 */}
+                      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none z-10" />
+                      {/* 角落光暈裝飾 */}
+                      <div className="absolute -top-6 -right-6 w-28 h-28 bg-white/40 rounded-full blur-xl group-hover:bg-white/60 group-hover:scale-125 transition-all duration-500 pointer-events-none" />
+                      <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary/5 rounded-full blur-lg group-hover:bg-primary/15 group-hover:scale-150 transition-all duration-500 pointer-events-none" />
                       {/* 年份標籤 */}
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/70 rounded-full text-xs font-bold text-foreground/60 mb-4 border border-white/80">
-                        <span className="w-1.5 h-1.5 rounded-full" style={{ background: item.dot.replace('bg-', '') }} />
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/70 rounded-full text-xs font-bold text-foreground/60 mb-4 border border-white/80 group-hover:bg-white/90 group-hover:border-primary/30 transition-all duration-300">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary/60 group-hover:scale-150 transition-transform duration-300" />
                         {item.year}
                       </div>
                       <div className="flex items-center gap-3 mb-3">
-                        <span className="text-3xl group-hover:animate-bounce">{item.emoji}</span>
-                        <h4 className="text-xl font-bold font-display text-foreground">{item.title}</h4>
+                        {/* 圖示框：hover 時旋轉 + 放大 + 發光 */}
+                        <div className="relative flex-shrink-0">
+                          <div className="w-12 h-12 rounded-2xl bg-white/60 group-hover:bg-white/95 flex items-center justify-center
+                            shadow-sm group-hover:shadow-[0_0_18px_rgba(255,140,80,0.45)]
+                            group-hover:scale-110 group-hover:rotate-6
+                            transition-all duration-400 ease-out border border-white/80 group-hover:border-primary/30">
+                            <span className="text-2xl group-hover:scale-110 transition-transform duration-300 inline-block">{item.emoji}</span>
+                          </div>
+                          {/* 發光外圈 */}
+                          <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 ring-2 ring-primary/30 ring-offset-2" />
+                        </div>
+                        <h4 className="text-xl font-bold font-display text-foreground group-hover:text-primary transition-colors duration-300">{item.title}</h4>
                       </div>
-                      <p className="text-foreground/70 leading-relaxed text-sm">{item.text}</p>
-                      {/* 底部裝飾線 */}
-                      <div className="mt-5 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-primary/50 to-accent/50 rounded-full transition-all duration-600" />
+                      <p className="text-foreground/70 leading-relaxed text-sm group-hover:text-foreground/85 transition-colors duration-300">{item.text}</p>
+                      {/* 底部裝飾線：hover 時從左滑入全寬 */}
+                      <div className="mt-5 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-primary/60 via-accent/60 to-primary/30 rounded-full transition-all duration-500 ease-out" />
+                      {/* 右下角箭頭提示 */}
+                      <div className="absolute bottom-4 right-5 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-400">
+                        <svg className="w-4 h-4 text-primary/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
 
                   {/* 中央圓點（桌面） */}
-                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-4 border-primary/30 items-center justify-center shadow-md z-10 text-lg">
+                  {/* 中央圓點（桌面）：hover 時放大 + 發光 */}
+                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-4 border-primary/30 items-center justify-center shadow-md z-10 text-lg
+                    group-hover/row:scale-125 group-hover/row:border-primary/60 group-hover/row:shadow-[0_0_20px_rgba(255,140,80,0.45)]
+                    transition-all duration-400 ease-out">
                     {item.emoji}
                   </div>
 
