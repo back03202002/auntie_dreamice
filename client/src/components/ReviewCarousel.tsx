@@ -375,7 +375,7 @@ export function ReviewCarousel({
         <button
           onClick={handlePrev}
           disabled={isAnimating}
-          className="absolute -left-2 lg:-left-14 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed hidden lg:flex group"
+          className="absolute -left-2 lg:-left-14 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed hidden lg:flex group btn-interactive-circle"
           style={{ background: 'white', border: '2px solid rgba(237,213,192,0.8)' }}
           aria-label="上一則評價"
         >
@@ -384,7 +384,7 @@ export function ReviewCarousel({
         <button
           onClick={handleNext}
           disabled={isAnimating}
-          className="absolute -right-2 lg:-right-14 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed hidden lg:flex group"
+          className="absolute -right-2 lg:-right-14 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed hidden lg:flex group btn-interactive-circle"
           style={{ background: 'white', border: '2px solid rgba(237,213,192,0.8)' }}
           aria-label="下一則評價"
         >
@@ -396,7 +396,7 @@ export function ReviewCarousel({
       <div className="flex justify-center gap-4 mt-6 lg:hidden">
         <button
           onClick={handlePrev}
-          className="w-10 h-10 rounded-full shadow-sm flex items-center justify-center transition-all active:scale-95"
+          className="w-10 h-10 rounded-full shadow-sm flex items-center justify-center transition-all active:scale-95 btn-interactive-circle"
           style={{ background: 'white', border: '1px solid rgba(237,213,192,0.8)' }}
           aria-label="上一則評價"
         >
@@ -404,7 +404,7 @@ export function ReviewCarousel({
         </button>
         <button
           onClick={handleNext}
-          className="w-10 h-10 rounded-full shadow-sm flex items-center justify-center transition-all active:scale-95"
+          className="w-10 h-10 rounded-full shadow-sm flex items-center justify-center transition-all active:scale-95 btn-interactive-circle"
           style={{ background: 'white', border: '1px solid rgba(237,213,192,0.8)' }}
           aria-label="下一則評價"
         >
@@ -417,7 +417,7 @@ export function ReviewCarousel({
         {/* 播放/暫停按鈕 */}
         <button
           onClick={() => setIsPlaying((p) => !p)}
-          className="w-8 h-8 rounded-full shadow-sm flex items-center justify-center transition-all duration-300 hover:scale-110"
+          className="w-8 h-8 rounded-full shadow-sm flex items-center justify-center transition-all duration-300 hover:scale-110 btn-interactive-circle"
           style={{ background: 'white', border: '1px solid rgba(237,213,192,0.8)' }}
           aria-label={isPlaying ? "暫停輪播" : "繼續輪播"}
         >

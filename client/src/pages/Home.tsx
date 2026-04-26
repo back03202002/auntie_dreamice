@@ -368,7 +368,7 @@ export default function Home() {
               </a>
             ))}
             <button
-              className="btn-premium text-sm px-5 py-2"
+              className="btn-premium btn-interactive text-sm px-5 py-2"
               onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}
             >
               探索菜單
@@ -377,7 +377,7 @@ export default function Home() {
 
           {/* 手機漢堡選單 */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-primary/10 transition"
+            className="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-primary/10 transition btn-interactive-circle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="開啟選單"
           >
@@ -469,14 +469,14 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-4 animate-fade-in-up justify-center md:justify-start" style={{ animationDelay: "0.4s" }}>
               <button
-                className="btn-premium inline-flex items-center gap-2 text-base"
+                className="btn-premium btn-interactive inline-flex items-center gap-2 text-base"
                 onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}
               >
                 探索菜單
                 <ArrowRight className="w-4 h-4" />
               </button>
               <button
-                className="btn-outline-premium inline-flex items-center gap-2 text-base bg-white/10 border-white/40 text-white hover:bg-white/20 hover:border-white/60"
+                className="btn-outline-premium btn-interactive-outline inline-flex items-center gap-2 text-base bg-white/10 border-white/40 text-white hover:bg-white/20 hover:border-white/60"
                 onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
               >
                 了解我們
@@ -1208,7 +1208,7 @@ export default function Home() {
                     </div>
                     <button
                       onClick={() => setSelectedMenuItem(item)}
-                      className="flex items-center gap-1 text-xs text-primary hover:text-primary/80 font-semibold transition-colors duration-200 group/btn"
+                      className="flex items-center gap-1 text-xs text-primary hover:text-primary/80 font-semibold transition-colors duration-200 group/btn btn-interactive-text"
                     >
                       <Info className="w-3.5 h-3.5" />
                       <span>查看詳情</span>
@@ -1270,7 +1270,7 @@ export default function Home() {
                     </div>
                     <button
                       onClick={() => setSelectedMenuItem(item)}
-                      className="text-xs px-3 py-1.5 rounded-full border border-accent/40 text-accent hover:bg-accent hover:text-white transition-all duration-300 font-medium"
+                      className="text-xs px-3 py-1.5 rounded-full border border-accent/40 text-accent hover:bg-accent hover:text-white transition-all duration-300 font-medium btn-interactive-outline"
                     >
                       查看詳情
                     </button>
@@ -1429,7 +1429,7 @@ export default function Home() {
                   href="https://maps.app.goo.gl/5K6ehAGyrB6YaQxLA"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="ml-auto flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg transition-all duration-200 hover:opacity-80"
+                  className="ml-auto flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg transition-all duration-200 hover:opacity-80 btn-interactive-outline"
                   style={{ background: 'rgba(212,168,85,0.2)', color: '#D4A855', border: '1px solid rgba(212,168,85,0.3)' }}
                 >
                   <MapPin className="w-3 h-3" />
@@ -1720,12 +1720,12 @@ export default function Home() {
                 <p className="text-on-dark-muted text-xs">© 2026 小阿姨雪花冰 · Auntie Dream Ice. All rights reserved.</p>
                 <div className="flex items-center gap-3">
                   <a href="https://www.facebook.com/profile.php?id=100084743760507" target="_blank" rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/40 transition-all duration-300 hover:scale-110 hover:bg-[#1877F2]/20 hover:border-[#1877F2]/60 hover:text-[#1877F2] hover:shadow-lg"
+                    className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/40 transition-all duration-300 hover:scale-110 hover:bg-[#1877F2]/20 hover:border-[#1877F2]/60 hover:text-[#1877F2] hover:shadow-lg btn-interactive-circle"
                     style={{ transitionProperty: 'all' }}>
                     <Facebook className="w-4 h-4" />
                   </a>
                   <a href="https://www.instagram.com/auntie_dreamhouse" target="_blank" rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/40 transition-all duration-300 hover:scale-110 hover:border-[#E1306C]/60 hover:text-[#E1306C] hover:shadow-lg"
+                    className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/40 transition-all duration-300 hover:scale-110 hover:border-[#E1306C]/60 hover:text-[#E1306C] hover:shadow-lg btn-interactive-circle"
                     style={{ transitionProperty: 'all' }}
                     onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'linear-gradient(135deg, rgba(240,148,51,0.2), rgba(225,48,108,0.2))'; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = ''; }}>
@@ -1742,7 +1742,7 @@ export default function Home() {
       {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center animate-bounce-in"
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center animate-bounce-in btn-interactive-circle"
           aria-label="回到頂部"
         >
           <ChevronUp className="w-5 h-5" />
@@ -1768,7 +1768,7 @@ export default function Home() {
           {/* 關閉按鈕 */}
           <button
             onClick={() => setSelectedMenuItem(null)}
-            className="absolute top-4 right-4 z-10 w-9 h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md hover:bg-white hover:scale-110 transition-all duration-200"
+            className="absolute top-4 right-4 z-10 w-9 h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md hover:bg-white hover:scale-110 transition-all duration-200 btn-interactive-circle"
           >
             <X className="w-4 h-4 text-foreground/70" />
           </button>
