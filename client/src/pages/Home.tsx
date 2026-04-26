@@ -410,17 +410,17 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
-        <div className="relative container py-20 md:py-40 flex flex-row items-center justify-between min-h-[680px] md:min-h-[780px]">
-          <div className="flex-1 max-w-xl">
+        <div className="relative container py-20 md:py-40 flex flex-col md:flex-row items-center md:justify-between min-h-[680px] md:min-h-[780px]">
+          <div className="flex-1 max-w-xl w-full">
             {/* 英文品牌名稱動畫 */}
-            <div className="mb-3 animate-fade-in-up" style={{ animationDelay: "0.05s" }}>
+            <div className="mb-3 animate-fade-in-up text-center md:text-left" style={{ animationDelay: "0.05s" }}>
               <span className="brand-english-hero text-4xl md:text-6xl">
                 <span className="word-auntie">Auntie </span>
                 <span className="word-dream">Dream </span>                <span className="word-ice">Ice</span>
               </span>
             </div>
-            {/* 手機版：標題 + LOGO 並排 */}
-            <div className="flex items-center gap-3">
+            {/* 手機版：標題 + LOGO 並排，置中 */}
+            <div className="flex items-center justify-center md:justify-start gap-4">
               <h1 className="text-4xl md:text-7xl font-bold text-white mb-5 leading-tight font-display animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
                 小阿姨<br />
                 <span className="text-[#FFD4B8]">雪花冰</span>
@@ -441,15 +441,15 @@ export default function Home() {
               </div>
             </div>
 
-            <p className="text-xl md:text-2xl text-white/90 mb-3 leading-relaxed font-light animate-fade-in-up min-h-[2rem]" style={{ animationDelay: "0.2s" }}>
+            <p className="text-xl md:text-2xl text-white/90 mb-3 leading-relaxed font-light animate-fade-in-up min-h-[2rem] text-center md:text-left" style={{ animationDelay: "0.2s" }}>
               {typedText}<span className="inline-block w-0.5 h-6 bg-white/80 ml-0.5 align-middle" style={{ animation: "blink 1s step-end infinite" }} />
             </p>
-            <p className="text-base md:text-lg text-white/75 mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+            <p className="text-base md:text-lg text-white/75 mb-10 leading-relaxed animate-fade-in-up text-center md:text-left" style={{ animationDelay: "0.3s" }}>
               彰化線西最溫暖的冰品甜點專賣店<br />
               用最新鮮的食材和用心的製作，為您帶來每一份幸福滋味
             </p>
 
-            <div className="flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+            <div className="flex flex-wrap gap-4 animate-fade-in-up justify-center md:justify-start" style={{ animationDelay: "0.4s" }}>
               <button
                 className="btn-premium inline-flex items-center gap-2 text-base"
                 onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}
