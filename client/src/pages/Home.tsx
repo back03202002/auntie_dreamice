@@ -372,9 +372,12 @@ export default function Home() {
         </div>
 
         {/* 手機選單下拉 */}
-        {mobileMenuOpen && (
-          <div className="md:hidden border-t border-warm bg-background/98 backdrop-blur-sm">
-            <nav className="container py-4 flex flex-col gap-1">
+        <div
+          className={`md:hidden border-t border-warm bg-background/98 backdrop-blur-sm overflow-hidden transition-all duration-300 ease-out ${
+            mobileMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <nav className="container py-4 flex flex-col gap-1">
               {[
                 { href: "#about", label: "關於我們", emoji: "🌱" },
                 { href: "#brand", label: "品牌故事", emoji: "📖" },
@@ -392,9 +395,8 @@ export default function Home() {
                   <ArrowRight className="w-4 h-4 ml-auto opacity-40" />
                 </a>
               ))}
-            </nav>
-          </div>
-        )}
+          </nav>
+        </div>
       </header>
 
       {/* ===== 英雄區段 ===== */}
@@ -1378,7 +1380,7 @@ export default function Home() {
                 </a>
               </div>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.3!2d120.4!3d24.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346f3b3b3b3b3b3b%3A0x0!2z5bGx5YyX57aT5YWJ5YyW5YWJ5YyW!5e0!3m2!1szh-TW!2stw!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.8!2d120.4056!3d24.0948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346f3b9c3b3b3b3b%3A0x0!2z5bGx5YyX57aT5YWJ5YyW5YWJ5YyW!5e0!3m2!1szh-TW!2stw!4v1715000000000"
                 width="100%"
                 height="300"
                 style={{ border: 0, display: 'block' }}
@@ -1448,8 +1450,7 @@ export default function Home() {
                 </div>
                 <div className="h-5 w-px bg-[#D4A855]/30" />
                 <span className="text-foreground/70 text-sm font-semibold">4.9 星評分</span>
-                <div className="h-5 w-px bg-[#D4A855]/30" />
-                <span className="text-foreground/55 text-sm">55則 Google 評價</span>
+
               </div>
             </div>
           </div>
@@ -1480,26 +1481,59 @@ export default function Home() {
       </div>
 
       {/* ===== Instagram ===== */}
-      <section className="py-16 md:py-24 bg-background relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "radial-gradient(circle at 20% 80%, rgba(232,137,106,0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(212,165,116,0.08) 0%, transparent 50%)" }} />
-
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #FFF8F2 0%, #FDF0E8 50%, #FFF8F2 100%)' }}>
+        {/* 背景裝飾 */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-10 left-[5%] w-64 h-64 rounded-full" style={{ background: 'radial-gradient(circle, rgba(232,137,106,0.07) 0%, transparent 70%)' }} />
+          <div className="absolute bottom-10 right-[5%] w-80 h-80 rounded-full" style={{ background: 'radial-gradient(circle, rgba(212,168,85,0.06) 0%, transparent 70%)' }} />
+        </div>
         <div className="container relative z-10">
-          <SectionHeader
-            tag="社群媒體"
-            title="📸 Instagram 精選"
-            subtitle="追蹤 @auntie_dreamhouse，看更多美食分享和幸福時刻"
-          />
+          {/* 標題 */}
+          <div className="text-center mb-12">
+            <div className="reveal flex justify-center mb-4">
+              <span className="section-tag-premium">社群媒體</span>
+            </div>
+            <h2 className="reveal reveal-delay-1 text-4xl md:text-5xl font-bold mb-4 font-display text-gradient-warm">Instagram 精選</h2>
+            <p className="reveal reveal-delay-2 text-foreground/55 max-w-xl mx-auto">
+              追蹤
+              <a href="https://www.instagram.com/auntie_dreamhouse" target="_blank" rel="noopener noreferrer"
+                className="font-semibold mx-1 transition-colors hover:text-primary" style={{ color: '#C0623A' }}>
+                @auntie_dreamhouse
+              </a>
+              ，看更多美食分享和幸福時刻
+            </p>
+          </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 mb-10">
+          {/* 圖片網格 */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-10">
             {[
               { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/OfJxJFhbgWYQVFvW.png", alt: "新鮮芒果布丁雪花冰", caption: "新鮮芒果布丁雪花冰 🥭 綿密入口即化，夏日必點！", likes: 128, comments: 24 },
               { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/fUOVTtiUSdlcgtUW.png", alt: "新鮮草莓奶酪雪花冰", caption: "新鮮草莓奶酪雪花冰 🍓 酸酸甜甜，療癒滋味", likes: 156, comments: 32 },
               { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/YZiSIUzAAlNKHzgC.png", alt: "Oreo巧克力布丁雪花冰", caption: "Oreo 巧克力布丁雪花冰 🍫 巧克力愛好者必點！", likes: 189, comments: 41 },
               { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663593204561/nVKrAcBpRhrFllUC.png", alt: "紅豆牛奶雪花冰", caption: "紅豆牛奶雪花冰 🍶 懷舊風味，溫暖陪伴", likes: 142, comments: 28 },
             ].map((post, i) => (
-              <div
+              <a
                 key={i}
-                className="group relative overflow-hidden rounded-2xl border border-warm bg-white card-warm-shadow hover:card-warm-shadow transition-all duration-400 hover:-translate-y-2"
+                href="https://www.instagram.com/auntie_dreamhouse"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="reveal group relative overflow-hidden block cursor-pointer"
+                style={{
+                  borderRadius: '1.25rem',
+                  border: '1px solid rgba(212,168,85,0.2)',
+                  boxShadow: '0 4px 20px rgba(74,46,26,0.08)',
+                  transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                }}
+                onMouseEnter={e => {
+                  const el = e.currentTarget as HTMLAnchorElement;
+                  el.style.transform = 'translateY(-8px) scale(1.02)';
+                  el.style.boxShadow = '0 20px 48px rgba(232,137,106,0.22), 0 0 0 1.5px rgba(212,168,85,0.4)';
+                }}
+                onMouseLeave={e => {
+                  const el = e.currentTarget as HTMLAnchorElement;
+                  el.style.transform = '';
+                  el.style.boxShadow = '0 4px 20px rgba(74,46,26,0.08)';
+                }}
               >
                 <div className="aspect-square overflow-hidden bg-muted">
                   <img
@@ -1508,24 +1542,33 @@ export default function Home() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-600"
                   />
                 </div>
+                 {/* Instagram 圖示（懸停顯示） */}
+                <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+                  <Instagram className="w-3.5 h-3.5 text-white" />
+                </div>
                 {/* 懸停遮罩 */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                  <p className="text-white text-xs leading-relaxed line-clamp-2">{post.caption}</p>
-                  <div className="flex items-center gap-3 mt-2 text-white/80 text-xs">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <p className="text-white text-xs leading-relaxed line-clamp-2 mb-2">{post.caption}</p>
+                  <div className="flex items-center gap-3 text-white/85 text-xs">
                     <span className="flex items-center gap-1"><Heart className="w-3 h-3" />{post.likes}</span>
                     <span className="flex items-center gap-1"><MessageCircle className="w-3 h-3" />{post.comments}</span>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 
-          <div className="text-center">
+          {/* 追蹤按鈕 */}
+          <div className="reveal text-center">
             <a
               href="https://www.instagram.com/auntie_dreamhouse"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-warm inline-flex items-center gap-2 text-base"
+              className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105"
+              style={{
+                background: 'linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
+                boxShadow: '0 8px 24px rgba(220,39,67,0.35)',
+              }}
             >
               <Instagram className="w-5 h-5" />
               追蹤 @auntie_dreamhouse
@@ -1620,12 +1663,16 @@ export default function Home() {
                 <p className="text-white/30 text-xs">© 2026 小阿姨雪花冰 · Auntie Dream Ice. All rights reserved.</p>
                 <div className="flex items-center gap-3">
                   <a href="https://www.facebook.com/profile.php?id=100084743760507" target="_blank" rel="noopener noreferrer"
-                    className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-white/40 hover:text-[#D4A855] hover:border-[#D4A855]/40 transition-all duration-200">
-                    <Facebook className="w-3.5 h-3.5" />
+                    className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/40 transition-all duration-300 hover:scale-110 hover:bg-[#1877F2]/20 hover:border-[#1877F2]/60 hover:text-[#1877F2] hover:shadow-lg"
+                    style={{ transitionProperty: 'all' }}>
+                    <Facebook className="w-4 h-4" />
                   </a>
                   <a href="https://www.instagram.com/auntie_dreamhouse" target="_blank" rel="noopener noreferrer"
-                    className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-white/40 hover:text-[#D4A855] hover:border-[#D4A855]/40 transition-all duration-200">
-                    <Instagram className="w-3.5 h-3.5" />
+                    className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/40 transition-all duration-300 hover:scale-110 hover:border-[#E1306C]/60 hover:text-[#E1306C] hover:shadow-lg"
+                    style={{ transitionProperty: 'all' }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'linear-gradient(135deg, rgba(240,148,51,0.2), rgba(225,48,108,0.2))'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = ''; }}>
+                    <Instagram className="w-4 h-4" />
                   </a>
                 </div>
               </div>
