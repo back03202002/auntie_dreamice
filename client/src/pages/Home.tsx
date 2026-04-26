@@ -410,10 +410,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
-        <div className="relative container py-24 md:py-40 flex items-center min-h-[680px] md:min-h-[780px]">
+        <div className="relative container py-24 md:py-40 flex items-center justify-between min-h-[680px] md:min-h-[780px]">
           <div className="max-w-xl">
-
-
             {/* 英文品牌名稱動畫 */}
             <div className="mb-3 animate-fade-in-up" style={{ animationDelay: "0.05s" }}>
               <span className="brand-english-hero text-4xl md:text-6xl">
@@ -452,8 +450,19 @@ export default function Home() {
 
 
           </div>
+          {/* 品牌 LOGO 右側 */}
+          <div className="hidden md:flex items-center justify-center flex-shrink-0 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+            <div className="relative">
+              <div className="absolute inset-0 rounded-full bg-white/10 blur-2xl scale-110" />
+              <img
+                src="/manus-storage/brand_logo_ee45fb74.jpg"
+                alt="小阿姨雪花冰 品牌 LOGO"
+                className="relative w-72 h-72 md:w-80 md:h-80 object-contain drop-shadow-2xl"
+                style={{ filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.4))' }}
+              />
+            </div>
+          </div>
         </div>
-
         {/* 底部波浪 */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 md:h-20">
