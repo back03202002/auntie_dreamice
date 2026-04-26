@@ -378,6 +378,73 @@
     background-clip: text;
   }
 
+  /* ═══════════════════════════════════════════
+     精緻文字色彩系統 - 多層次漸層
+  ═══════════════════════════════════════════ */
+
+  /* 金焦糖漸層：用於亮色背景的主標題 */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #8B4513 0%, #C0623A 30%, #D4A574 65%, #C8913A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* 深棕漸層：用於亮色背景的副標題 */
+  .text-gradient-brown {
+    background: linear-gradient(135deg, #4A2E1A 0%, #7A4A2A 50%, #5A3A1A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* 奶油金漸層：用於暗色背景的主標題 */
+  .text-gradient-cream {
+    background: linear-gradient(135deg, #FFE4C4 0%, #FFD4A0 35%, #F5C4B8 65%, #FFE8D0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* 蜜桃金漸層：用於暗色背景的強調文字 */
+  .text-gradient-honey {
+    background: linear-gradient(135deg, #FFC87A 0%, #FFD4A0 40%, #F5B87A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* 玫瑰奶油漸層：用於特殊強調 */
+  .text-gradient-blossom {
+    background: linear-gradient(135deg, #E8896A 0%, #F5A080 30%, #F5C4B8 60%, #FFD4C4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ═══════════════════════════════════════════
+     精緻文字色彩 - 語義化色彩變數
+  ═══════════════════════════════════════════ */
+
+  /* 亮色背景用 - 標題層次 */
+  .text-title-primary   { color: #4A2E1A; }        /* 主標題：深可可棕 */
+  .text-title-secondary { color: #7A4A2A; }        /* 副標題：中棕 */
+  .text-title-accent    { color: #C0623A; }        /* 強調標題：深橘棕 */
+  .text-body-primary    { color: #5A3A1A; }        /* 主要正文 */
+  .text-body-secondary  { color: rgba(90, 58, 26, 0.75); }  /* 次要正文 */
+  .text-body-muted      { color: rgba(90, 58, 26, 0.55); }  /* 輔助說明 */
+  .text-label-warm      { color: #C0623A; }        /* 標籤文字：暖橘 */
+  .text-label-gold      { color: #A07830; }        /* 標籤文字：金棕 */
+  .text-caption-warm    { color: rgba(74, 46, 26, 0.50); }  /* 圖說/小字 */
+
+  /* 暗色背景用 - 文字層次 */
+  .text-on-dark-title   { color: #FFE8D0; }        /* 暗底主標題：奶油白 */
+  .text-on-dark-sub     { color: rgba(255, 220, 180, 0.90); } /* 暗底副標題 */
+  .text-on-dark-body    { color: rgba(255, 220, 180, 0.75); } /* 暗底正文 */
+  .text-on-dark-muted   { color: rgba(255, 220, 180, 0.55); } /* 暗底輔助 */
+  .text-on-dark-accent  { color: #FFD4A0; }        /* 暗底強調：蜜桃金 */
+  .text-on-dark-gold    { color: #F5C878; }        /* 暗底金色強調 */
+
   /* 背景漸層 */
   .bg-warm-gradient {
     background: linear-gradient(135deg, #FDF6F0 0%, #FFF0E8 50%, #FDF6F0 100%);

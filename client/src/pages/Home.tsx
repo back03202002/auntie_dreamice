@@ -79,7 +79,7 @@ function SectionHeader({ tag, title, subtitle, center = true, iconImg }: { tag?:
             className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-md flex-shrink-0"
           />
         )}
-        <h2 className="text-4xl md:text-5xl font-bold mb-0 font-display text-gradient-warm leading-tight">
+        <h2 className="text-4xl md:text-5xl font-bold mb-0 font-display text-gradient-gold leading-tight">
           {title}
         </h2>
         {iconImg && (
@@ -91,7 +91,7 @@ function SectionHeader({ tag, title, subtitle, center = true, iconImg }: { tag?:
         )}
       </div>
       {subtitle && (
-        <p className="text-lg text-foreground/65 leading-relaxed max-w-2xl mx-auto mt-4">
+        <p className="text-lg text-body-secondary leading-relaxed max-w-2xl mx-auto mt-4">
           {subtitle}
         </p>
       )}
@@ -105,8 +105,8 @@ function StatCard({ number, label, icon }: { number: string; label: string; icon
   return (
     <div className="text-center group">
       <div className="text-4xl mb-2 group-hover:animate-bounce transition-all duration-300">{icon}</div>
-      <div className="text-3xl md:text-4xl font-bold text-gradient-warm font-display mb-1">{number}</div>
-      <div className="text-sm text-foreground/60 font-medium">{label}</div>
+      <div className="text-3xl md:text-4xl font-bold text-gradient-gold font-display mb-1">{number}</div>
+      <div className="text-sm text-body-muted font-medium">{label}</div>
     </div>
   );
 }
@@ -459,10 +459,10 @@ export default function Home() {
               </div>
             </div>
 
-            <p className="text-xl md:text-2xl text-white/90 mb-3 leading-relaxed font-light animate-fade-in-up min-h-[2rem] text-center md:text-left" style={{ animationDelay: "0.2s" }}>
+            <p className="text-xl md:text-2xl text-on-dark-sub mb-3 leading-relaxed font-light animate-fade-in-up min-h-[2rem] text-center md:text-left" style={{ animationDelay: "0.2s" }}>
               {typedText}<span className="inline-block w-0.5 h-6 bg-white/80 ml-0.5 align-middle" style={{ animation: "blink 1s step-end infinite" }} />
             </p>
-            <p className="text-base md:text-lg text-white/75 mb-10 leading-relaxed animate-fade-in-up text-center md:text-left" style={{ animationDelay: "0.3s" }}>
+            <p className="text-base md:text-lg text-on-dark-body mb-10 leading-relaxed animate-fade-in-up text-center md:text-left" style={{ animationDelay: "0.3s" }}>
               彰化線西最溫暖的冰品甜點專賣店<br />
               用最新鮮的食材和用心的製作，為您帶來每一份幸福滋味
             </p>
@@ -580,9 +580,9 @@ export default function Home() {
                 }}>Auntie Dream Ice</span>
               </h2>
               {/* 副標 */}
-              <p className="reveal reveal-delay-2 text-xl md:text-2xl text-white/85 leading-relaxed font-light mb-10">
+              <p className="reveal reveal-delay-2 text-xl md:text-2xl text-on-dark-sub leading-relaxed font-light mb-10">
                 一間充滿溫度的冰品甜點專賣店<br />
-                <span className="text-[#FFD4A0]">用最用心的製作，為您帶來每一份幸福滋味</span>
+                <span className="text-on-dark-accent">用最用心的製作，為您帶來每一份幸福滋味</span>
               </p>
               {/* 數字統計橫排 */}
               <div className="reveal reveal-delay-3 flex flex-wrap gap-6">
@@ -599,7 +599,7 @@ export default function Home() {
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
                     }}>{s.value}</div>
-                    <div className="text-white/60 text-xs mt-1 tracking-wide">{s.label}</div>
+                    <div className="text-on-dark-muted text-xs mt-1 tracking-wide">{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -613,7 +613,7 @@ export default function Home() {
           <div className="absolute top-0 left-8 text-[200px] text-white/4 font-display leading-none select-none" style={{ fontFamily: 'Georgia, serif' }}>"</div>
           <div className="absolute bottom-0 right-8 text-[200px] text-white/4 font-display leading-none select-none rotate-180" style={{ fontFamily: 'Georgia, serif' }}>"</div>
           <div className="container relative z-10 text-center">
-            <p className="reveal font-accent text-2xl md:text-4xl text-[#FFD4A0] leading-relaxed font-bold max-w-3xl mx-auto">
+            <p className="reveal font-accent text-2xl md:text-4xl text-gradient-cream leading-relaxed font-bold max-w-3xl mx-auto">
               還記得小時候炎炎夏日<br />
               吃到一口冰就覺得開心的幸福感嗎？
             </p>
@@ -622,7 +622,7 @@ export default function Home() {
                 <span key={i} className="text-2xl animate-float opacity-70" style={{ animationDelay: `${i * 0.4}s` }}>{e}</span>
               ))}
             </div>
-            <p className="mt-6 text-white/50 text-sm tracking-widest uppercase font-accent">— Auntie Dream Ice · 彰化線西</p>
+            <p className="mt-6 text-on-dark-muted text-sm tracking-widest uppercase font-accent">— Auntie Dream Ice · 彰化線西</p>
           </div>
         </div>
 
@@ -720,7 +720,7 @@ export default function Home() {
                       <div className="absolute -top-6 -right-6 w-28 h-28 bg-white/40 rounded-full blur-xl group-hover:bg-white/60 group-hover:scale-125 transition-all duration-500 pointer-events-none" />
                       <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary/5 rounded-full blur-lg group-hover:bg-primary/15 group-hover:scale-150 transition-all duration-500 pointer-events-none" />
                       {/* 年份標籤 */}
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/70 rounded-full text-xs font-bold text-foreground/60 mb-4 border border-white/80 group-hover:bg-white/90 group-hover:border-primary/30 transition-all duration-300">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/70 rounded-full text-xs font-bold text-label-warm mb-4 border border-white/80 group-hover:bg-white/90 group-hover:border-primary/30 transition-all duration-300">
                         <span className="w-1.5 h-1.5 rounded-full bg-primary/60 group-hover:scale-150 transition-transform duration-300" />
                         {item.year}
                       </div>
@@ -736,9 +736,9 @@ export default function Home() {
                           {/* 發光外圈 */}
                           <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 ring-2 ring-primary/30 ring-offset-2" />
                         </div>
-                        <h4 className="text-xl font-bold font-display text-foreground group-hover:text-primary transition-colors duration-300">{item.title}</h4>
+                        <h4 className="text-xl font-bold font-display text-title-primary group-hover:text-title-accent transition-colors duration-300">{item.title}</h4>
                       </div>
-                      <p className="text-foreground/70 leading-relaxed text-sm group-hover:text-foreground/85 transition-colors duration-300">{item.text}</p>
+                      <p className="text-body-secondary leading-relaxed text-sm group-hover:text-body-primary transition-colors duration-300">{item.text}</p>
                       {/* 底部裝飾線：hover 時從左滑入全寬 */}
                       <div className="mt-5 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-primary/60 via-accent/60 to-primary/30 rounded-full transition-all duration-500 ease-out" />
                       {/* 右下角箭頭提示 */}
@@ -807,7 +807,7 @@ export default function Home() {
                 品牌故事
               </span>
             </div>
-            <h2 className="reveal reveal-delay-1 text-4xl md:text-5xl lg:text-6xl font-bold mb-5 font-display text-gradient-warm leading-tight">
+            <h2 className="reveal reveal-delay-1 text-4xl md:text-5xl lg:text-6xl font-bold mb-5 font-display text-gradient-gold leading-tight">
               小阿姨的夢想冰店
             </h2>
             <div className="reveal reveal-delay-2 mt-6 flex justify-center">
@@ -849,9 +849,9 @@ export default function Home() {
                       <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-5 border border-primary/15 hover:border-primary/30 hover:shadow-md transition-all duration-300">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-xl">{item.emoji}</span>
-                          <h4 className="font-bold text-[#3D1F0A] font-display text-base">{item.title}</h4>
+                          <h4 className="font-bold text-title-primary font-display text-base">{item.title}</h4>
                         </div>
-                        <p className="text-[#5A3A1A]/85 text-sm leading-relaxed">{item.text}</p>
+                        <p className="text-body-secondary text-sm leading-relaxed">{item.text}</p>
                       </div>
                     </div>
                   ))}
@@ -865,8 +865,8 @@ export default function Home() {
                 <div className="bg-white/85 backdrop-blur-sm rounded-2xl p-5 border border-primary/20 flex items-center gap-4">
                   <div className="text-4xl animate-heartbeat">🍧</div>
                   <div>
-                    <p className="font-bold text-[#3D1F0A] font-display text-sm">位於彰化線西</p>
-                    <p className="text-[#5A3A1A]/70 text-xs mt-0.5">週二至週日 12:00–21:00 營業</p>
+                    <p className="font-bold text-title-primary font-display text-sm">位於彰化線西</p>
+                    <p className="text-body-muted text-xs mt-0.5">週二至週日 12:00–21:00 營業</p>
                   </div>
                 </div>
               </div>
@@ -1045,10 +1045,9 @@ export default function Home() {
                     </div>
 
                     {/* 標題 */}
-                    <h3 className="text-xl font-bold mb-3 font-display tracking-wide text-white">{item.title}</h3>
-
+                    <h3 className="text-xl font-bold mb-3 font-display tracking-wide text-on-dark-title">{item.title}</h3>
                     {/* 簡介文字 */}
-                    <p className="leading-relaxed text-sm mb-5 text-white/55">{item.text}</p>
+                    <p className="leading-relaxed text-sm mb-5 text-on-dark-body">{item.text}</p>
 
                     {/* 統計數字 */}
                     <div className="flex items-center gap-3 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
@@ -1056,8 +1055,8 @@ export default function Home() {
                         className={`font-bold font-display transition-all duration-300 ${isExpanded ? 'text-3xl' : 'text-2xl group-hover:text-3xl'}`}
                         style={{ color: item.accentColor }}
                       >{item.stats.value}</div>
-                      <div className="text-xs font-medium text-white/40">{item.stats.label}</div>
-                      <div className="ml-auto text-xs text-white/30 font-medium">
+                      <div className="text-xs font-medium text-on-dark-muted">{item.stats.label}</div>
+                      <div className="ml-auto text-xs text-on-dark-muted font-medium">
                         {isExpanded ? '點擊收合' : '點擊了解更多'}
                       </div>
                     </div>
@@ -1079,10 +1078,10 @@ export default function Home() {
                         border: `1px solid ${item.accentColor}30`,
                       }}
                     >
-                      <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: item.accentColor + 'aa' }}>我們的承諾</p>
+                      <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: item.accentColor + 'cc' }}>我們的承諾</p>
                       <ul className="space-y-2.5">
                         {item.details.map((d, di) => (
-                          <li key={di} className="flex items-start gap-2.5 text-sm text-white/65 leading-relaxed">
+                            <li key={di} className="flex items-start gap-2.5 text-sm text-on-dark-body leading-relaxed">
                             <div className="w-4 h-4 rounded-full flex-shrink-0 mt-0.5 flex items-center justify-center" style={{ background: item.accentColor + '30' }}>
                               <div className="w-1.5 h-1.5 rounded-full" style={{ background: item.accentColor }} />
                             </div>
@@ -1195,13 +1194,13 @@ export default function Home() {
 
                 {/* 內容區 */}
                 <div className="p-5 md:p-6">
-                  <h3 className="text-base md:text-lg font-bold text-foreground mb-2 font-display leading-snug group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-base md:text-lg font-bold text-title-primary mb-2 font-display leading-snug group-hover:text-title-accent transition-colors duration-300">
                     {item.name}
                   </h3>
-                  <p className="text-foreground/60 text-sm leading-relaxed">{item.description}</p>
+                  <p className="text-body-secondary text-sm leading-relaxed">{item.description}</p>
                   {/* 底部裝飾 */}
                   <div className="mt-4 pt-4 border-t border-[#EDD5C0]/50 flex items-center justify-between">
-                    <div className="flex items-center gap-1.5 text-xs text-[#A87830]/70">
+                    <div className="flex items-center gap-1.5 text-xs text-label-gold">
                       <span className="w-1 h-1 rounded-full bg-[#D4A855]/50" />
                       <span>手工製作</span>
                       <span className="w-1 h-1 rounded-full bg-[#D4A855]/50" />
@@ -1260,10 +1259,10 @@ export default function Home() {
                 </div>
 
                 <div className="p-5">
-                  <h3 className="text-base font-bold text-foreground mb-2 font-display leading-snug group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-base font-bold text-title-primary mb-2 font-display leading-snug group-hover:text-title-accent transition-colors duration-300">
                     {item.name}
                   </h3>
-                  <p className="text-foreground/60 text-xs leading-relaxed">{item.description}</p>
+                  <p className="text-body-secondary text-xs leading-relaxed">{item.description}</p>
                   <div className="mt-3 flex items-center justify-between">
                     <div className="flex items-center gap-1.5 text-xs text-accent/70">
                       <span>🔥</span>
@@ -1321,7 +1320,7 @@ export default function Home() {
                 backgroundClip: 'text',
               }}>小阿姨雪花冰</span>
             </h2>
-            <p className="reveal reveal-delay-2 text-white/50 max-w-xl mx-auto leading-relaxed">位於彰化線西，期待與您分享每一份甜蜜時光</p>
+            <p className="reveal reveal-delay-2 text-on-dark-body max-w-xl mx-auto leading-relaxed">位於彰化線西，期待與您分享每一份甜蜜時光</p>
           </div>
 
           {/* 三欄聯絡卡片 */}
@@ -1388,7 +1387,7 @@ export default function Home() {
                   >
                     {card.icon}
                   </div>
-                  <h3 className="text-lg font-bold mb-4 font-display text-white">{card.title}</h3>
+                  <h3 className="text-lg font-bold mb-4 font-display text-on-dark-title">{card.title}</h3>
                   <a
                     href={card.mainHref}
                     target={card.mainHref.startsWith('http') ? '_blank' : undefined}
@@ -1398,7 +1397,7 @@ export default function Home() {
                   >
                     {card.mainText}
                   </a>
-                  <p className="text-xs text-white/35 leading-relaxed">{card.subText}</p>
+                  <p className="text-xs text-on-dark-muted leading-relaxed">{card.subText}</p>
                   {/* 底部裝飾線 */}
                   <div
                     className="mt-5 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -1425,7 +1424,7 @@ export default function Home() {
                   <div className="w-3 h-3 rounded-full bg-yellow-400/60" />
                   <div className="w-3 h-3 rounded-full bg-green-400/60" />
                 </div>
-                <span className="text-xs text-white/40 font-mono">maps.google.com · 小阿姨雪花冰</span>
+                <span className="text-xs text-on-dark-muted font-mono">maps.google.com · 小阿姨雪花冰</span>
                 <a
                   href="https://maps.app.goo.gl/5K6ehAGyrB6YaQxLA"
                   target="_blank"
@@ -1485,10 +1484,10 @@ export default function Home() {
                 顧客回饋
               </span>
             </div>
-            <h2 className="reveal reveal-delay-1 text-4xl md:text-5xl font-bold mb-5 font-display text-gradient-warm leading-tight">
+            <h2 className="reveal reveal-delay-1 text-4xl md:text-5xl font-bold mb-5 font-display text-gradient-gold leading-tight">
               真實顧客評價
             </h2>
-            <p className="reveal reveal-delay-2 text-foreground/55 max-w-2xl mx-auto leading-relaxed">
+            <p className="reveal reveal-delay-2 text-body-secondary max-w-2xl mx-auto leading-relaxed">
               每一個評價都是我們持續進步的動力，感謝所有顧客的信任與支持
             </p>
             {/* 評分統計橫幅 */}
@@ -1551,8 +1550,8 @@ export default function Home() {
             <div className="reveal flex justify-center mb-4">
               <span className="section-tag-premium">社群媒體</span>
             </div>
-            <h2 className="reveal reveal-delay-1 text-4xl md:text-5xl font-bold mb-4 font-display text-gradient-warm">Instagram 精選</h2>
-            <p className="reveal reveal-delay-2 text-foreground/55 max-w-xl mx-auto">
+            <h2 className="reveal reveal-delay-1 text-4xl md:text-5xl font-bold mb-4 font-display text-gradient-gold">Instagram 精選</h2>
+            <p className="reveal reveal-delay-2 text-body-secondary max-w-xl mx-auto">
               追蹤
               <a href="https://www.instagram.com/auntie_dreamhouse" target="_blank" rel="noopener noreferrer"
                 className="font-semibold mx-1 transition-colors hover:text-primary" style={{ color: '#C0623A' }}>
@@ -1652,10 +1651,10 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/30 flex items-center justify-center text-2xl shadow-lg border border-white/10">🍧</div>
                   <div>
                     <h3 className="text-xl font-bold font-display text-white tracking-wide">小阿姨雪花冰</h3>
-                    <p className="text-xs text-[#D4A855]/70 font-accent tracking-widest">Auntie Dream Ice</p>
+                    <p className="text-xs text-on-dark-gold font-accent tracking-widest">Auntie Dream Ice</p>
                   </div>
                 </div>
-                <p className="text-white/55 text-sm leading-relaxed mb-5">
+                <p className="text-on-dark-body text-sm leading-relaxed mb-5">
                   一口綿密，一點療愈，午後的甜品時光。彰化線西最溫暖的冰品甜點專賣店。
                 </p>
                 {/* 金色裝飾線 */}
@@ -1676,7 +1675,7 @@ export default function Home() {
                     { href: "#contact", label: "聯絡我們" },
                   ].map((link) => (
                     <li key={link.href}>
-                      <a href={link.href} className="text-white/50 hover:text-[#D4A855] text-sm transition-all duration-200 flex items-center gap-2.5 group">
+                      <a href={link.href} className="text-on-dark-body hover:text-on-dark-accent text-sm transition-all duration-200 flex items-center gap-2.5 group">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#D4A855]/40 group-hover:bg-[#D4A855] transition-colors" />
                         {link.label}
                       </a>
@@ -1691,7 +1690,7 @@ export default function Home() {
                   <span className="w-4 h-px bg-gradient-to-r from-[#D4A855] to-transparent" />
                   聯絡資訊
                 </h4>
-                <ul className="space-y-3.5 text-sm text-white/50">
+                <ul className="space-y-3.5 text-sm text-on-dark-body">
                   <li className="flex items-start gap-2">
                     <MapPin className="w-4 h-4 text-primary/70 flex-shrink-0 mt-0.5" />
                     <span>彰化縣線西鄉復興路11-1號</span>
@@ -1715,10 +1714,10 @@ export default function Home() {
               <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="h-px w-8 bg-gradient-to-r from-[#D4A855]/60 to-transparent" />
-                  <p className="text-white/35 text-xs tracking-widest uppercase">Xianxi, Changhua</p>
+                  <p className="text-on-dark-muted text-xs tracking-widest uppercase">Xianxi, Changhua</p>
                   <div className="h-px w-8 bg-gradient-to-l from-[#D4A855]/60 to-transparent" />
                 </div>
-                <p className="text-white/30 text-xs">© 2026 小阿姨雪花冰 · Auntie Dream Ice. All rights reserved.</p>
+                <p className="text-on-dark-muted text-xs">© 2026 小阿姨雪花冰 · Auntie Dream Ice. All rights reserved.</p>
                 <div className="flex items-center gap-3">
                   <a href="https://www.facebook.com/profile.php?id=100084743760507" target="_blank" rel="noopener noreferrer"
                     className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/40 transition-all duration-300 hover:scale-110 hover:bg-[#1877F2]/20 hover:border-[#1877F2]/60 hover:text-[#1877F2] hover:shadow-lg"
