@@ -205,7 +205,7 @@ export default function Home() {
       id: 1,
       name: "海鮮總匯披薩",
       description: "新鮮蝦仁、透抽搭配濃郁起司，海味十足的經典組合",
-      image: "/manus-storage/seafood_combo_pizza_v2_09ef9a1f.jpg",
+      image: "/images/seafood_combo_pizza.jpg",
       tag: "人氣首選",
       color: "from-blue-50 to-cyan-50",
       ingredients: ["新鮮蝦仁", "透抽", "蟹肉棒", "濃郁起司", "番茄醬底"],
@@ -217,7 +217,7 @@ export default function Home() {
       id: 2,
       name: "費城牛肉披薩",
       description: "嫩牛肉搭配起司和洋蔥、青椒、洋菇，咬下去香氣四溢的美味",
-      image: "/manus-storage/philadelphia_beef_pizza_new_3599861b.jpg",
+      image: "/images/philadelphia_beef_pizza.jpg",
       tag: "招牌必點",
       color: "from-amber-50 to-yellow-50",
       ingredients: ["嫩切牛肉", "融化起司", "洋蔥", "青椒", "洋菇"],
@@ -229,7 +229,7 @@ export default function Home() {
       id: 3,
       name: "瑪格麗特披薩",
       description: "經典義式披薩，番茄、起司、羅勒的完美組合",
-      image: "/manus-storage/magic_edit#TUFHeVVqSnZoWTgjMSMzY2UyMGE0MDFlODFmYjBkN2Y5NDcwZmE1ZjcxMzkwMiM4MDAjI1RSQU5TRk9STUFUSU9OX1JFUVVFU1Q_b19014c5.jpg",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/margherita_pizza-2977QsiMsN7SDPaTo8WGMP.webp",
       tag: "經典口味",
       color: "from-red-50 to-rose-50",
       ingredients: ["新鮮番茄醬", "莫扎瑞拉起司", "新鮮羅勒葉", "橄欖油", "手工薄脆餅皮"],
@@ -241,7 +241,7 @@ export default function Home() {
       id: 4,
       name: "蜂蜜麻吉披薩",
       description: "甜蜜蜂蜜搭配Q彈麻吉，甜鹹交織的獨特風味",
-      image: "/manus-storage/honey_mochi_pizza_new_5981896f.jpg",
+      image: "/images/honey_mochi_pizza.jpg",
       tag: "創意特色",
       color: "from-yellow-50 to-amber-50",
       ingredients: ["天然蜂蜜", "Q彈麻吉", "起司", "奶油", "手工薄脆餅皮"],
@@ -499,7 +499,7 @@ export default function Home() {
                     background: 'radial-gradient(ellipse at center, transparent 50%, rgba(60,35,15,0.5) 100%)'
                   }} />
                   <img
-                    src="/manus-storage/brand_logo_transparent_b5c82c24.png"
+                    src="/images/brand_logo_transparent.webp"
                     alt="小阿姨雪花冰 品牌 LOGO"
                     className="w-full h-full object-contain"
                     style={{ filter: 'drop-shadow(0 3px 16px rgba(80,45,10,0.45)) sepia(18%) saturate(0.9) brightness(0.95)' }}
@@ -546,7 +546,7 @@ export default function Home() {
                 background: 'linear-gradient(to top, rgba(90,55,25,0.45) 0%, transparent 100%)'
               }} />
               <img
-                src="/manus-storage/brand_logo_transparent_b5c82c24.png"
+                src="/images/brand_logo_transparent.webp"
                 alt="小阿姨雪花冰 品牌 LOGO"
                 className="w-full h-full object-contain"
                 style={{
@@ -601,7 +601,7 @@ export default function Home() {
           {/* 背景：店家實景照片 */}
           <div className="absolute inset-0">
             <img
-              src="/manus-storage/store_photo_b4b014c2.jpg"
+              src="/images/store_photo.jpg"
               alt="小阿姨雪花冰店內實景"
               className="w-full h-full object-cover object-center scale-105"
               style={{ filter: 'brightness(0.45) saturate(1.2)' }}
@@ -680,7 +680,7 @@ export default function Home() {
           {/* 水彩插圖背景 */}
           <div className="absolute inset-0">
             <img
-              src="/manus-storage/brand_story_bg_warmth_9a3b0fb6.png"
+              src="/images/brand_story_bg_warmth.webp"
               alt=""
               className="w-full h-full object-cover object-center"
               style={{ filter: 'saturate(0.9) brightness(1.05)' }}
@@ -833,7 +833,7 @@ export default function Home() {
         {/* 店家實景背景圖 */}
         <div className="absolute inset-0">
           <img
-            src="/manus-storage/store_photo_b4b014c2.jpg"
+            src="/images/store_photo.jpg"
             alt="小阿姨雪花冰店內實景"
             className="w-full h-full object-cover object-center"
           />
@@ -1218,7 +1218,7 @@ export default function Home() {
           <SectionHeader
             tag="人氣冰品"
             title="精選冰品"
-            iconImg="/manus-storage/icon_shaveice_transparent_51cce4a5.png"
+            iconImg="/images/icon_shaveice_transparent.webp"
             subtitle="每一口都是幸福的滋味，精心製作的雪花冰等您來品嚐"
           />
 
@@ -1291,7 +1291,7 @@ export default function Home() {
           <SectionHeader
             tag="熱食區"
             title="手工披薩"
-            iconImg="/manus-storage/icon_pizza_transparent_bc0a11ea.png"
+            iconImg="/images/icon_pizza_transparent.webp"
             subtitle="6吋手工披薩，現做現烤。新鮮食材搭配傳統烘烤技術，每一片都是用心的傑作"
           />
 
