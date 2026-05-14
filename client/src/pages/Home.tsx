@@ -229,7 +229,7 @@ export default function Home() {
       id: 3,
       name: "瑪格麗特披薩",
       description: "經典義式披薩，番茄、起司、羅勒的完美組合",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663593204561/EF5GSx5PwhHPcYcAdnWu9S/margherita_pizza-2977QsiMsN7SDPaTo8WGMP.webp",
+      image: "/images/margherita_pizza.webp",
       tag: "經典口味",
       color: "from-red-50 to-rose-50",
       ingredients: ["新鮮番茄醬", "莫扎瑞拉起司", "新鮮羅勒葉", "橄欖油", "手工薄脆餅皮"],
