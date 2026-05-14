@@ -107,7 +107,7 @@ export default function HomeModern() {
         <div className="border-t" style={{ borderColor: "#e0e0e0" }}>
           <div className="container mx-auto px-4 py-3 flex items-center gap-2 text-sm" style={{ color: "#666" }}>
             <Clock size={16} />
-            <span>營業時間：週二至週日 12:00-21:00，週一公休</span>
+            <span>營業時間：週三至週日 12:00-21:00，每週一、二公休</span>
           </div>
         </div>
       </header>

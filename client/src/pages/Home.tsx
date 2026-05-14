@@ -336,7 +336,7 @@ export default function Home() {
               </div>
               <div className="text-left">
                 <p className="text-white/75 text-xs font-medium mb-0.5">營業時間</p>
-                <p className="text-base md:text-xl font-bold tracking-wide">週二至週日 12:00–21:00</p>
+                <p className="text-base md:text-xl font-bold tracking-wide">週三至週日 12:00–21:00</p>
               </div>
             </div>
             <div className="hidden md:block w-px h-10 bg-white/30" />
@@ -346,7 +346,7 @@ export default function Home() {
               </div>
               <div className="text-left">
                 <p className="text-white/75 text-xs font-medium mb-0.5">公休日</p>
-                <p className="text-base md:text-xl font-bold tracking-wide">每週一公休</p>
+                <p className="text-base md:text-xl font-bold tracking-wide">每週一、二公休</p>
               </div>
             </div>
           </div>
@@ -915,7 +915,7 @@ export default function Home() {
                   <div className="text-4xl animate-heartbeat">🍧</div>
                   <div>
                     <p className="font-bold text-title-primary font-display text-sm">位於彰化線西</p>
-                    <p className="text-body-muted text-xs mt-0.5">週二至週日 12:00–21:00 營業</p>
+                    <p className="text-body-muted text-xs mt-0.5">週三至週日 12:00–21:00 營業</p>
                   </div>
                 </div>
               </div>
@@ -1756,7 +1756,7 @@ export default function Home() {
                   </li>
                   <li className="flex items-center gap-2">
                     <Clock className="w-4 h-4 text-primary/70 flex-shrink-0" />
-                    <span>週二至週日 12:00–21:00</span>
+                    <span>週三至週日 12:00–21:00</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Instagram className="w-4 h-4 text-primary/70 flex-shrink-0" />
